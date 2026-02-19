@@ -10,8 +10,8 @@ const Index = () => {
     <div className="min-h-screen relative overflow-hidden bg-primary-foreground">
       {/* Header / Navbar */}
       <nav className="relative z-10 px-6 py-4 max-w-5xl mx-auto rounded-b-xl items-center justify-between pb-0 pr-0 pl-0 pt-0 flex flex-row bg-primary-foreground shadow-none">
-        <img src={logo} alt="Butterfly Effect Coach" className="h-20 md:h-24" />
-        <img src={accBadge} alt="ICF Associate Certified Coach" className="h-12 md:h-14" />
+        <img src={logo} alt="Butterfly Effect Coach" className="h-28 md:h-32" />
+        <img src={accBadge} alt="ICF Associate Certified Coach" className="h-16 md:h-20" />
       </nav>
 
       {/* Hero + Form section with background */}
