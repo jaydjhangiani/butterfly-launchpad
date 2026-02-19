@@ -109,14 +109,14 @@ const LeadCaptureForm = () => {
 
       <div>
         <Label className="text-foreground font-medium">Phone Number</Label>
-        <div className="gap-2 mt-1.5 flex flex-row">
+        <div className="gap-2 mt-1.5 flex flex-col md:flex-row">
           <Select
             value={formData.countryCode}
             onValueChange={(val) =>
             setFormData((prev) => ({ ...prev, countryCode: val }))
             }>
 
-            <SelectTrigger className="w-[110px] bg-card border-border">
+            <SelectTrigger className="w-full md:w-[110px] bg-card border-border">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
