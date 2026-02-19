@@ -16,14 +16,14 @@ const Index = () => {
 
       {/* Hero + Form section with background */}
       <div
-        className="relative z-10"
+        className="relative z-10 px-[15px] py-[15px] bg-inherit pt-0 pl-0 pr-0 pb-0 mx-[25px] my-[50px]"
         style={{
-          backgroundImage: `url(${heroBg})`,
+          backgroundImage: "url(\"/lovable-uploads/f9120e02-701d-4635-816c-99fabc1afcff.jpg\")",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
+          backgroundRepeat: 'no-repeat'
+        }}>
+
         {/* Hero Section */}
         <header className="px-6 pt-8 pb-10 md:pt-14 md:pb-14 max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
@@ -49,24 +49,24 @@ const Index = () => {
               <div className="p-8 md:p-10 flex flex-col justify-center relative">
                 <img src={butterflyGreen} alt="Butterfly" className="w-32 h-32 mx-auto mb-6 hidden md:block" />
                 <div className="space-y-4 text-muted-foreground">
-                  <p>Coaching believes no one size fits all.</p>
-                  <p>We each have goals and plans that are unique to us.</p>
-                  <p>Hence, no one coaching package fits all either.</p>
-                  <p className="text-foreground font-semibold text-lg">
+                  <p className="text-sm">Coaching believes no one size fits all.</p>
+                  <p className="text-sm">We each have goals and plans that are unique to us.</p>
+                  <p className="text-sm">Hence, no one coaching package fits all either.</p>
+                  <p className="text-foreground font-semibold text-sm">
                     Let's have a 10-minute chat to understand what you need and
                     find you the package that will work for you!
                   </p>
                   <p className="text-sm">
                     Need another push into the beautiful waters?{" "}
-                    <strong className="text-primary">
-                      Read the testimonials below.
+                    <strong className="text-primary">Read the testimonials belo
+
                     </strong>
                   </p>
                 </div>
               </div>
 
               {/* Right: Form */}
-              <div className="p-8 md:p-10 bg-secondary/30">
+              <div className="p-8 md:p-10 bg-primary-foreground">
                 <LeadCaptureForm />
               </div>
             </div>
