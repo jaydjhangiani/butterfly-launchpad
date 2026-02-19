@@ -1,5 +1,6 @@
 import ButterflyDecor from "@/components/ButterflyDecor";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import TestimonialSlider from "@/components/TestimonialSlider";
 import logo from "@/assets/logo.png";
 import accBadge from "@/assets/acc-badge.png";
 import butterflyGreen from "@/assets/butterfly-green.png";
@@ -73,6 +74,9 @@ const Index = () => {
           </div>
         </main>
       </div>
+
+      {/* Testimonials */}
+      <TestimonialSlider />
 
       {/* Footer */}
       <footer className="relative z-10 border-t border-border py-8 px-6 text-center text-sm text-muted-foreground">
