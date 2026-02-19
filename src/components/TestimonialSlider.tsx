@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
@@ -32,59 +32,51 @@ const TestimonialSlider = () => {
 
   return (
     <section
-      className="py-16 px-6"
+      className="py-14 px-6"
       style={{ backgroundColor: "#9BD7D8" }}
     >
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10">
-          What My Clients Say
+      <div className="max-w-2xl mx-auto text-center">
+        <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-8 tracking-tight">
+          Words from clients
         </h2>
 
-        <div className="relative">
-          <Quote className="w-10 h-10 mx-auto mb-4 text-foreground/30" />
+        <p className="text-base md:text-lg text-foreground/80 leading-relaxed italic">
+          "{testimonials[current].quote}"
+        </p>
 
-          <blockquote className="text-lg md:text-xl text-foreground/90 leading-relaxed italic min-h-[100px] flex items-center justify-center">
-            "{testimonials[current].quote}"
-          </blockquote>
+        <p className="mt-5 text-sm font-semibold text-foreground/90">
+          — {testimonials[current].name}, {testimonials[current].role}
+        </p>
 
-          <p className="mt-6 font-semibold text-foreground">
-            {testimonials[current].name}
-          </p>
-          <p className="text-sm text-foreground/60">
-            {testimonials[current].role}
-          </p>
+        <div className="flex items-center justify-center gap-4 mt-8">
+          <button
+            onClick={prev}
+            className="p-1.5 rounded-full hover:bg-white/30 transition-colors"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="w-4 h-4 text-foreground/60" />
+          </button>
 
-          {/* Navigation */}
-          <div className="flex items-center justify-center gap-6 mt-8">
-            <button
-              onClick={prev}
-              className="p-2 rounded-full bg-white/40 hover:bg-white/60 transition-colors"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="w-5 h-5 text-foreground" />
-            </button>
-
-            <div className="flex gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrent(i)}
-                  className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                    i === current ? "bg-foreground" : "bg-foreground/30"
-                  }`}
-                  aria-label={`Go to testimonial ${i + 1}`}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={next}
-              className="p-2 rounded-full bg-white/40 hover:bg-white/60 transition-colors"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="w-5 h-5 text-foreground" />
-            </button>
+          <div className="flex gap-1.5">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                  i === current ? "bg-foreground/70" : "bg-foreground/20"
+                }`}
+                aria-label={`Go to testimonial ${i + 1}`}
+              />
+            ))}
           </div>
+
+          <button
+            onClick={next}
+            className="p-1.5 rounded-full hover:bg-white/30 transition-colors"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="w-4 h-4 text-foreground/60" />
+          </button>
         </div>
       </div>
     </section>
