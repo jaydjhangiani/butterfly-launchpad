@@ -6,14 +6,14 @@ import butterflyGreen from "@/assets/butterfly-green.png";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden bg-primary-foreground">
       {/* Decorative butterflies */}
       <ButterflyDecor className="absolute top-10 right-10 w-48 h-48 text-primary opacity-40 hidden md:block" />
       <ButterflyDecor className="absolute bottom-20 left-5 w-36 h-36 text-primary opacity-25 rotate-[-20deg] hidden md:block" />
       <ButterflyDecor className="absolute top-1/3 left-10 w-24 h-24 text-accent opacity-20 rotate-12 hidden lg:block" />
 
       {/* Header / Navbar */}
-      <nav className="relative z-10 px-6 py-4 flex items-center justify-between max-w-5xl mx-auto bg-white rounded-b-xl shadow-sm">
+      <nav className="relative z-10 px-6 py-4 max-w-5xl mx-auto rounded-b-xl items-center justify-between pb-0 pr-0 pl-0 pt-0 flex flex-row bg-primary-foreground shadow-none">
         <img src={logo} alt="Butterfly Effect Coach" className="h-20 md:h-24" />
         <img src={accBadge} alt="ICF Associate Certified Coach" className="h-12 md:h-14" />
       </nav>
@@ -73,8 +73,8 @@ const Index = () => {
         <p className="font-semibold text-foreground mb-1">Butterfly Effect Coaching</p>
         <p>© {new Date().getFullYear()} Butterfly Effect. All rights reserved.</p>
       </footer>
-    </div>
-  );
+    </div>);
+
 };
 
 export default Index;
