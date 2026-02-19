@@ -16,9 +16,9 @@ const Index = () => {
 
       {/* Hero + Form section with background */}
       <div
-        className="relative z-10 px-[15px] py-[15px] bg-inherit pt-0 pl-0 pr-0 pb-0 mx-[25px] my-[50px]"
+        className="relative z-10 px-[15px] py-[15px] bg-inherit pt-0 pl-0 pr-0 pb-0 mx-[25px] my-[50px] ml-[25px] mt-[20px]"
         style={{
-          backgroundImage: "url(\"/lovable-uploads/f9120e02-701d-4635-816c-99fabc1afcff.jpg\")",
+          backgroundImage: "url(\"/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg\")",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -46,7 +46,7 @@ const Index = () => {
           <div className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden">
             <div className="grid md:grid-cols-2">
               {/* Left: Persuasive text + butterfly */}
-              <div className="p-8 md:p-10 flex flex-col justify-center relative">
+              <div className="p-8 md:p-10 flex flex-col justify-center relative py-[20px] pt-[32px]">
                 <img src={butterflyGreen} alt="Butterfly" className="w-32 h-32 mx-auto mb-6 hidden md:block" />
                 <div className="space-y-4 text-muted-foreground">
                   <p className="text-sm">Coaching believes no one size fits all.</p>
@@ -66,7 +66,7 @@ const Index = () => {
               </div>
 
               {/* Right: Form */}
-              <div className="p-8 md:p-10 bg-primary-foreground">
+              <div className="p-8 md:p-10 bg-primary-foreground px-[32px] py-[20px] pb-[32px] pt-[10px]">
                 <LeadCaptureForm />
               </div>
             </div>
