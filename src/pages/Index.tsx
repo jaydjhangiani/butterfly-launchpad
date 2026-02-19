@@ -13,8 +13,8 @@ const Index = () => {
       <ButterflyDecor className="absolute top-1/3 left-10 w-24 h-24 text-accent opacity-20 rotate-12 hidden lg:block" />
 
       {/* Header / Navbar */}
-      <nav className="relative z-10 px-6 py-4 flex items-center justify-between max-w-5xl mx-auto">
-        <img src={logo} alt="Butterfly Effect Coach" className="h-14 md:h-16" />
+      <nav className="relative z-10 px-6 py-4 flex items-center justify-between max-w-5xl mx-auto bg-white rounded-b-xl shadow-sm">
+        <img src={logo} alt="Butterfly Effect Coach" className="h-20 md:h-24" />
         <img src={accBadge} alt="ICF Associate Certified Coach" className="h-12 md:h-14" />
       </nav>
 
