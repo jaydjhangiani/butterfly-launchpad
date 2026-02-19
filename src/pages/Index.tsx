@@ -58,7 +58,7 @@ const Index = () => {
                   </p>
                   <p className="text-sm">
                     Need another push into the beautiful waters?{" "}
-                    <strong className="text-primary">Read the testimonials belo
+                    <strong className="text-primary">Read the testimonials below
 
                     </strong>
                   </p>
