@@ -1,5 +1,8 @@
 import ButterflyDecor from "@/components/ButterflyDecor";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import logo from "@/assets/logo.png";
+import accBadge from "@/assets/acc-badge.png";
+import butterflyGreen from "@/assets/butterfly-green.png";
 
 const Index = () => {
   return (
@@ -9,8 +12,14 @@ const Index = () => {
       <ButterflyDecor className="absolute bottom-20 left-5 w-36 h-36 text-primary opacity-25 rotate-[-20deg] hidden md:block" />
       <ButterflyDecor className="absolute top-1/3 left-10 w-24 h-24 text-accent opacity-20 rotate-12 hidden lg:block" />
 
+      {/* Header / Navbar */}
+      <nav className="relative z-10 px-6 py-4 flex items-center justify-between max-w-5xl mx-auto">
+        <img src={logo} alt="Butterfly Effect Coach" className="h-14 md:h-16" />
+        <img src={accBadge} alt="ICF Associate Certified Coach" className="h-12 md:h-14" />
+      </nav>
+
       {/* Hero Section */}
-      <header className="relative z-10 px-6 pt-16 pb-10 md:pt-24 md:pb-14 max-w-4xl mx-auto text-center">
+      <header className="relative z-10 px-6 pt-8 pb-10 md:pt-14 md:pb-14 max-w-4xl mx-auto text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
           Ready to test the waters?
         </h1>
@@ -33,7 +42,7 @@ const Index = () => {
             {/* Left: Persuasive text + butterfly */}
             <div className="p-8 md:p-10 flex flex-col justify-center relative">
               <ButterflyDecor className="absolute top-4 right-4 w-20 h-20 text-primary opacity-20 md:hidden" />
-              <ButterflyDecor className="w-32 h-32 text-primary opacity-30 mx-auto mb-6 hidden md:block" />
+              <img src={butterflyGreen} alt="Butterfly" className="w-32 h-32 mx-auto mb-6 hidden md:block" />
               <div className="space-y-4 text-muted-foreground">
                 <p>Coaching believes no one size fits all.</p>
                 <p>We each have goals and plans that are unique to us.</p>
