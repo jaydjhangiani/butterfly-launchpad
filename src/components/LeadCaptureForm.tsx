@@ -168,9 +168,10 @@ const LeadCaptureForm = () => {
               setFormData((prev) => ({ ...prev, phone: e.target.value }))
             }
             placeholder="Phone number"
-            className="flex-1 bg-card border-border"
+            className={`flex-1 bg-card border-border ${errors.phone ? "border-destructive" : ""}`}
           />
         </div>
+        {errors.phone && <p className="text-sm text-destructive mt-1">{errors.phone}</p>}
       </div>
 
       <div>
