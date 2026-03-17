@@ -4,6 +4,10 @@ export const handler = async (event) => {
     try {
         const data = JSON.parse(event.body);
 
+        console.log(process.env.GOOGLE_PRIVATE_KEY.slice(0, 50));
+        console.log(process.env.GOOGLE_CLIENT_EMAIL);
+        console.log(process.env.GOOGLE_SHEET_ID);
+
         const auth = new google.auth.GoogleAuth({
             credentials: {
                 client_email: process.env.GOOGLE_CLIENT_EMAIL,
