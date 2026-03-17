@@ -195,6 +195,7 @@ const LeadCaptureForm = () => {
             ))}
           </SelectContent>
         </Select>
+        {errors.referralSource && <p className="text-sm text-destructive mt-1">{errors.referralSource}</p>}
       </div>
 
       <Button
