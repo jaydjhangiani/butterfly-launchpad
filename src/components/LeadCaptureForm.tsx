@@ -117,8 +117,9 @@ const LeadCaptureForm = () => {
             setFormData((prev) => ({ ...prev, name: e.target.value }))
           }
           placeholder="Your name"
-          className="mt-1.5 bg-card border-border"
+          className={`mt-1.5 bg-card border-border ${errors.name ? "border-destructive" : ""}`}
         />
+        {errors.name && <p className="text-sm text-destructive mt-1">{errors.name}</p>}
       </div>
 
       <div>
