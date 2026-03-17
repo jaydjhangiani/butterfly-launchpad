@@ -49,8 +49,26 @@ const LeadCaptureForm = () => {
     referralSource: "",
   });
 
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim()))
+      newErrors.email = "Please enter a valid email";
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    else if (!/^\d{6,15}$/.test(formData.phone.trim()))
+      newErrors.phone = "Please enter a valid phone number";
+    if (!formData.referralSource)
+      newErrors.referralSource = "Please select how you found me";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validate()) return;
     setIsSubmitting(true);
 
     try {
@@ -74,6 +92,7 @@ const LeadCaptureForm = () => {
         phone: "",
         referralSource: "",
       });
+      setErrors({});
     } catch (err) {
       toast({
         title: "Error",
@@ -98,8 +117,9 @@ const LeadCaptureForm = () => {
             setFormData((prev) => ({ ...prev, name: e.target.value }))
           }
           placeholder="Your name"
-          className="mt-1.5 bg-card border-border"
+          className={`mt-1.5 bg-card border-border ${errors.name ? "border-destructive" : ""}`}
         />
+        {errors.name && <p className="text-sm text-destructive mt-1">{errors.name}</p>}
       </div>
 
       <div>
@@ -115,8 +135,9 @@ const LeadCaptureForm = () => {
             setFormData((prev) => ({ ...prev, email: e.target.value }))
           }
           placeholder="you@example.com"
-          className="mt-1.5 bg-card border-border"
+          className={`mt-1.5 bg-card border-border ${errors.email ? "border-destructive" : ""}`}
         />
+        {errors.email && <p className="text-sm text-destructive mt-1">{errors.email}</p>}
       </div>
 
       <div>
@@ -147,9 +168,10 @@ const LeadCaptureForm = () => {
               setFormData((prev) => ({ ...prev, phone: e.target.value }))
             }
             placeholder="Phone number"
-            className="flex-1 bg-card border-border"
+            className={`flex-1 bg-card border-border ${errors.phone ? "border-destructive" : ""}`}
           />
         </div>
+        {errors.phone && <p className="text-sm text-destructive mt-1">{errors.phone}</p>}
       </div>
 
       <div>
@@ -173,6 +195,7 @@ const LeadCaptureForm = () => {
             ))}
           </SelectContent>
         </Select>
+        {errors.referralSource && <p className="text-sm text-destructive mt-1">{errors.referralSource}</p>}
       </div>
 
       <Button
