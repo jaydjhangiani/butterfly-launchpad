@@ -49,8 +49,26 @@ const LeadCaptureForm = () => {
     referralSource: "",
   });
 
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim()))
+      newErrors.email = "Please enter a valid email";
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    else if (!/^\d{6,15}$/.test(formData.phone.trim()))
+      newErrors.phone = "Please enter a valid phone number";
+    if (!formData.referralSource)
+      newErrors.referralSource = "Please select how you found me";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validate()) return;
     setIsSubmitting(true);
 
     try {
@@ -74,6 +92,7 @@ const LeadCaptureForm = () => {
         phone: "",
         referralSource: "",
       });
+      setErrors({});
     } catch (err) {
       toast({
         title: "Error",
