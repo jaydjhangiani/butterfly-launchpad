@@ -53,22 +53,34 @@ const LeadCaptureForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // TODO: Send to edge function -> Google Sheet
-    await new Promise((r) => setTimeout(r, 1000));
+    try {
+      const res = await fetch("/.netlify/functions/submit", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
 
-    toast({
-      title: "Thank you!",
-      description:
-        "I'll be in touch soon to schedule our chat. Looking forward to it!",
-    });
+      if (!res.ok) throw new Error("Failed");
 
-    setFormData({
-      name: "",
-      email: "",
-      countryCode: "+91",
-      phone: "",
-      referralSource: "",
-    });
+      toast({
+        title: "Thank you!",
+        description:
+          "I'll be in touch soon to schedule our chat. Looking forward to it!",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        countryCode: "+91",
+        phone: "",
+        referralSource: "",
+      });
+    } catch (err) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+      });
+    }
+
     setIsSubmitting(false);
   };
 
