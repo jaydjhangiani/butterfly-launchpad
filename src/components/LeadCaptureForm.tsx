@@ -41,6 +41,7 @@ const referralSources = [
 const LeadCaptureForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -49,26 +50,32 @@ const LeadCaptureForm = () => {
     referralSource: "",
   });
 
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const getErrors = (data: typeof formData) => {
+    const e: Record<string, string> = {};
+    if (!data.name.trim()) e.name = "Name is required";
+    if (!data.email.trim()) e.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim()))
+      e.email = "Please enter a valid email";
+    if (!data.phone.trim()) e.phone = "Phone number is required";
+    else if (!/^\d{6,15}$/.test(data.phone.trim()))
+      e.phone = "Please enter a valid phone number";
+    if (!data.referralSource)
+      e.referralSource = "Please select how you found me";
+    return e;
+  };
 
-  const validate = () => {
-    const newErrors: Record<string, string> = {};
-    if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.email.trim()) newErrors.email = "Email is required";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim()))
-      newErrors.email = "Please enter a valid email";
-    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
-    else if (!/^\d{6,15}$/.test(formData.phone.trim()))
-      newErrors.phone = "Please enter a valid phone number";
-    if (!formData.referralSource)
-      newErrors.referralSource = "Please select how you found me";
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+  const errors = getErrors(formData);
+  const isFormValid = Object.keys(errors).length === 0;
+
+  const updateField = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    setTouched((prev) => ({ ...prev, [field]: true }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validate()) return;
+    setTouched({ name: true, email: true, phone: true, referralSource: true });
+    if (!isFormValid) return;
     setIsSubmitting(true);
 
     try {
@@ -92,7 +99,7 @@ const LeadCaptureForm = () => {
         phone: "",
         referralSource: "",
       });
-      setErrors({});
+      setTouched({});
     } catch (err) {
       toast({
         title: "Error",
@@ -111,15 +118,13 @@ const LeadCaptureForm = () => {
         </Label>
         <Input
           id="name"
-          required
           value={formData.name}
-          onChange={(e) =>
-            setFormData((prev) => ({ ...prev, name: e.target.value }))
-          }
+          onChange={(e) => updateField("name", e.target.value)}
+          onBlur={() => setTouched((p) => ({ ...p, name: true }))}
           placeholder="Your name"
-          className={`mt-1.5 bg-card border-border ${errors.name ? "border-destructive" : ""}`}
+          className={`mt-1.5 bg-card border-border ${touched.name && errors.name ? "border-destructive" : ""}`}
         />
-        {errors.name && <p className="text-sm text-destructive mt-1">{errors.name}</p>}
+        {touched.name && errors.name && <p className="text-sm text-destructive mt-1">{errors.name}</p>}
       </div>
 
       <div>
@@ -129,15 +134,13 @@ const LeadCaptureForm = () => {
         <Input
           id="email"
           type="email"
-          required
           value={formData.email}
-          onChange={(e) =>
-            setFormData((prev) => ({ ...prev, email: e.target.value }))
-          }
+          onChange={(e) => updateField("email", e.target.value)}
+          onBlur={() => setTouched((p) => ({ ...p, email: true }))}
           placeholder="you@example.com"
-          className={`mt-1.5 bg-card border-border ${errors.email ? "border-destructive" : ""}`}
+          className={`mt-1.5 bg-card border-border ${touched.email && errors.email ? "border-destructive" : ""}`}
         />
-        {errors.email && <p className="text-sm text-destructive mt-1">{errors.email}</p>}
+        {touched.email && errors.email && <p className="text-sm text-destructive mt-1">{errors.email}</p>}
       </div>
 
       <div>
@@ -162,16 +165,14 @@ const LeadCaptureForm = () => {
           </Select>
           <Input
             type="tel"
-            required
             value={formData.phone}
-            onChange={(e) =>
-              setFormData((prev) => ({ ...prev, phone: e.target.value }))
-            }
+            onChange={(e) => updateField("phone", e.target.value)}
+            onBlur={() => setTouched((p) => ({ ...p, phone: true }))}
             placeholder="Phone number"
-            className={`flex-1 bg-card border-border ${errors.phone ? "border-destructive" : ""}`}
+            className={`flex-1 bg-card border-border ${touched.phone && errors.phone ? "border-destructive" : ""}`}
           />
         </div>
-        {errors.phone && <p className="text-sm text-destructive mt-1">{errors.phone}</p>}
+        {touched.phone && errors.phone && <p className="text-sm text-destructive mt-1">{errors.phone}</p>}
       </div>
 
       <div>
@@ -180,11 +181,11 @@ const LeadCaptureForm = () => {
         </Label>
         <Select
           value={formData.referralSource}
-          onValueChange={(val) =>
-            setFormData((prev) => ({ ...prev, referralSource: val }))
-          }
+          onValueChange={(val) => {
+            updateField("referralSource", val);
+          }}
         >
-          <SelectTrigger className="mt-1.5 bg-card border-border">
+          <SelectTrigger className={`mt-1.5 bg-card border-border ${touched.referralSource && errors.referralSource ? "border-destructive" : ""}`}>
             <SelectValue placeholder="Select one..." />
           </SelectTrigger>
           <SelectContent>
@@ -195,14 +196,14 @@ const LeadCaptureForm = () => {
             ))}
           </SelectContent>
         </Select>
-        {errors.referralSource && <p className="text-sm text-destructive mt-1">{errors.referralSource}</p>}
+        {touched.referralSource && errors.referralSource && <p className="text-sm text-destructive mt-1">{errors.referralSource}</p>}
       </div>
 
       <Button
         type="submit"
-        disabled={isSubmitting}
+        disabled={!isFormValid || isSubmitting}
         className="w-full text-base py-4 font-semibold tracking-wide"
-        style={{ backgroundColor: "#7bb4b5ff" }}
+        style={{ backgroundColor: isFormValid ? "#7bb4b5ff" : undefined }}
         size="lg"
       >
         {isSubmitting ? "Sending..." : "Let's Chat!"}
