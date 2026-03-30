@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -40,8 +41,11 @@ const referralSources = [
 
 const LeadCaptureForm = () => {
   const { toast } = useToast();
+
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -75,21 +79,31 @@ const LeadCaptureForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setTouched({ name: true, email: true, phone: true, referralSource: true });
-    if (!isFormValid) return;
+
+    if (!isFormValid || !captchaToken) return;
+
     setIsSubmitting(true);
+    console.log(isSubmitting);
 
     try {
+      console.log(formData);
       const res = await fetch("/.netlify/functions/submit", {
         method: "POST",
-        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": "aYOxk3g4EbYv14bGWJzmIYTFYdkiecc9rtCSgaRK03Y",
+        },
+        body: JSON.stringify({
+          ...formData,
+          captchaToken,
+        }),
       });
 
       if (!res.ok) throw new Error("Failed");
 
       toast({
         title: "Thank you!",
-        description:
-          "I'll be in touch soon to schedule our chat. Looking forward to it!",
+        description: "I'll be in touch soon!",
       });
 
       setFormData({
@@ -99,11 +113,13 @@ const LeadCaptureForm = () => {
         phone: "",
         referralSource: "",
       });
+
+      setCaptchaToken(null);
       setTouched({});
     } catch (err) {
       toast({
         title: "Error",
-        description: "Something went wrong. Please try again.",
+        description: "Something went wrong",
       });
     }
 
@@ -124,9 +140,10 @@ const LeadCaptureForm = () => {
           placeholder="Your name"
           className={`mt-1.5 bg-card border-border ${touched.name && errors.name ? "border-destructive" : ""}`}
         />
-        {touched.name && errors.name && <p className="text-sm text-destructive mt-1">{errors.name}</p>}
+        {touched.name && errors.name && (
+          <p className="text-sm text-destructive mt-1">{errors.name}</p>
+        )}
       </div>
-
       <div>
         <Label htmlFor="email" className="text-foreground font-medium">
           Email ID
@@ -140,9 +157,10 @@ const LeadCaptureForm = () => {
           placeholder="you@example.com"
           className={`mt-1.5 bg-card border-border ${touched.email && errors.email ? "border-destructive" : ""}`}
         />
-        {touched.email && errors.email && <p className="text-sm text-destructive mt-1">{errors.email}</p>}
+        {touched.email && errors.email && (
+          <p className="text-sm text-destructive mt-1">{errors.email}</p>
+        )}
       </div>
-
       <div>
         <Label className="text-foreground font-medium">Phone Number</Label>
         <div className="gap-2 mt-1.5 flex flex-col md:flex-row">
@@ -172,9 +190,10 @@ const LeadCaptureForm = () => {
             className={`flex-1 bg-card border-border ${touched.phone && errors.phone ? "border-destructive" : ""}`}
           />
         </div>
-        {touched.phone && errors.phone && <p className="text-sm text-destructive mt-1">{errors.phone}</p>}
+        {touched.phone && errors.phone && (
+          <p className="text-sm text-destructive mt-1">{errors.phone}</p>
+        )}
       </div>
-
       <div>
         <Label className="text-foreground font-medium">
           How did you find me?
@@ -185,7 +204,9 @@ const LeadCaptureForm = () => {
             updateField("referralSource", val);
           }}
         >
-          <SelectTrigger className={`mt-1.5 bg-card border-border ${touched.referralSource && errors.referralSource ? "border-destructive" : ""}`}>
+          <SelectTrigger
+            className={`mt-1.5 bg-card border-border ${touched.referralSource && errors.referralSource ? "border-destructive" : ""}`}
+          >
             <SelectValue placeholder="Select one..." />
           </SelectTrigger>
           <SelectContent>
@@ -196,8 +217,24 @@ const LeadCaptureForm = () => {
             ))}
           </SelectContent>
         </Select>
-        {touched.referralSource && errors.referralSource && <p className="text-sm text-destructive mt-1">{errors.referralSource}</p>}
+        {touched.referralSource && errors.referralSource && (
+          <p className="text-sm text-destructive mt-1">
+            {errors.referralSource}
+          </p>
+        )}
       </div>
+      <Turnstile
+        siteKey="0x4AAAAAACyDlETAILUdoCE5"
+        onSuccess={(token) => {
+          setCaptchaToken(token);
+        }}
+        onError={() => {
+          console.log("CAPTCHA ERROR");
+        }}
+        onExpire={() => {
+          console.log("CAPTCHA EXPIRED");
+        }}
+      />
 
       <Button
         type="submit"
