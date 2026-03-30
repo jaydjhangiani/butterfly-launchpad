@@ -1,8 +1,6 @@
 import { google } from "googleapis";
 
-console.log("Header key:", event.headers["x-api-key"]);
-console.log("Env key exists:", !!process.env.API_SECRET);
-console.log("Env key exists:", !!process.env.SECRET_KEY);
+
 
 // 🚦 Rate limiting
 const rateLimitMap = new Map();
@@ -49,7 +47,9 @@ const verifyCaptcha = async (token, ip) => {
 
 export const handler = async (event) => {
     try {
-
+        console.log("Header key:", event.headers["x-api-key"]);
+        console.log("Env key exists:", !!process.env.API_SECRET);
+        console.log("Env key exists:", !!process.env.SECRET_KEY);
         const apiKey = event.headers["x-api-key"];
 
         if (apiKey !== process.env.API_SECRET) {
