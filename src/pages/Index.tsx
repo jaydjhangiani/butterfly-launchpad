@@ -133,23 +133,23 @@ const Index = () => {
             for scenarios such as:
           </p>
           <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
-            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2 transition-transform hover:scale-105">
               <span className="text-3xl">🎯</span>
               <p className="text-sm font-medium text-foreground">
                 Interview prep
               </p>
             </div>
-            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2 transition-transform hover:scale-105">
               <span className="text-3xl">🤝</span>
               <p className="text-sm font-medium text-foreground">Negotiation</p>
             </div>
-            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2 transition-transform hover:scale-105">
               <span className="text-3xl">💬</span>
               <p className="text-sm font-medium text-foreground">
                 Handling a tough conversation
               </p>
             </div>
-            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2 transition-transform hover:scale-105">
               <span className="text-3xl">📅</span>
               <p className="text-sm font-medium text-foreground">
                 Time management
@@ -223,7 +223,7 @@ const Index = () => {
           {/* Three Pillar Cards */}
           <div className="grid md:grid-cols-3 gap-6 text-left">
             {/* Card 1: Roadmap Questionnaire */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-white/40 space-y-4">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-white/40 space-y-4 transition-transform hover:scale-105">
               <div className="text-center">
                 <span className="text-4xl">📋</span>
                 <h3 className="text-foreground font-bold text-base mt-2">
@@ -252,7 +252,7 @@ const Index = () => {
             </div>
 
             {/* Card 2: Dynamic Momentum Planner */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-white/40 space-y-4">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-white/40 space-y-4 transition-transform hover:scale-105">
               <div className="text-center">
                 <span className="text-4xl">🗺️</span>
                 <h3 className="text-foreground font-bold text-base mt-2">
@@ -318,7 +318,7 @@ const Index = () => {
             </div>
 
             {/* Card 3: The Sunday Support */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-white/40 space-y-4">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-white/40 space-y-4 transition-transform hover:scale-105">
               <div className="text-center">
                 <span className="text-4xl">💛</span>
                 <h3 className="text-foreground font-bold text-base mt-2">
