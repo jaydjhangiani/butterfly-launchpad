@@ -5,6 +5,7 @@ import logo from "@/assets/logo.png";
 import accBadge from "@/assets/acc-badge.png";
 import butterflyGreen from "@/assets/butterfly-green.png";
 import heroBg from "@/assets/hero-bg.png";
+import { toast } from "sonner";
 
 const Index = () => {
   return (
@@ -196,18 +197,18 @@ const Index = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity shadow-md"
+            <button
+              onClick={() => toast("Coming soon! 🚀")}
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity shadow-md cursor-pointer"
             >
               🧭 Find My Path →
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 bg-white/70 text-foreground px-6 py-3 rounded-full font-semibold text-sm hover:bg-white/90 transition-colors border border-border shadow-sm"
+            </button>
+            <button
+              onClick={() => toast("Coming soon! 🚀")}
+              className="inline-flex items-center gap-2 bg-white/70 text-foreground px-6 py-3 rounded-full font-semibold text-sm hover:bg-white/90 transition-colors border border-border shadow-sm cursor-pointer"
             >
               📝 Take The Free Quiz
-            </a>
+            </button>
           </div>
 
           {/* Clarity Kit Header */}
@@ -383,12 +384,12 @@ const Index = () => {
                 something that will actually speak to your audience and drive
                 real impact.
               </p>
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity shadow-md mt-2"
+              <button
+                onClick={() => toast("Coming soon! 🚀")}
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity shadow-md mt-2 cursor-pointer"
               >
                 Let's Talk →
-              </a>
+              </button>
             </div>
 
             {/* Right: Company badges */}
