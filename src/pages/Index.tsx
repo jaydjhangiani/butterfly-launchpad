@@ -327,6 +327,47 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Corporate Section */}
+      <section className="relative z-10 mx-[25px] mb-[25px]">
+        <div className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden">
+          <div className="grid md:grid-cols-5 gap-0">
+            {/* Left: Text */}
+            <div className="md:col-span-3 p-8 md:p-10 space-y-4">
+              <p className="text-primary font-semibold text-sm uppercase tracking-widest">
+                For Companies
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
+                Are you a company who <em>ACTUALLY</em> wants to support your women?
+              </h2>
+              <p className="text-muted-foreground text-base">
+                If yes, I'm here to help further our common mission.
+              </p>
+              <p className="text-muted-foreground text-base">
+                I have successfully curated sessions for female employees, new moms, expecting parents at companies such as <strong className="text-foreground">Flipkart</strong>, <strong className="text-foreground">Kantar</strong>, and <strong className="text-foreground">Swiggy</strong>.
+              </p>
+              <p className="text-muted-foreground text-base">
+                My process is to customize the session based on your needs. Depending on the location, number of people, profiles of attendees, life stages — all these elements help me curate something that will actually speak to your audience and drive real impact.
+              </p>
+              <a href="#" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity shadow-md mt-2">
+                Let's Talk →
+              </a>
+            </div>
+
+            {/* Right: Company badges */}
+            <div className="md:col-span-2 p-8 md:p-10 flex flex-col items-center justify-center gap-4 bg-primary-foreground">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">
+                Trusted By
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <span className="bg-white/80 border border-border text-foreground font-semibold text-sm px-5 py-2 rounded-full shadow-sm">Flipkart</span>
+                <span className="bg-white/80 border border-border text-foreground font-semibold text-sm px-5 py-2 rounded-full shadow-sm">Kantar</span>
+                <span className="bg-white/80 border border-border text-foreground font-semibold text-sm px-5 py-2 rounded-full shadow-sm">Swiggy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="relative z-10 border-t border-border py-8 px-6 text-center text-sm text-muted-foreground">
         <p className="font-semibold text-foreground mb-1">
