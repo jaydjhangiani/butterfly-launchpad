@@ -1,26 +1,25 @@
 
 
-## Add "Power Hour" Section
+## Redesign Power Hour Bullets as Icon Cards
 
-Add a new section between `<TestimonialSlider />` and the footer in `src/pages/Index.tsx`.
+Replace the plain checklist with a 2x2 grid of small cards, each with an icon and label.
 
-### Design
-- Pink background (`bg-[#f8e8e8]` or similar brand pink)
-- Centered content card or container, no butterfly image
-- Checkmark list matching the style used in the form section
+### Layout
+- 2-column grid on all screens (`grid grid-cols-2 gap-4`)
+- Each card: rounded container with a semi-transparent white background, padding, centered content
+- Small icon above the text (using emoji or Unicode symbols as lightweight icons)
 
-### Content
-- **Headline**: "Didn't think 60 minutes could make a significant difference in your life? Think again."
-- **Subtext**: "It's similar to what they say about how if you think 60 seconds is too less, try a plank."
-- **Intro**: "If you're not ready for deep work right now, but need a quick fix for scenarios such as:"
-- **Checklist** (with ✓ icons):
-  - Interview prep
-  - Negotiation
-  - Handling a tough client/employer conversation
-  - Time management – fixing your calendar
-- **Closing**: "You can now book a stand-alone hour with me, to gain back more control over said situation."
+### Card Content
+| Icon | Label |
+|------|-------|
+| 🎯 | Interview prep |
+| 🤝 | Negotiation |
+| 💬 | Handling a tough conversation |
+| 📅 | Time management |
 
-### Technical Change
-- **File**: `src/pages/Index.tsx` — one new `<section>` element inserted before the footer
-- Responsive padding, max-width container, consistent typography with existing sections
+### Technical Changes
+- **File**: `src/pages/Index.tsx`, lines 122-138
+- Replace the `inline-block text-left space-y-3` div with a `grid grid-cols-2 gap-4` div
+- Each card: `bg-white/60 rounded-xl p-4 text-center` with a large icon span and a `text-sm font-medium` label below
+- Keeps existing responsive padding and spacing
 
