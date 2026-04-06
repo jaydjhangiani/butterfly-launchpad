@@ -115,7 +115,7 @@ const Index = () => {
           backgroundImage:
             'url("/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg")',
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "bottom",
           backgroundRepeat: "no-repeat",
         }}
       >
