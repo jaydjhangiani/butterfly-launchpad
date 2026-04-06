@@ -177,9 +177,6 @@ const Index = () => {
         <div className="px-6 py-12 md:py-14 max-w-4xl mx-auto text-center space-y-8">
           {/* Header */}
           <div className="space-y-2">
-            <p className="text-primary font-semibold text-sm uppercase tracking-widest">
-              Next Session
-            </p>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
               Don't have the budget for private coaching or just prefer a DIY approach to begin with?
             </h2>
