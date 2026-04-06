@@ -9,11 +9,6 @@ const testimonials = [
   },
   {
     quote:
-      "I have had two sessions so far with Krusha, and it has really made me start thinking about my planning in detail. The little tips that she gives really help, which I otherwise have overlooked",
-    name: "Pooja Sagi",
-  },
-  {
-    quote:
       "I reached out to Krusha when I struggled to navigate my way through difficult choices and decisions in my career. Although I was skeptical of coaching when I first started, it turned out to be the fx that I needed. It gave me a structure to process my thoughts and fleshed out the core of my challenges to find interesting insights. Krusha was patient and helped me navigate challenging waters to move closer to realizing my journey of a new job and more.",
     name: "Tushara",
   },
@@ -21,6 +16,31 @@ const testimonials = [
     quote:
       "Krusha helped me see life’s components, not as disjointed from each other but (quite literally) as parts of the same pie. She is a patient and interested listener who understands the subtle art of asking the right questions — perhaps the topmost skill I would want in my life coach. We were able to slice life into areas in a way that made sense for me and figure out a few things that needed to change for me to be able to prioritise what I wanted, figure out when I wanted it, and how I could go about making my goals a reality.",
     name: "Garima Behal",
+  },
+  {
+    quote:
+      "I am at a stage in my professional and personal life where I am trying to answer the ‘what next?’ question. Krusha has been a great help sorting all the jumbled thoughts out and help me come up with a solid plan. She asks the right questions, has a knack of organising your thoughts; putting them in a manageable and achievable plan and she is super easy to talk to !",
+    name: "Charu Chaturvedi",
+  },
+  {
+    quote:
+      "With just a few sessions, I've made more progress with Krusha's sessions than I was making on my own for months. She asks the right questions and knows exactly which buttons to push. She helps you acquire the right mindset you need to take actionable steps for your goals. She is empathetic and firm. Her sessions are helping me gain the confidence I need to progress in my career and life.",
+    name: "Tavleen",
+  },
+  {
+    quote:
+      "Let me begin by saying that you are a rockstar! You are an incredible person and I am glad the universe made me stumble on your LinkedIn post when I was in great need of a coach. Through the sessions I was able to uncover more about my beliefs and how it shaped my actions and thought process. I challenged them and got the strength to steer through the tough phase of my life managing career aspirations being a first time mom. I also got to reorient my energies and focus deeply on my priorities in the process. I have a greater purpose and a greater understanding of the strengths that are unique to me.  I am thankful to you for creating a positive impact in lives of moms and i feel motivated to contribute my bit to this larger purpose!",
+    name: "Stuttee Arora",
+  },
+  {
+    quote:
+      " Krusha is a fantastic listener. She gently probes you so that you can navigate an ambiguous path and find clarity. I have had very insightful moments and am definitely taking those ahead in my journey.  I sincerely felt her approach is quite impactful and attacks your core beliefs which are not serving you. It nudges you to alter your perspectives so that you start believing in your own ability to reach your highest potential.  I will definitely recommend her if you are stuck and are ready to unleash the most powerful side of yours!!!",
+    name: "Udita Tiwarri",
+  },
+  {
+    quote:
+      "Working with Krusha has been a profoundly enriching experience. She holds space for my words and allows me to express my thoughts freely and comfortably with no judgment. She structures sessions without boundaries that are too tight, yet covers all important discussion points within the session time. Beyond establishing clarity and the path for next steps, the session also always ends with defined and doable action items. Overall, the coaching sessions are very impactful and empowering. I feel that I am finally able to take some of my own power back and step into fulfil my potential at the workplace. Thanks Krusha!",
+    name: "Linnie",
   },
 ];
 
