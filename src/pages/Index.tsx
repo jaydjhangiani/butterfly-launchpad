@@ -119,23 +119,23 @@ const Index = () => {
           <p className="text-muted-foreground text-base px-[20px] lg:px-[50px]">
             If you're not ready for deep work right now, but need a quick fix for scenarios such as:
           </p>
-          <div className="inline-block text-left space-y-3">
-            <p className="text-sm flex items-start gap-2">
-              <span className="text-primary mt-0.5">✓</span>
-              Interview prep
-            </p>
-            <p className="text-sm flex items-start gap-2">
-              <span className="text-primary mt-0.5">✓</span>
-              Negotiation
-            </p>
-            <p className="text-sm flex items-start gap-2">
-              <span className="text-primary mt-0.5">✓</span>
-              Handling a tough client/employer conversation
-            </p>
-            <p className="text-sm flex items-start gap-2">
-              <span className="text-primary mt-0.5">✓</span>
-              Time management – fixing your calendar
-            </p>
+          <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+            <div className="bg-white/60 rounded-xl p-4 text-center space-y-2">
+              <span className="text-3xl">🎯</span>
+              <p className="text-sm font-medium text-foreground">Interview prep</p>
+            </div>
+            <div className="bg-white/60 rounded-xl p-4 text-center space-y-2">
+              <span className="text-3xl">🤝</span>
+              <p className="text-sm font-medium text-foreground">Negotiation</p>
+            </div>
+            <div className="bg-white/60 rounded-xl p-4 text-center space-y-2">
+              <span className="text-3xl">💬</span>
+              <p className="text-sm font-medium text-foreground">Handling a tough conversation</p>
+            </div>
+            <div className="bg-white/60 rounded-xl p-4 text-center space-y-2">
+              <span className="text-3xl">📅</span>
+              <p className="text-sm font-medium text-foreground">Time management</p>
+            </div>
           </div>
           <p className="text-foreground font-semibold text-base px-[20px] lg:px-[50px]">
             You can now book a stand-alone hour with me, to gain back more control over said situation.
