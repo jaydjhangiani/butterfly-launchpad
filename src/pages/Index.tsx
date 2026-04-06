@@ -75,12 +75,13 @@ const Index = () => {
                     Mindset shifts and confidence to take brave action
                   </p>
                   <p className="text-sm flex items-start gap-2">
-                    <span className="text-primary mt-0.5">✓</span>
-                    A tailored, actionable plan with concrete milestones
+                    <span className="text-primary mt-0.5">✓</span>A tailored,
+                    actionable plan with concrete milestones
                   </p>
                   <p className="text-sm flex items-start gap-2">
                     <span className="text-primary mt-0.5">✓</span>
-                    An accountability framework to keep you moving, even on tough days
+                    An accountability framework to keep you moving, even on
+                    tough days
                   </p>
                   <p className="text-foreground font-semibold text-sm">
                     Let's have a 10-minute chat to understand what you need and
@@ -108,21 +109,35 @@ const Index = () => {
       <TestimonialSlider />
 
       {/* Power Hour Section */}
-      <section className="relative z-10 mx-[25px] ml-[25px] mb-[25px] bg-[#f8e8e8]">
+      <section
+        className="relative z-10 px-[15px] py-[15px] bg-inherit pt-0 pl-0 pr-0 pb-0 mx-[25px] mb-[25px]"
+        style={{
+          backgroundImage:
+            'url("/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <div className="px-6 py-12 md:py-14 max-w-4xl mx-auto text-center space-y-6">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
-            Didn't think 60 minutes could make a significant difference in your life? Think again.
+            Didn't think 60 minutes could make a significant difference in your
+            life? Think again.
           </h2>
           <p className="text-muted-foreground text-base md:text-lg py-0 px-[20px] lg:px-[50px]">
-            It's similar to what they say about how if you think 60 seconds is too less, try a plank.
+            It's similar to what they say about how if you think 60 seconds is
+            too less, try a plank.
           </p>
           <p className="text-muted-foreground text-base px-[20px] lg:px-[50px]">
-            If you're not ready for deep work right now, but need a quick fix for scenarios such as:
+            If you're not ready for deep work right now, but need a quick fix
+            for scenarios such as:
           </p>
           <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
             <div className="bg-white/60 rounded-xl p-4 text-center space-y-2">
               <span className="text-3xl">🎯</span>
-              <p className="text-sm font-medium text-foreground">Interview prep</p>
+              <p className="text-sm font-medium text-foreground">
+                Interview prep
+              </p>
             </div>
             <div className="bg-white/60 rounded-xl p-4 text-center space-y-2">
               <span className="text-3xl">🤝</span>
@@ -130,15 +145,20 @@ const Index = () => {
             </div>
             <div className="bg-white/60 rounded-xl p-4 text-center space-y-2">
               <span className="text-3xl">💬</span>
-              <p className="text-sm font-medium text-foreground">Handling a tough conversation</p>
+              <p className="text-sm font-medium text-foreground">
+                Handling a tough conversation
+              </p>
             </div>
             <div className="bg-white/60 rounded-xl p-4 text-center space-y-2">
               <span className="text-3xl">📅</span>
-              <p className="text-sm font-medium text-foreground">Time management</p>
+              <p className="text-sm font-medium text-foreground">
+                Time management
+              </p>
             </div>
           </div>
           <p className="text-foreground font-semibold text-base px-[20px] lg:px-[50px]">
-            You can now book a stand-alone hour with me, to gain back more control over said situation.
+            You can now book a stand-alone hour with me, to gain back more
+            control over said situation.
           </p>
         </div>
       </section>
