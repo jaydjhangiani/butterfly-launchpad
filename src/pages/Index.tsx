@@ -107,6 +107,42 @@ const Index = () => {
       {/* Testimonials */}
       <TestimonialSlider />
 
+      {/* Power Hour Section */}
+      <section className="relative z-10 bg-[#f8e8e8] py-12 md:py-16 px-6">
+        <div className="max-w-3xl mx-auto text-center space-y-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
+            Didn't think 60 minutes could make a significant difference in your life? Think again.
+          </h2>
+          <p className="text-muted-foreground text-base md:text-lg">
+            It's similar to what they say about how if you think 60 seconds is too less, try a plank.
+          </p>
+          <p className="text-muted-foreground text-base">
+            If you're not ready for deep work right now, but need a quick fix for scenarios such as:
+          </p>
+          <div className="inline-block text-left space-y-3">
+            <p className="text-sm flex items-start gap-2">
+              <span className="text-primary mt-0.5">✓</span>
+              Interview prep
+            </p>
+            <p className="text-sm flex items-start gap-2">
+              <span className="text-primary mt-0.5">✓</span>
+              Negotiation
+            </p>
+            <p className="text-sm flex items-start gap-2">
+              <span className="text-primary mt-0.5">✓</span>
+              Handling a tough client/employer conversation
+            </p>
+            <p className="text-sm flex items-start gap-2">
+              <span className="text-primary mt-0.5">✓</span>
+              Time management – fixing your calendar
+            </p>
+          </div>
+          <p className="text-foreground font-semibold text-base">
+            You can now book a stand-alone hour with me, to gain back more control over said situation.
+          </p>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="relative z-10 border-t border-border py-8 px-6 text-center text-sm text-muted-foreground">
         <p className="font-semibold text-foreground mb-1">
