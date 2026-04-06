@@ -62,15 +62,25 @@ const Index = () => {
                   alt="Butterfly"
                   className="md:w-48 md:h-48 sm:w-32 sm:h-32 mx-auto mb-6  md:block"
                 />
-                <div className="space-y-4 text-muted-foreground">
-                  <p className="text-sm">
-                    Coaching believes no one size fits all.
+                <div className="space-y-3 text-muted-foreground">
+                  <p className="text-foreground font-semibold text-sm mb-2">
+                    What you will get:
                   </p>
-                  <p className="text-sm">
-                    We each have goals and plans that are unique to us.
+                  <p className="text-sm flex items-start gap-2">
+                    <span className="text-primary mt-0.5">✓</span>
+                    Clarity on your goal and the precise path to reach it
                   </p>
-                  <p className="text-sm">
-                    Hence, no one coaching package fits all either.
+                  <p className="text-sm flex items-start gap-2">
+                    <span className="text-primary mt-0.5">✓</span>
+                    Mindset shifts and confidence to take brave action
+                  </p>
+                  <p className="text-sm flex items-start gap-2">
+                    <span className="text-primary mt-0.5">✓</span>
+                    A tailored, actionable plan with concrete milestones
+                  </p>
+                  <p className="text-sm flex items-start gap-2">
+                    <span className="text-primary mt-0.5">✓</span>
+                    An accountability framework to keep you moving, even on tough days
                   </p>
                   <p className="text-foreground font-semibold text-sm">
                     Let's have a 10-minute chat to understand what you need and
