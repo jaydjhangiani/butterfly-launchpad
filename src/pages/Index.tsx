@@ -108,8 +108,8 @@ const Index = () => {
       <TestimonialSlider />
 
       {/* Power Hour Section */}
-      <section className="relative z-10 bg-[#f8e8e8] py-12 md:py-16 px-6">
-        <div className="max-w-3xl mx-auto text-center space-y-6">
+      <section className="relative z-10 mx-[25px] ml-[25px] bg-[#f8e8e8]">
+        <div className="px-6 py-12 md:py-14 max-w-4xl mx-auto text-center space-y-6">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
             Didn't think 60 minutes could make a significant difference in your life? Think again.
           </h2>
