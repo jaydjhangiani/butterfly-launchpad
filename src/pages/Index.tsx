@@ -133,23 +133,23 @@ const Index = () => {
             for scenarios such as:
           </p>
           <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
-            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2 transition-transform duration-200 hover:scale-105 cursor-pointer">
               <span className="text-3xl">🎯</span>
               <p className="text-sm font-medium text-foreground">
                 Interview prep
               </p>
             </div>
-            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2 transition-transform duration-200 hover:scale-105 cursor-pointer">
               <span className="text-3xl">🤝</span>
               <p className="text-sm font-medium text-foreground">Negotiation</p>
             </div>
-            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2 transition-transform duration-200 hover:scale-105 cursor-pointer">
               <span className="text-3xl">💬</span>
               <p className="text-sm font-medium text-foreground">
                 Handling a tough conversation
               </p>
             </div>
-            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2 transition-transform duration-200 hover:scale-105 cursor-pointer">
               <span className="text-3xl">📅</span>
               <p className="text-sm font-medium text-foreground">
                 Time management
