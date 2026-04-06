@@ -113,10 +113,10 @@ const Index = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
             Didn't think 60 minutes could make a significant difference in your life? Think again.
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg py-0 px-[20px]">
+          <p className="text-muted-foreground text-base md:text-lg py-0 px-[20px] lg:px-[50px]">
             It's similar to what they say about how if you think 60 seconds is too less, try a plank.
           </p>
-          <p className="text-muted-foreground text-base px-[20px]">
+          <p className="text-muted-foreground text-base px-[20px] lg:px-[50px]">
             If you're not ready for deep work right now, but need a quick fix for scenarios such as:
           </p>
           <div className="inline-block text-left space-y-3">
@@ -137,7 +137,7 @@ const Index = () => {
               Time management – fixing your calendar
             </p>
           </div>
-          <p className="text-foreground font-semibold text-base px-[20px]">
+          <p className="text-foreground font-semibold text-base px-[20px] lg:px-[50px]">
             You can now book a stand-alone hour with me, to gain back more control over said situation.
           </p>
         </div>
