@@ -133,23 +133,23 @@ const Index = () => {
             for scenarios such as:
           </p>
           <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
-            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2 transition-transform duration-200 hover:scale-105 cursor-pointer">
               <span className="text-3xl">🎯</span>
               <p className="text-sm font-medium text-foreground">
                 Interview prep
               </p>
             </div>
-            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2 transition-transform duration-200 hover:scale-105 cursor-pointer">
               <span className="text-3xl">🤝</span>
               <p className="text-sm font-medium text-foreground">Negotiation</p>
             </div>
-            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2 transition-transform duration-200 hover:scale-105 cursor-pointer">
               <span className="text-3xl">💬</span>
               <p className="text-sm font-medium text-foreground">
                 Handling a tough conversation
               </p>
             </div>
-            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2 transition-transform duration-200 hover:scale-105 cursor-pointer">
               <span className="text-3xl">📅</span>
               <p className="text-sm font-medium text-foreground">
                 Time management
@@ -160,6 +160,93 @@ const Index = () => {
             You can now book a stand-alone hour with me, to gain back more
             control over said situation.
           </p>
+        </div>
+      </section>
+
+      {/* Own Your Next Section */}
+      <section
+        className="relative z-10 mx-[25px] mb-[25px]"
+        style={{
+          backgroundImage:
+            'url("/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="px-6 py-12 md:py-14 max-w-4xl mx-auto text-center space-y-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
+            🦋 Own Your Next
+          </h2>
+
+          <p className="text-muted-foreground text-base md:text-lg px-[20px] lg:px-[50px]">
+            Don't have the budget for private coaching or just prefer a DIY approach to begin with?
+          </p>
+          <p className="text-foreground font-semibold text-base px-[20px] lg:px-[50px]">
+            That's okay, I've got you too!
+          </p>
+          <p className="text-muted-foreground text-base px-[20px] lg:px-[50px]">
+            <strong className="text-foreground">Own Your Next</strong> is a personalised career clarity system for women who are done feeling
+            stuck, overlooked, or unsure — and ready to move with intention.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
+            <button className="bg-primary text-primary-foreground font-semibold px-8 py-3 rounded-xl text-base transition-transform duration-200 hover:scale-105 shadow-md">
+              🧭 Find My Path →
+            </button>
+            <button className="bg-white border-2 border-primary text-primary font-semibold px-8 py-3 rounded-xl text-base transition-transform duration-200 hover:scale-105 shadow-md">
+              📝 Take The Free Quiz
+            </button>
+          </div>
+
+          <div className="pt-6">
+            <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-6">
+              Included in the Clarity Kit — One Time Investment
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6 text-left">
+              {/* Roadmap Questionnaire */}
+              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 space-y-3 transition-transform duration-200 hover:scale-105">
+                <div className="text-3xl mb-2">📋</div>
+                <h3 className="text-foreground font-bold text-base">Your Personalised Roadmap Questionnaire</h3>
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <p className="flex items-start gap-2"><span className="text-primary mt-0.5">✓</span>12–15 coaching-depth questions tailored to your specific path</p>
+                  <p className="flex items-start gap-2"><span className="text-primary mt-0.5">✓</span>Surfaces your values, strengths, fears, constraints, and the specific ask</p>
+                  <p className="flex items-start gap-2"><span className="text-primary mt-0.5">✓</span>Your answers become the foundation of your entire planner</p>
+                </div>
+                <p className="text-xs text-primary font-medium italic pt-2">Value: A coaching session's worth of self-discovery, at your own pace</p>
+              </div>
+
+              {/* Dynamic Momentum Planner */}
+              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 space-y-3 transition-transform duration-200 hover:scale-105">
+                <div className="text-3xl mb-2">🗺️</div>
+                <h3 className="text-foreground font-bold text-base">The Dynamic Momentum Planner</h3>
+                <p className="text-sm text-muted-foreground font-medium">This is the heart of Own Your Next.</p>
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <p className="flex items-start gap-2"><span className="text-primary mt-0.5">✓</span>A fully built interactive planner personalised to your path</p>
+                  <p className="flex items-start gap-2"><span className="text-primary mt-0.5">✓</span><strong className="text-foreground">The Pivot Planner</strong> — Know Yourself → Know Your Options → Know Your Move</p>
+                  <p className="flex items-start gap-2"><span className="text-primary mt-0.5">✓</span><strong className="text-foreground">The Launch Planner</strong> — Validate The Vision → Build The Foundation → Launch With Intention</p>
+                  <p className="flex items-start gap-2"><span className="text-primary mt-0.5">✓</span><strong className="text-foreground">The Ascent Planner</strong> — Identity & Positioning → Visibility & Influence → Negotiation & Capture</p>
+                  <p className="flex items-start gap-2"><span className="text-primary mt-0.5">✓</span>Weekly task breakdowns with built-in coaching prompts</p>
+                  <p className="flex items-start gap-2"><span className="text-primary mt-0.5">✓</span>Progress tracking with visual completion indicators</p>
+                  <p className="flex items-start gap-2"><span className="text-primary mt-0.5">✓</span>Evidence Folder — a running log of your wins, results, and proof points</p>
+                </div>
+                <p className="text-xs text-primary font-medium italic pt-2">Value: The roadmap your career has been waiting for</p>
+              </div>
+
+              {/* Sunday Support */}
+              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 space-y-3 transition-transform duration-200 hover:scale-105">
+                <div className="text-3xl mb-2">☀️</div>
+                <h3 className="text-foreground font-bold text-base">The Sunday Support</h3>
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <p className="flex items-start gap-2"><span className="text-primary mt-0.5">✓</span>Private community of women across all three paths</p>
+                  <p className="flex items-start gap-2"><span className="text-primary mt-0.5">✓</span>Weekly Sunday Reset group calls — reflect, recalibrate, recommit</p>
+                  <p className="flex items-start gap-2"><span className="text-primary mt-0.5">✓</span>Direct access to share wins, ask questions, and stay accountable</p>
+                  <p className="flex items-start gap-2"><span className="text-primary mt-0.5">✓</span>A space where your ambition is normal and your progress is celebrated</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
