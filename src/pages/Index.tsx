@@ -133,23 +133,23 @@ const Index = () => {
             for scenarios such as:
           </p>
           <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
-            <div className="bg-white/60 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
               <span className="text-3xl">🎯</span>
               <p className="text-sm font-medium text-foreground">
                 Interview prep
               </p>
             </div>
-            <div className="bg-white/60 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
               <span className="text-3xl">🤝</span>
               <p className="text-sm font-medium text-foreground">Negotiation</p>
             </div>
-            <div className="bg-white/60 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
               <span className="text-3xl">💬</span>
               <p className="text-sm font-medium text-foreground">
                 Handling a tough conversation
               </p>
             </div>
-            <div className="bg-white/60 rounded-xl p-4 text-center space-y-2">
+            <div className="bg-white/90 rounded-xl p-4 text-center space-y-2">
               <span className="text-3xl">📅</span>
               <p className="text-sm font-medium text-foreground">
                 Time management
@@ -165,7 +165,7 @@ const Index = () => {
 
       {/* Own Your Next Section */}
       <section
-        className="relative z-10 px-[15px] py-[15px] bg-inherit pt-0 pl-0 pr-0 pb-0 mx-[25px]"
+        className="relative z-10 px-[15px] py-[15px] bg-inherit pt-0 pl-0 pr-0 pb-0 mx-[25px] mb-[25px]"
         style={{
           backgroundImage:
             'url("/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg")',
@@ -177,11 +177,9 @@ const Index = () => {
         <div className="px-6 py-12 md:py-14 max-w-4xl mx-auto text-center space-y-8">
           {/* Header */}
           <div className="space-y-2">
-            <p className="text-primary font-semibold text-sm uppercase tracking-widest">
-              Next Session
-            </p>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
-              Don't have the budget for private coaching or just prefer a DIY approach to begin with?
+              Don't have the budget for private coaching or just prefer a DIY
+              approach to begin with?
             </h2>
             <p className="text-lg text-foreground font-semibold mt-2">
               That's okay, I've got you too!
@@ -190,16 +188,24 @@ const Index = () => {
 
           <div className="space-y-3 px-[20px] lg:px-[50px]">
             <p className="text-muted-foreground text-base md:text-lg">
-              <strong className="text-foreground">Own Your Next</strong> is a personalised career clarity system for women who are done feeling stuck, overlooked, or unsure — and ready to move with intention.
+              <strong className="text-foreground">Own Your Next</strong> is a
+              personalised career clarity system for women who are done feeling
+              stuck, overlooked, or unsure — and ready to move with intention.
             </p>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="#" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity shadow-md">
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity shadow-md"
+            >
               🧭 Find My Path →
             </a>
-            <a href="#" className="inline-flex items-center gap-2 bg-white/70 text-foreground px-6 py-3 rounded-full font-semibold text-sm hover:bg-white/90 transition-colors border border-border shadow-sm">
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 bg-white/70 text-foreground px-6 py-3 rounded-full font-semibold text-sm hover:bg-white/90 transition-colors border border-border shadow-sm"
+            >
               📝 Take The Free Quiz
             </a>
           </div>
@@ -217,7 +223,7 @@ const Index = () => {
           {/* Three Pillar Cards */}
           <div className="grid md:grid-cols-3 gap-6 text-left">
             {/* Card 1: Roadmap Questionnaire */}
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-white/40 space-y-4">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-white/40 space-y-4">
               <div className="text-center">
                 <span className="text-4xl">📋</span>
                 <h3 className="text-foreground font-bold text-base mt-2">
@@ -231,7 +237,8 @@ const Index = () => {
                 </p>
                 <p className="flex items-start gap-2">
                   <span className="text-primary mt-0.5">✓</span>
-                  Surfaces your values, strengths, fears, constraints, and the specific ask
+                  Surfaces your values, strengths, fears, constraints, and the
+                  specific ask
                 </p>
                 <p className="flex items-start gap-2">
                   <span className="text-primary mt-0.5">✓</span>
@@ -239,12 +246,13 @@ const Index = () => {
                 </p>
               </div>
               <p className="text-xs italic text-primary font-medium pt-2 border-t border-primary/10">
-                💡 A coaching session's worth of self-discovery, at your own pace
+                💡 A coaching session's worth of self-discovery, at your own
+                pace
               </p>
             </div>
 
             {/* Card 2: Dynamic Momentum Planner */}
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-white/40 space-y-4">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-white/40 space-y-4">
               <div className="text-center">
                 <span className="text-4xl">🗺️</span>
                 <h3 className="text-foreground font-bold text-base mt-2">
@@ -256,20 +264,36 @@ const Index = () => {
               </div>
               <div className="space-y-2 text-sm text-muted-foreground">
                 <p className="flex items-start gap-2">
-                  <span className="text-primary mt-0.5">✓</span>
-                  A fully built interactive planner personalised to your path
+                  <span className="text-primary mt-0.5">✓</span>A fully built
+                  interactive planner personalised to your path
                 </p>
                 <p className="flex items-start gap-2">
                   <span className="text-primary mt-0.5">✓</span>
-                  <span><strong className="text-foreground">The Pivot Planner</strong> — Know Yourself → Know Your Options → Know Your Move</span>
+                  <span>
+                    <strong className="text-foreground">
+                      The Pivot Planner
+                    </strong>{" "}
+                    — Know Yourself → Know Your Options → Know Your Move
+                  </span>
                 </p>
                 <p className="flex items-start gap-2">
                   <span className="text-primary mt-0.5">✓</span>
-                  <span><strong className="text-foreground">The Launch Planner</strong> — Validate → Build The Foundation → Launch With Intention</span>
+                  <span>
+                    <strong className="text-foreground">
+                      The Launch Planner
+                    </strong>{" "}
+                    — Validate → Build The Foundation → Launch With Intention
+                  </span>
                 </p>
                 <p className="flex items-start gap-2">
                   <span className="text-primary mt-0.5">✓</span>
-                  <span><strong className="text-foreground">The Ascent Planner</strong> — Identity & Positioning → Visibility → Negotiation & Capture</span>
+                  <span>
+                    <strong className="text-foreground">
+                      The Ascent Planner
+                    </strong>{" "}
+                    — Identity & Positioning → Visibility → Negotiation &
+                    Capture
+                  </span>
                 </p>
                 <p className="flex items-start gap-2">
                   <span className="text-primary mt-0.5">✓</span>
@@ -294,7 +318,7 @@ const Index = () => {
             </div>
 
             {/* Card 3: The Sunday Support */}
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-white/40 space-y-4">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-white/40 space-y-4">
               <div className="text-center">
                 <span className="text-4xl">💛</span>
                 <h3 className="text-foreground font-bold text-base mt-2">
@@ -308,15 +332,17 @@ const Index = () => {
                 </p>
                 <p className="flex items-start gap-2">
                   <span className="text-primary mt-0.5">✓</span>
-                  Weekly Sunday Reset group calls — reflect, recalibrate, recommit
+                  Weekly Sunday Reset group calls — reflect, recalibrate,
+                  recommit
                 </p>
                 <p className="flex items-start gap-2">
                   <span className="text-primary mt-0.5">✓</span>
-                  Direct access to share wins, ask questions, and stay accountable
+                  Direct access to share wins, ask questions, and stay
+                  accountable
                 </p>
                 <p className="flex items-start gap-2">
-                  <span className="text-primary mt-0.5">✓</span>
-                  A space where your ambition is normal and your progress is celebrated
+                  <span className="text-primary mt-0.5">✓</span>A space where
+                  your ambition is normal and your progress is celebrated
                 </p>
               </div>
               <p className="text-xs italic text-primary font-medium pt-2 border-t border-primary/10">
@@ -337,18 +363,30 @@ const Index = () => {
                 For Companies
               </p>
               <h2 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
-                Are you a company who <em>ACTUALLY</em> wants to support your women?
+                Are you a company who <em>ACTUALLY</em> wants to support your
+                women?
               </h2>
               <p className="text-muted-foreground text-base">
                 If yes, I'm here to help further our common mission.
               </p>
               <p className="text-muted-foreground text-base">
-                I have successfully curated sessions for female employees, new moms, expecting parents at companies such as <strong className="text-foreground">Flipkart</strong>, <strong className="text-foreground">Kantar</strong>, and <strong className="text-foreground">Swiggy</strong>.
+                I have successfully curated sessions for female employees, new
+                moms, expecting parents at companies such as{" "}
+                <strong className="text-foreground">Flipkart</strong>,{" "}
+                <strong className="text-foreground">Kantar</strong>, and{" "}
+                <strong className="text-foreground">Swiggy</strong>.
               </p>
               <p className="text-muted-foreground text-base">
-                My process is to customize the session based on your needs. Depending on the location, number of people, profiles of attendees, life stages — all these elements help me curate something that will actually speak to your audience and drive real impact.
+                My process is to customize the session based on your needs.
+                Depending on the location, number of people, profiles of
+                attendees, life stages — all these elements help me curate
+                something that will actually speak to your audience and drive
+                real impact.
               </p>
-              <a href="#" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity shadow-md mt-2">
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity shadow-md mt-2"
+              >
                 Let's Talk →
               </a>
             </div>
@@ -359,9 +397,15 @@ const Index = () => {
                 Trusted By
               </p>
               <div className="flex flex-wrap justify-center gap-3">
-                <span className="bg-white/80 border border-border text-foreground font-semibold text-sm px-5 py-2 rounded-full shadow-sm">Flipkart</span>
-                <span className="bg-white/80 border border-border text-foreground font-semibold text-sm px-5 py-2 rounded-full shadow-sm">Kantar</span>
-                <span className="bg-white/80 border border-border text-foreground font-semibold text-sm px-5 py-2 rounded-full shadow-sm">Swiggy</span>
+                <span className="bg-white/80 border border-border text-foreground font-semibold text-sm px-5 py-2 rounded-full shadow-sm">
+                  Flipkart
+                </span>
+                <span className="bg-white/80 border border-border text-foreground font-semibold text-sm px-5 py-2 rounded-full shadow-sm">
+                  Kantar
+                </span>
+                <span className="bg-white/80 border border-border text-foreground font-semibold text-sm px-5 py-2 rounded-full shadow-sm">
+                  Swiggy
+                </span>
               </div>
             </div>
           </div>
