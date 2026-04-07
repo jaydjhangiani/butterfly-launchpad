@@ -38,7 +38,7 @@ const Index = () => {
         {/* Hero Section */}
         <header className="px-6 pt-8 pb-10 md:pt-14 md:pb-14 max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-            Ready to test the waters?
+            Ready to invest in yourself?
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             1-on-1 coaching with me will help you{" "}
@@ -126,8 +126,8 @@ const Index = () => {
             life? Think again.
           </h2>
           <p className="text-muted-foreground text-base md:text-lg py-0 px-[20px] lg:px-[50px]">
-            It's similar to what they say about how if you think 60 seconds is
-            too less, try a plank.
+            It's like the old saying: if sixty seconds are too short, try a
+            plank.
           </p>
           <p className="text-muted-foreground text-base px-[20px] lg:px-[50px]">
             If you're not ready for deep work right now, but need a quick fix
@@ -189,9 +189,12 @@ const Index = () => {
 
           <div className="space-y-3 px-[20px] lg:px-[50px]">
             <p className="text-muted-foreground text-base md:text-lg">
-              <strong className="text-foreground">Own Your Next</strong> is a
-              personalised career clarity system for women who are done feeling
-              stuck, overlooked, or unsure — and ready to move with intention.
+              <strong className="text-foreground">OwnYourNext</strong> empowers
+              women who aren’t sure whether to grow where they are, pivot to
+              something new, or launch something of their own. More importantly,
+              it provides a personalized clarity framework, a structured way
+              forward, and built-in community accountability to help you move
+              with intention.
             </p>
           </div>
 
