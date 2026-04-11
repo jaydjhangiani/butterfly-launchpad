@@ -164,6 +164,8 @@ const Index = () => {
         </div>
       </section>
 
+      <WinsCarousel />
+
       {/* Own Your Next Section */}
       <section
         className="relative z-10 px-[15px] py-[15px] bg-inherit pt-0 pl-0 pr-0 pb-0 mx-[25px] mb-[25px]"
