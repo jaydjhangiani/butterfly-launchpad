@@ -103,7 +103,7 @@ const WinsCarousel = () => {
                 >
                   <div
                     className={`bg-white rounded-[20px] transition-all duration-300 p-6 md:p-10 h-full flex flex-col ${
-                      isActive ? "scale-105 opacity-100" : "scale-95 opacity-60"
+                      isActive ? "scale-[1.02] opacity-100 shadow-lg" : "scale-95 opacity-80"
                     }`}
                   >
                     <div className=" flex items-center gap-3">
