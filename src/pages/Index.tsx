@@ -1,6 +1,7 @@
 import ButterflyDecor from "@/components/ButterflyDecor";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import TestimonialSlider from "@/components/TestimonialSlider";
+import WinsCarousel from "@/components/WinsCarousel";
 import logo from "@/assets/logo.png";
 import accBadge from "@/assets/acc-badge.png";
 import butterflyGreen from "@/assets/butterfly-green.png";
