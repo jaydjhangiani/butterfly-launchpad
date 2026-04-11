@@ -1,5 +1,7 @@
-import { User } from "lucide-react";
+import { Quote } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
+import { useState, useEffect } from "react";
+import { type CarouselApi } from "@/components/ui/carousel";
 import {
   Carousel,
   CarouselContent,
@@ -33,7 +35,8 @@ const wins = [
   {
     profile: "Freelancer",
     date: "July 2025",
-    quote: "Hey, closed a $600 client. For 3 months. Can't believe it actually happened!",
+    quote:
+      "Hey, closed a $600 client. For 3 months. Can't believe it actually happened!",
     badge: "Closed first paying client",
   },
   {
@@ -46,60 +49,94 @@ const wins = [
 ];
 
 const WinsCarousel = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+    setSelectedIndex(api.selectedScrollSnap());
+    api.on("select", () => {
+      setSelectedIndex(api.selectedScrollSnap());
+    });
+  }, [api]);
+
   return (
-    <section className="py-14 px-6 mx-[25px] my-[25px]">
-      <div className="max-w-5xl mx-auto">
-        <p className="text-xs uppercase tracking-widest text-[#2a9d8f] font-semibold mb-2 text-center">
+    <section className="py-16 px-6 mx-[25px] my-[25px] bg-gradient-to-br from-[#9cd7d8] to-[#6dbfc1] relative overflow-hidden">
+      {/* Decorative background circles */}
+      <div className="absolute top-0 right-0 w-72 h-72 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-52 h-52 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/4 pointer-events-none" />
+
+      <div className="max-w-5xl mx-auto relative z-10">
+        <p className="text-xs uppercase tracking-widest font-semibold mb-2 text-center text-white/80">
           What People Say
         </p>
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">
-          Wins from the people<br />I've had the privilege of mentoring
+        <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-10">
+          Wins from the people
+          <br />
+          <em>I've had the privilege of mentoring</em>
         </h2>
 
         <Carousel
+          setApi={setApi}
           opts={{
             align: "center",
             loop: true,
             slidesToScroll: 1,
           }}
           plugins={[
-            Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true }),
+            Autoplay({
+              delay: 4000,
+              stopOnInteraction: false,
+              stopOnMouseEnter: true,
+            }),
           ]}
-          className="w-full"
+          className="w-full "
         >
           <CarouselContent className="-ml-4">
-            {wins.map((win, i) => (
-              <CarouselItem
-                key={i}
-                className="pl-4 basis-[80%] md:basis-[45%] lg:basis-[35%]"
-              >
-                <div className="bg-white rounded-xl shadow-md border-t-4 border-green-500 p-6 h-full flex flex-col">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                      <User className="w-5 h-5 text-green-600" />
+            {wins.map((win, i) => {
+              const isActive = i === selectedIndex;
+              return (
+                <CarouselItem
+                  key={i}
+                  className="pl-10 basis-[80%] md:basis-[45%] lg:basis-[35%] transition-all duration-300"
+                >
+                  <div
+                    className={`bg-white rounded-[20px] transition-all duration-300 p-10 h-full flex flex-col ${
+                      isActive ? "scale-105 opacity-100" : "scale-95 opacity-60"
+                    }`}
+                  >
+                    <div className=" flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#9cd7d8] to-[#5aafb1] flex items-center justify-center shrink-0">
+                        <span className="text-white text-xs font-bold">
+                          {win.profile[0]}
+                        </span>
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-foreground leading-tight">
+                          {win.profile}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {win.date}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground">{win.profile}</p>
-                      <p className="text-xs text-muted-foreground">{win.date}</p>
+
+                    <p className="text-sm text-foreground/75  pt-8  italic leading-relaxed flex-1 mb-5">
+                      {win.quote}
+                    </p>
+
+                    <div className="mt-3">
+                      <span className="text-xs font-medium text-[#4a9ea0] bg-[#9cd7d8]/20 px-3 py-1 rounded-full inline-block">
+                        {win.badge}
+                      </span>
                     </div>
                   </div>
-
-                  <p className="text-sm text-foreground/80 italic leading-relaxed flex-1">
-                    "{win.quote}"
-                  </p>
-
-                  <div className="mt-4 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-green-500 inline-block" />
-                    <span className="text-xs font-medium text-green-700 bg-green-50 px-2 py-1 rounded-full">
-                      {win.badge}
-                    </span>
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
+                </CarouselItem>
+              );
+            })}
           </CarouselContent>
-          <CarouselPrevious className="-left-4 md:-left-6" />
-          <CarouselNext className="-right-4 md:-right-6" />
+          <CarouselPrevious className="bg-white/90 text-[#5aafb1] border-white hover:bg-white -left-4 md:-left-6" />
+          <CarouselNext className="bg-white/90 text-[#5aafb1] border-white hover:bg-white -right-4 md:-right-6" />
         </Carousel>
       </div>
     </section>
