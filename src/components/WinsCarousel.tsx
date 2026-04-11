@@ -54,10 +54,19 @@ const WinsCarousel = () => {
 
   useEffect(() => {
     if (!api) return;
-    setSelectedIndex(api.selectedScrollSnap());
-    api.on("select", () => {
+
+    const handleSelect = () => {
       setSelectedIndex(api.selectedScrollSnap());
-    });
+    };
+
+    handleSelect();
+    api.on("select", handleSelect);
+    api.on("reInit", handleSelect);
+
+    return () => {
+      api.off("select", handleSelect);
+      api.off("reInit", handleSelect);
+    };
   }, [api]);
 
   return (
@@ -93,17 +102,19 @@ const WinsCarousel = () => {
           ]}
           className="w-full"
         >
-          <CarouselContent className="-ml-3 md:-ml-4">
+          <CarouselContent>
             {wins.map((win, i) => {
               const isActive = i === selectedIndex;
               return (
                 <CarouselItem
                   key={i}
-                  className="pl-3 md:pl-4 basis-[85%] md:basis-[45%] lg:basis-[35%] transition-all duration-300"
+                  className="basis-[82%] sm:basis-[68%] md:basis-[45%] lg:basis-[35%] transition-all duration-300"
                 >
                   <div
                     className={`bg-white rounded-[20px] transition-all duration-300 p-6 md:p-10 h-full flex flex-col ${
-                      isActive ? "scale-[1.02] opacity-100 shadow-lg" : "scale-95 opacity-80"
+                      isActive
+                        ? "opacity-100 shadow-lg md:scale-[1.02]"
+                        : "opacity-90 md:scale-95"
                     }`}
                   >
                     <div className=" flex items-center gap-3">
