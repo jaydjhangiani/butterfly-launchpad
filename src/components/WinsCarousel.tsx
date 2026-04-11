@@ -102,7 +102,7 @@ const WinsCarousel = () => {
                   className="pl-3 md:pl-4 basis-[85%] md:basis-[45%] lg:basis-[35%] transition-all duration-300"
                 >
                   <div
-                    className={`bg-white rounded-[20px] transition-all duration-300 p-10 h-full flex flex-col ${
+                    className={`bg-white rounded-[20px] transition-all duration-300 p-6 md:p-10 h-full flex flex-col ${
                       isActive ? "scale-105 opacity-100" : "scale-95 opacity-60"
                     }`}
                   >
