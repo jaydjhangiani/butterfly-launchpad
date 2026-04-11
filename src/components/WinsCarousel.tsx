@@ -122,11 +122,11 @@ const WinsCarousel = () => {
                       </div>
                     </div>
 
-                    <p className="text-sm text-foreground/75  pt-8  italic leading-relaxed flex-1 mb-5">
+                    <p className="text-sm text-foreground/75 pt-5 md:pt-8 italic leading-relaxed flex-1 mb-4 md:mb-5">
                       {win.quote}
                     </p>
 
-                    <div className="mt-3">
+                    <div className="mt-2 md:mt-3">
                       <span className="text-xs font-medium text-[#4a9ea0] bg-[#9cd7d8]/20 px-3 py-1 rounded-full inline-block">
                         {win.badge}
                       </span>
@@ -136,8 +136,8 @@ const WinsCarousel = () => {
               );
             })}
           </CarouselContent>
-          <CarouselPrevious className="bg-white/90 text-[#5aafb1] border-white hover:bg-white -left-4 md:-left-6" />
-          <CarouselNext className="bg-white/90 text-[#5aafb1] border-white hover:bg-white -right-4 md:-right-6" />
+          <CarouselPrevious className="bg-white/90 text-[#5aafb1] border-white hover:bg-white -left-2 md:-left-6 hidden md:flex" />
+          <CarouselNext className="bg-white/90 text-[#5aafb1] border-white hover:bg-white -right-2 md:-right-6 hidden md:flex" />
         </Carousel>
       </div>
     </section>
