@@ -1,5 +1,4 @@
 import { Quote } from "lucide-react";
-import Autoplay from "embla-carousel-autoplay";
 import { useState, useEffect } from "react";
 import { type CarouselApi } from "@/components/ui/carousel";
 import {
@@ -55,17 +54,15 @@ const WinsCarousel = () => {
   useEffect(() => {
     if (!api) return;
 
-    const handleSelect = () => {
-      setSelectedIndex(api.selectedScrollSnap());
-    };
+    const onSelect = () => setSelectedIndex(api.selectedScrollSnap());
 
-    handleSelect();
-    api.on("select", handleSelect);
-    api.on("reInit", handleSelect);
+    onSelect();
+    api.on("select", onSelect);
+    api.on("reInit", onSelect);
 
     return () => {
-      api.off("select", handleSelect);
-      api.off("reInit", handleSelect);
+      api.off("select", onSelect);
+      api.off("reInit", onSelect);
     };
   }, [api]);
 
@@ -80,26 +77,18 @@ const WinsCarousel = () => {
           What People Say
         </p>
         <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white text-center mb-8 md:mb-10">
-          Wins from the people
-          <br />
-          <em>I've had the privilege of mentoring</em>
+          Macro wins from micro sessions
+          {/* <br />
+          <em>I've had the privilege of mentoring</em> */}
         </h2>
 
         <Carousel
           setApi={setApi}
           opts={{
             align: "center",
-            loop: true,
+            loop: false,
             slidesToScroll: 1,
-            dragFree: false,
           }}
-          plugins={[
-            Autoplay({
-              delay: 4000,
-              stopOnInteraction: true,
-              stopOnMouseEnter: true,
-            }),
-          ]}
           className="w-full"
         >
           <CarouselContent>
@@ -108,13 +97,13 @@ const WinsCarousel = () => {
               return (
                 <CarouselItem
                   key={i}
-                  className="basis-[82%] sm:basis-[68%] md:basis-[45%] lg:basis-[35%] transition-all duration-300"
+                  className="basis-[82%] sm:basis-[68%] md:basis-[45%] lg:basis-[35%]"
                 >
                   <div
-                    className={`bg-white rounded-[20px] transition-all duration-300 p-6 md:p-10 h-full flex flex-col ${
+                    className={`bg-white rounded-[20px] transition-all duration-500 p-6 md:p-8 h-full flex flex-col relative ${
                       isActive
-                        ? "opacity-100 shadow-lg md:scale-[1.02]"
-                        : "opacity-90 md:scale-95"
+                        ? "scale-110 shadow-2xl z-10"
+                        : "scale-90 shadow-sm opacity-60 z-0"
                     }`}
                   >
                     <div className=" flex items-center gap-3">
