@@ -4,6 +4,7 @@ import ProgramCard from "@/components/ProgramCard";
 import PrePaymentDialog from "@/components/PrePaymentDialog";
 import RetainerSelectorDialog from "@/components/RetainerSelectorDialog";
 import TestimonialSlider from "@/components/TestimonialSlider";
+import { Button } from "@/components/ui/button";
 
 const heroBg = "/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg";
 
@@ -120,12 +121,13 @@ const PrivateCoaching = () => {
                 Choose your preferred retainer format in the next step and then
                 continue to the same contact capture flow.
               </p>
-              <button
+              <Button
                 onClick={() => setRetainerOpen(true)}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                size="lg"
+                className="rounded-full font-semibold"
               >
                 Start now
-              </button>
+              </Button>
             </div>
           </div>
         </div>
@@ -176,12 +178,13 @@ const PrivateCoaching = () => {
             <p className="text-xs text-muted-foreground italic mt-2">
               60-minute focused session · next-step details sent after you book
             </p>
-            <button
+              <Button
               onClick={() => openDialog("Stand-alone Power Hour")}
-              className="mt-4 inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity shadow-md cursor-pointer"
+                size="lg"
+                className="mt-4 rounded-full font-semibold"
             >
               Book My Power Hour →
-            </button>
+              </Button>
           </div>
         </div>
       </section>

@@ -5,6 +5,7 @@ import WinsCarousel from "@/components/WinsCarousel";
 import PageShell from "@/components/PageShell";
 import DiscoveryCallDialog from "@/components/DiscoveryCallDialog";
 import coachPortrait from "@/assets/coach-portrait.jpg";
+import { Button } from "@/components/ui/button";
 
 const heroBg = "/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg";
 
@@ -46,12 +47,13 @@ const Index = () => {
             <p className="mb-8 max-w-xl text-base leading-relaxed text-muted-foreground md:max-w-none md:text-lg">
               Executive and career coaching for leaders ready to lead with greater skill, presence, and peace of mind.
             </p>
-            <button
+            <Button
               onClick={() => setDiscoveryOpen(true)}
-              className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+              size="lg"
+              className="rounded-full font-semibold"
             >
               Book your discovery call
-            </button>
+            </Button>
           </header>
         </div>
       </section>
