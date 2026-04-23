@@ -85,8 +85,8 @@ const WinsCarousel = () => {
             align: "center",
             loop: false,
             slidesToScroll: 1,
-            startIndex: 2,
-            containScroll: false,
+            startIndex: 1,
+            containScroll: "trimSnaps",
           }}
           className="w-full py-6"
         >
@@ -96,7 +96,7 @@ const WinsCarousel = () => {
               return (
                 <CarouselItem
                   key={i}
-                  className="basis-[82%] sm:basis-[68%] md:basis-[45%] lg:basis-[35%]"
+                  className="basis-[88%] sm:basis-[68%] md:basis-[45%] lg:basis-[35%]"
                 >
                   <div
                     className={`bg-white rounded-[20px] transition-all duration-500 p-6 md:p-8 h-full flex flex-col relative ${

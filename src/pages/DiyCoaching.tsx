@@ -70,10 +70,9 @@ const DiyCoaching = () => {
             personalised clarity framework, a structured way forward, and
             built-in community accountability to help you move with intention.
           </p>
-          <div className="mt-6 inline-flex items-center gap-3 bg-card border border-border rounded-full px-5 py-2 shadow-sm">
-            <span className="text-sm text-muted-foreground">One-time investment</span>
-            <span className="text-sm font-bold text-primary">INR 7,700 / USD 90</span>
-          </div>
+          <p className="mt-6 inline-flex items-center gap-3 bg-card border border-border rounded-full px-5 py-2 shadow-sm text-sm text-muted-foreground">
+            This is currently under construction. Coming soon!
+          </p>
         </div>
       </section>
 
