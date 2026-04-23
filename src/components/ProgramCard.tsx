@@ -5,8 +5,6 @@ interface ProgramCardProps {
   emoji: string;
   title: string;
   duration: string;
-  priceInr: string;
-  priceUsd: string;
   format: string;
   features: ReactNode[];
   onCta: () => void;
@@ -17,8 +15,6 @@ const ProgramCard = ({
   emoji,
   title,
   duration,
-  priceInr,
-  priceUsd,
   format,
   features,
   onCta,
@@ -38,12 +34,7 @@ const ProgramCard = ({
         <p className="text-sm text-primary font-semibold mt-1">{duration}</p>
       </div>
 
-      <div className="text-center mb-5 pb-4 border-b border-border">
-        <p className="text-2xl font-bold text-foreground">{priceInr}</p>
-        <p className="text-sm text-muted-foreground">{priceUsd}</p>
-      </div>
-
-      <p className="text-sm text-muted-foreground italic text-center mb-4">
+      <p className="text-sm text-muted-foreground italic text-center mb-5 pb-4 border-b border-border">
         {format}
       </p>
 
@@ -66,7 +57,7 @@ const ProgramCard = ({
         className="w-full font-semibold rounded-full"
         size="lg"
       >
-        Buy Now
+        Join Now
       </Button>
     </div>
   );
