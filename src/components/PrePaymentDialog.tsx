@@ -17,6 +17,7 @@ interface PrePaymentDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   packageName: string;
+  submitLabel?: string;
 }
 
 const timeOptions = ["Morning", "Afternoon", "Evening"] as const;
@@ -25,6 +26,7 @@ const PrePaymentDialog = ({
   open,
   onOpenChange,
   packageName,
+  submitLabel = "Continue to Payment",
 }: PrePaymentDialogProps) => {
   const [dayPref, setDayPref] = useState("either");
   const [timePrefs, setTimePrefs] = useState<string[]>([]);
@@ -161,7 +163,7 @@ const PrePaymentDialog = ({
             className="w-full font-semibold"
             size="lg"
           >
-            Continue to Payment
+            {submitLabel}
           </Button>
         </form>
       </DialogContent>
