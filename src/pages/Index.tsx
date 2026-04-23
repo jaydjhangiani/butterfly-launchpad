@@ -1,9 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import LeadCaptureForm from "@/components/LeadCaptureForm";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import WinsCarousel from "@/components/WinsCarousel";
 import PageShell from "@/components/PageShell";
-import butterflyGreen from "@/assets/butterfly-green.png";
+import DiscoveryCallDialog from "@/components/DiscoveryCallDialog";
+import coachPortrait from "@/assets/coach-portrait.jpg";
 
 const heroBg = "/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg";
 
@@ -15,160 +16,104 @@ const sectionBg = {
 };
 
 const Index = () => {
+  const [discoveryOpen, setDiscoveryOpen] = useState(false);
+
   return (
     <PageShell>
-      {/* Hero + Form section with background */}
-      <div
+      <section
         className="relative z-10 mx-[15px] md:mx-[25px] mt-4"
         style={sectionBg}
       >
-        {/* Hero Section */}
-        <header className="px-6 pt-8 pb-10 md:pt-14 md:pb-14 max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-            Ready to invest in yourself?
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            1-on-1 coaching with me will help you{" "}
-            <strong className="text-foreground">find clarity</strong> on{" "}
-            <strong className="text-foreground">what you want</strong> (in your
-            career and in life), and then get further clear on{" "}
-            <strong className="text-foreground">how to get there</strong> with a
-            concrete action plan and tools to{" "}
-            <strong className="text-foreground">stay accountable</strong> to
-            that plan.
-          </p>
-        </header>
-
-        {/* Lead Capture Section */}
-        <main className="px-6 pb-16 max-w-5xl mx-auto">
-          <div className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden">
-            <div className="grid md:grid-cols-2">
-              {/* Left: Persuasive text + butterfly */}
-              <div className="p-8 md:p-10 flex flex-col justify-center relative py-[20px] pt-[32px]">
-                <img
-                  src={butterflyGreen}
-                  alt="Butterfly"
-                  className="md:w-48 md:h-48 sm:w-32 sm:h-32 mx-auto mb-6  md:block"
-                />
-                <div className="space-y-3 text-muted-foreground">
-                  <p className="text-foreground font-semibold text-sm mb-2">
-                    What you will get:
-                  </p>
-                  <p className="text-sm flex items-start gap-2">
-                    <span className="text-primary mt-0.5">✓</span>
-                    Clarity on your goal and the precise path to reach it
-                  </p>
-                  <p className="text-sm flex items-start gap-2">
-                    <span className="text-primary mt-0.5">✓</span>
-                    Mindset shifts and confidence to take brave action
-                  </p>
-                  <p className="text-sm flex items-start gap-2">
-                    <span className="text-primary mt-0.5">✓</span>A tailored,
-                    actionable plan with concrete milestones
-                  </p>
-                  <p className="text-sm flex items-start gap-2">
-                    <span className="text-primary mt-0.5">✓</span>
-                    An accountability framework to keep you moving, even on
-                    tough days
-                  </p>
-                  <p className="text-foreground font-semibold text-sm">
-                    Let's have a 10-minute chat to understand what you need and
-                    find you the package that will work for you!
-                  </p>
-                  <p className="text-sm">
-                    Need another push into the beautiful waters?{" "}
-                    <strong className="text-primary">
-                      Read the testimonials below
-                    </strong>
-                  </p>
-                </div>
-              </div>
-
-              {/* Right: Form */}
-              <div className="p-8 md:p-10 bg-primary-foreground px-[32px] py-[20px] pb-[32px] pt-[10px]">
-                <LeadCaptureForm />
-              </div>
-            </div>
+        <div className="grid items-center gap-8 px-6 py-10 md:grid-cols-2 md:px-10 md:py-14">
+          <div>
+            <img
+              src={coachPortrait}
+              alt="Portrait of the coach"
+              className="w-full rounded-lg border border-border object-cover shadow-md"
+            />
           </div>
-        </main>
-      </div>
 
-      {/* Testimonials */}
+          <header className="text-center md:text-left">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
+              Leadership, executive and career coaching
+            </p>
+            <h1 className="mb-4 text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-6xl">
+              Procrastination ends here:
+            </h1>
+            <p className="mb-4 text-xl text-foreground md:text-2xl">
+              I help women create a career with confidence, clarity, and alignment.
+            </p>
+            <p className="mb-8 max-w-xl text-base leading-relaxed text-muted-foreground md:max-w-none md:text-lg">
+              Executive and career coaching for leaders ready to lead with greater skill, presence, and peace of mind.
+            </p>
+            <button
+              onClick={() => setDiscoveryOpen(true)}
+              className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              Book your discovery call
+            </button>
+          </header>
+        </div>
+      </section>
+
+      <DiscoveryCallDialog open={discoveryOpen} onOpenChange={setDiscoveryOpen} />
+
       <TestimonialSlider />
 
-
-      {/* Three teaser cards linking to dedicated pages */}
       <section
         className="relative z-10 mx-[15px] md:mx-[25px] my-6"
         style={sectionBg}
       >
-        <div className="px-4 md:px-8 py-12 md:py-16 max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-2">
-              Choose Your Path
+        <div className="mx-auto max-w-7xl px-4 py-12 md:px-8 md:py-16">
+          <div className="mx-auto mb-10 max-w-2xl text-center">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-primary">
+              Feel ready to begin?
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            <h2 className="text-3xl font-bold text-foreground md:text-4xl">
               Three ways we can work together
             </h2>
-            <p className="text-muted-foreground mt-3">
-              Whether you want hands-on private coaching, a self-guided
-              roadmap, or a workshop for your company — there's a path for you.
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Private Coaching */}
+          <div className="grid gap-6 md:grid-cols-3">
             <Link
               to="/private-coaching"
-              className="group bg-card rounded-2xl p-6 md:p-8 shadow-md border border-border hover:border-primary hover:shadow-lg transition-all flex flex-col"
+              className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-md transition-all hover:border-primary hover:shadow-lg md:p-8"
             >
-              <span className="text-4xl mb-3">🦋</span>
-              <h3 className="text-xl font-bold text-foreground mb-2">
-                Private Coaching
-              </h3>
-              <p className="text-sm text-muted-foreground mb-4 flex-1">
-                1-on-1 programs for working moms, solopreneurs, and corporate
-                women — plus retainer support and stand-alone Power Hours.
+              <span className="mb-3 text-4xl">🦋</span>
+              <h3 className="mb-2 text-xl font-bold text-foreground">Private Coaching</h3>
+              <p className="mb-4 flex-1 text-sm text-muted-foreground">
+                1-on-1 coaching designed to turn your unique goals into measurable results.
               </p>
               <span className="text-sm font-semibold text-primary group-hover:underline">
                 Explore programs →
               </span>
             </Link>
 
-            {/* DIY Coaching */}
             <Link
               to="/diy-coaching"
-              className="group bg-card rounded-2xl p-6 md:p-8 shadow-md border border-border hover:border-primary hover:shadow-lg transition-all flex flex-col"
+              className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-md transition-all hover:border-primary hover:shadow-lg md:p-8"
             >
-              <span className="text-4xl mb-3">🧭</span>
-              <h3 className="text-xl font-bold text-foreground mb-2">
-                DIY Coaching · OwnYourNext
-              </h3>
-              <p className="text-sm text-muted-foreground mb-4 flex-1">
-                Take the free Clarity Compass Quiz, then get your personalised
-                roadmap with built-in community accountability.
+              <span className="mb-3 text-4xl">🧭</span>
+              <h3 className="mb-2 text-xl font-bold text-foreground">DIY Coaching</h3>
+              <p className="mb-4 flex-1 text-sm text-muted-foreground">
+                Not sure whether to grow where you are, pivot, or launch something new? This DIY kit gives you clarity and a built-in action plan to get moving.
               </p>
               <span className="text-sm font-semibold text-primary group-hover:underline">
-                Take the free quiz →
+                Start with the free quiz →
               </span>
             </Link>
 
-            {/* Corporate */}
             <Link
               to="/corporate"
-              className="group bg-card rounded-2xl p-6 md:p-8 shadow-md border border-border hover:border-primary hover:shadow-lg transition-all flex flex-col"
+              className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-md transition-all hover:border-primary hover:shadow-lg md:p-8"
             >
-              <span className="text-4xl mb-3">🏢</span>
-              <h3 className="text-xl font-bold text-foreground mb-2">
-                Corporate Programs
-              </h3>
-              <p className="text-sm text-muted-foreground mb-4 flex-1">
-                Workshops and webinars for new moms, managers of returning
-                moms, and women in corporate. Trusted by Flipkart, Kantar,
-                Swiggy.
+              <span className="mb-3 text-4xl">🏢</span>
+              <h3 className="mb-2 text-xl font-bold text-foreground">Corporate Programs</h3>
+              <p className="mb-4 flex-1 text-sm text-muted-foreground">
+                Is your company committed to advancing the growth of the women on your team? We curate tailored workshops that fit your priorities.
               </p>
               <span className="text-sm font-semibold text-primary group-hover:underline">
-                See workshops →
+                Explore workshops →
               </span>
             </Link>
           </div>

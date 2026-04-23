@@ -1,14 +1,15 @@
 import { useState } from "react";
 import PageShell from "@/components/PageShell";
 import ProgramCard from "@/components/ProgramCard";
-import PriceCard from "@/components/PriceCard";
 import PrePaymentDialog from "@/components/PrePaymentDialog";
+import RetainerSelectorDialog from "@/components/RetainerSelectorDialog";
 import TestimonialSlider from "@/components/TestimonialSlider";
 
 const heroBg = "/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg";
 
 const PrivateCoaching = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [retainerOpen, setRetainerOpen] = useState(false);
   const [activePackage, setActivePackage] = useState("");
 
   const openDialog = (pkg: string) => {
@@ -48,11 +49,9 @@ const PrivateCoaching = () => {
             emoji="👩‍👧"
             title="Working Moms"
             duration="7-week program"
-            priceInr="INR 33,250"
-            priceUsd="USD 360"
             format="60-min private video calls, once a week for 7 weeks (+ pre-work handbook)"
             features={[
-              "Redefine your 2–5 year life plan: clarify how career fits your evolving identity as a mom, partner, and professional.",
+              "Redefine your 2–5 year life plan: clarify how career fits your evolving identity as a mom.",
               "Identify gaps now: is the block flex, purpose, or something else, and what's really missing?",
               "Build a concrete 90-day bridge: exact steps, milestones, and quick wins.",
               "Install an accountability system: weekly check-ins, progress trackers, built-in support.",
@@ -65,11 +64,9 @@ const PrivateCoaching = () => {
             emoji="💼"
             title="Female Solopreneurs"
             duration="5-week program"
-            priceInr="INR 23,750"
-            priceUsd="USD 260"
             format="60-min private video calls, once a week for 5 weeks (+ pre-work handbook)"
             features={[
-              "Define crystal-clear goals for your solo business.",
+              "Define crystal-clear goals for your business.",
               "Assess the current reality and identify the gaps blocking growth.",
               "Build a concrete 90-day action plan to bridge every gap.",
               "Install a rigorous accountability system to ensure execution.",
@@ -81,8 +78,6 @@ const PrivateCoaching = () => {
             emoji="💃"
             title="Corporate Girlies"
             duration="5-week program"
-            priceInr="INR 23,750"
-            priceUsd="USD 260"
             format="60-min private video calls, once a week for 5 weeks (+ pre-work handbook)"
             features={[
               "Assess your current job reality and growth opportunities to define your path (promotion, role change, or pivot).",
@@ -106,66 +101,32 @@ const PrivateCoaching = () => {
       >
         <div className="px-4 md:px-8 py-12 md:py-16 max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-2">
-              Already on your path?
-            </p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Retainer Private Coaching
             </h2>
             <p className="text-muted-foreground text-base md:text-lg">
-              You are already on the road of your choice with clarity, but no
-              path comes without its share of bumps along the way. A private
-              coach ensures you don't have to deal with them alone — and that
-              you don't ever stop moving ahead. Think of it for your career,
-              similar to the support of a gym trainer for your fitness.
+              Think of retainer private coaching as a personal trainer for your
+              career and life goals — navigating obstacles and driving steady
+              progress.
             </p>
             <p className="text-sm text-muted-foreground italic mt-3">
-              Sessions are twice a month and can be purchased in any of the
-              following formats:
+              Sessions are twice a month.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            <PriceCard
-              emoji="📅"
-              title="Monthly"
-              priceInr="INR 10,500"
-              priceUsd="USD 125"
-              pricePeriod="per month"
-              features={["2 × 60-minute sessions"]}
-              onCta={() => openDialog("Retainer — Monthly plan")}
-            />
-            <PriceCard
-              emoji="📆"
-              title="Quarterly"
-              priceInr="INR 28,500"
-              priceUsd="USD 320"
-              pricePeriod="per quarter"
-              features={["6 × 60-minute sessions", "Save vs monthly"]}
-              onCta={() => openDialog("Retainer — Quarterly plan")}
-            />
-            <PriceCard
-              emoji="🗓️"
-              title="Half-year"
-              priceInr="INR 55,500"
-              priceUsd="USD 600"
-              pricePeriod="for six months"
-              features={["12 × 60-minute sessions", "Best for steady growth"]}
-              onCta={() => openDialog("Retainer — Half-year plan")}
-              highlight
-            />
-            <PriceCard
-              emoji="🌟"
-              title="Annual"
-              priceInr="INR 1,08,000"
-              priceUsd="USD 1170"
-              pricePeriod="per year"
-              features={[
-                "24 × 60-minute sessions",
-                "Best value — full year of support",
-              ]}
-              onCta={() => openDialog("Retainer — Annual plan")}
-            />
+          <div className="max-w-md mx-auto">
+            <div className="bg-card rounded-2xl border border-border shadow-md p-6 text-center space-y-4">
+              <p className="text-sm text-muted-foreground">
+                Choose your preferred retainer format in the next step and then
+                continue to the same contact capture flow.
+              </p>
+              <button
+                onClick={() => setRetainerOpen(true)}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                Start now
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -212,10 +173,8 @@ const PrivateCoaching = () => {
             situation.
           </p>
           <div className="bg-card border border-border rounded-2xl p-6 max-w-md mx-auto shadow-md">
-            <p className="text-3xl font-bold text-primary">INR 5,500</p>
-            <p className="text-sm text-muted-foreground">USD 60</p>
             <p className="text-xs text-muted-foreground italic mt-2">
-              60-minute focused session · scheduling sent after payment
+              60-minute focused session · next-step details sent after you book
             </p>
             <button
               onClick={() => openDialog("Stand-alone Power Hour")}
@@ -227,10 +186,20 @@ const PrivateCoaching = () => {
         </div>
       </section>
 
+      <RetainerSelectorDialog
+        open={retainerOpen}
+        onOpenChange={setRetainerOpen}
+        onContinue={(packageName) => {
+          setRetainerOpen(false);
+          openDialog(packageName);
+        }}
+      />
+
       <PrePaymentDialog
         open={dialogOpen}
         onOpenChange={setDialogOpen}
         packageName={activePackage}
+        submitLabel="Continue"
       />
     </PageShell>
   );

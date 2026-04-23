@@ -5,6 +5,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Progress } from "@/components/ui/progress";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { toast } from "sonner";
 
 type Choice = "A" | "B" | "C";
@@ -321,6 +328,8 @@ const OwnYourNextQuiz = ({ onPurchaseClick }: OwnYourNextQuizProps) => {
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Choice[]>([]);
   const [showResult, setShowResult] = useState(false);
+  const [interestOpen, setInterestOpen] = useState(false);
+  const [interestEmail, setInterestEmail] = useState("");
 
   const handleSelect = (choice: Choice) => {
     const next = [...answers, choice];
@@ -338,6 +347,21 @@ const OwnYourNextQuiz = ({ onPurchaseClick }: OwnYourNextQuizProps) => {
     setCurrent(0);
     setAnswers([]);
     setShowResult(false);
+    setInterestOpen(false);
+    setInterestEmail("");
+  };
+
+  const handleInterestSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(interestEmail.trim())) return;
+
+    toast.success("Thanks for your interest!", {
+      description: "We'll reach out as soon as OwnYourNext is ready.",
+      duration: 6000,
+    });
+
+    setInterestEmail("");
+    setInterestOpen(false);
   };
 
   // ---- INTRO ----
@@ -474,10 +498,10 @@ const OwnYourNextQuiz = ({ onPurchaseClick }: OwnYourNextQuizProps) => {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button
               size="lg"
-              onClick={onPurchaseClick}
+              onClick={() => setInterestOpen(true)}
               className="font-semibold rounded-full"
             >
-              🧭 Find My Path → Get OwnYourNext
+              Get OwnYourNext
             </Button>
             <Button
               variant="outline"
@@ -497,6 +521,33 @@ const OwnYourNextQuiz = ({ onPurchaseClick }: OwnYourNextQuizProps) => {
             Retake the quiz
           </button>
         </div>
+
+        <Dialog open={interestOpen} onOpenChange={setInterestOpen}>
+          <DialogContent className="max-w-md">
+            <DialogHeader>
+              <DialogTitle>Get OwnYourNext</DialogTitle>
+              <DialogDescription>
+                Thank you for your interest. Drop your email so we can reach out when it's ready!
+              </DialogDescription>
+            </DialogHeader>
+            <form onSubmit={handleInterestSubmit} className="space-y-4">
+              <div className="space-y-1.5">
+                <Label htmlFor="oyn-interest-email">Email</Label>
+                <Input
+                  id="oyn-interest-email"
+                  type="email"
+                  value={interestEmail}
+                  onChange={(e) => setInterestEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+              <Button type="submit" size="lg" className="w-full font-semibold">
+                Notify me
+              </Button>
+            </form>
+          </DialogContent>
+        </Dialog>
       </div>
     );
   }

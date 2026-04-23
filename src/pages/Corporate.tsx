@@ -111,7 +111,7 @@ const Corporate = () => {
             If yes, I'm here to help further our common mission.
           </p>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-            I have successfully curated sessions for female employees, new
+            I have successfully led sessions for female employees, new
             moms, and expecting parents at companies such as{" "}
             <strong className="text-foreground">Flipkart</strong>,{" "}
             <strong className="text-foreground">Kantar</strong>, and{" "}
@@ -153,6 +153,7 @@ const Corporate = () => {
               "Assessing your current role fit against those expectations",
               "Identifying gaps (flexibility, purpose, systems) and practical ways to bridge them",
               "Mindset shifts to support lasting growth and a reinvention of your professional identity",
+              "For an audience of 50 or below",
             ]}
             pricing={[
               { label: "Virtual", price: "INR 25,000" },
@@ -163,7 +164,7 @@ const Corporate = () => {
           <WorkshopCard
             emoji="👥"
             number="02"
-            duration="90-min workshop"
+            duration="75-min workshop"
             title="How to Help New Moms Transition Successfully"
             objective="Equip managers with practical tools to support returning moms, protect retention, and accelerate performance."
             outcomes="Key outcomes: improved retention of returning moms, clearer promotion paths, and stronger team alignment."
@@ -172,11 +173,12 @@ const Corporate = () => {
               "Strategies to implement and communicate transition-support policies",
               "Milestone-based conversation templates to ensure alignment",
               "Sponsorship and visibility: how to advocate for and elevate returning moms",
+              "For an audience of 50 or below",
             ]}
             pricing={[
-              { label: "Virtual", price: "INR 34,000" },
-              { label: "In-person (Mumbai)", price: "INR 43,000" },
-              { label: "In-person (outside Mumbai)", price: "INR 43,000 + travel" },
+              { label: "Virtual", price: "INR 25,000" },
+              { label: "In-person (Mumbai)", price: "INR 34,000" },
+              { label: "In-person (outside Mumbai)", price: "INR 34,000 + travel" },
             ]}
           />
         </div>
@@ -203,6 +205,7 @@ const Corporate = () => {
               "A quick self-audit to map your current visibility and gaps",
               "Strategies to overcome fears and biases around visibility",
               "Hands-on practice: storytelling for impact, concise elevator pitches, confident meeting presence, and stakeholder mapping",
+              "For an audience of 50 or below",
             ]}
             pricing={[
               { label: "Virtual", price: "INR 25,000" },
@@ -245,11 +248,6 @@ const Corporate = () => {
                 <p className="text-muted-foreground mb-3">
                   Which makes their requirements unique too. Let's chat to
                   customise the package that works for you.
-                </p>
-                <p className="text-sm text-muted-foreground italic">
-                  After you submit: thank you for thinking of me — I'm excited
-                  to support you and your teams. Please expect a call and email
-                  from me within 24 hours of your form submission.
                 </p>
               </div>
               <div className="p-8 md:p-10 bg-primary-foreground border-l border-border">
