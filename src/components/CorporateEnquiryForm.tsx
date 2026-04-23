@@ -27,7 +27,7 @@ const CorporateEnquiryForm = () => {
 
     toast.success("Thank you for thinking of me!", {
       description:
-        "I'm excited to support you and your teams. Please expect a call and email from me within 24 hours of your form submission.",
+        "After you submit: thank you for thinking of me — I'm excited to support you and your teams. Please expect a call and email from me within 24 hours of your form submission.",
       duration: 7000,
     });
 
