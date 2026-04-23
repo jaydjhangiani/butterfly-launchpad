@@ -68,17 +68,16 @@ const WinsCarousel = forwardRef<HTMLElement>((_, ref) => {
   return (
     <section
       ref={ref}
-      className="py-12 md:py-16 px-4 md:px-6 mx-[12px] md:mx-[25px] my-[25px] bg-gradient-to-br from-[#9cd7d8] to-[#6dbfc1] relative overflow-hidden rounded-xl"
+      className="relative overflow-hidden rounded-xl bg-secondary py-12 md:py-16 px-4 md:px-6 mx-[12px] md:mx-[25px] my-[25px]"
     >
-      {/* Decorative background circles */}
-      <div className="absolute top-0 right-0 w-72 h-72 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-52 h-52 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/4 pointer-events-none" />
+      <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-card/20 -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 h-52 w-52 rounded-full bg-card/20 translate-y-1/2 -translate-x-1/4 pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative z-10">
-        <p className="text-xs uppercase tracking-widest font-semibold mb-2 text-center text-white/80">
+        <p className="text-xs uppercase tracking-widest font-semibold mb-2 text-center text-muted-foreground">
           What People Say
         </p>
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white text-center mb-8 md:mb-10">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground text-center mb-8 md:mb-10">
           Macro wins from micro sessions
         </h2>
 
@@ -109,8 +108,8 @@ const WinsCarousel = forwardRef<HTMLElement>((_, ref) => {
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#9cd7d8] to-[#5aafb1] flex items-center justify-center shrink-0">
-                        <span className="text-white text-xs font-bold">
+                      <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center shrink-0">
+                        <span className="text-primary-foreground text-xs font-bold">
                           {win.profile[0]}
                         </span>
                       </div>
@@ -129,7 +128,7 @@ const WinsCarousel = forwardRef<HTMLElement>((_, ref) => {
                     </p>
 
                     <div className="mt-2 md:mt-3">
-                      <span className="text-xs font-medium text-[#4a9ea0] bg-[#9cd7d8]/20 px-3 py-1 rounded-full inline-block">
+                       <span className="inline-block rounded-full bg-secondary px-3 py-1 text-xs font-medium text-primary">
                         {win.badge}
                       </span>
                     </div>
@@ -139,10 +138,10 @@ const WinsCarousel = forwardRef<HTMLElement>((_, ref) => {
             })}
           </CarouselContent>
           {selectedIndex > 0 && (
-            <CarouselPrevious className="bg-white/90 text-[#5aafb1] border-white hover:bg-white hover:text-[#5aafb1] -left-2 md:-left-6 hidden md:flex" />
+            <CarouselPrevious className="-left-2 hidden border-border bg-card text-primary hover:bg-card hover:text-primary md:flex md:-left-6" />
           )}
           {selectedIndex < wins.length - 1 && (
-            <CarouselNext className="bg-white/90 text-[#5aafb1] border-white hover:bg-white hover:text-[#5aafb1] -right-2 md:-right-6 hidden md:flex" />
+            <CarouselNext className="-right-2 hidden border-border bg-card text-primary hover:bg-card hover:text-primary md:flex md:-right-6" />
           )}
         </Carousel>
       </div>
