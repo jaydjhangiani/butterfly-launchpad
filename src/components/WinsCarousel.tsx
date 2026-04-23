@@ -1,4 +1,3 @@
-import { Quote } from "lucide-react";
 import { useState, useEffect } from "react";
 import { type CarouselApi } from "@/components/ui/carousel";
 import {
@@ -49,7 +48,7 @@ const wins = [
 
 const WinsCarousel = () => {
   const [api, setApi] = useState<CarouselApi>();
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(2);
 
   useEffect(() => {
     if (!api) return;
@@ -78,8 +77,6 @@ const WinsCarousel = () => {
         </p>
         <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white text-center mb-8 md:mb-10">
           Macro wins from micro sessions
-          {/* <br />
-          <em>I've had the privilege of mentoring</em> */}
         </h2>
 
         <Carousel
@@ -88,8 +85,10 @@ const WinsCarousel = () => {
             align: "center",
             loop: false,
             slidesToScroll: 1,
+            startIndex: 2,
+            containScroll: false,
           }}
-          className="w-full"
+          className="w-full py-6"
         >
           <CarouselContent>
             {wins.map((win, i) => {
@@ -102,11 +101,11 @@ const WinsCarousel = () => {
                   <div
                     className={`bg-white rounded-[20px] transition-all duration-500 p-6 md:p-8 h-full flex flex-col relative ${
                       isActive
-                        ? "scale-110 shadow-2xl z-10"
-                        : "scale-90 shadow-sm opacity-60 z-0"
+                        ? "scale-110 shadow-sm z-10"
+                        : "scale-90 opacity-60 z-0"
                     }`}
                   >
-                    <div className=" flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                       <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#9cd7d8] to-[#5aafb1] flex items-center justify-center shrink-0">
                         <span className="text-white text-xs font-bold">
                           {win.profile[0]}
@@ -136,8 +135,12 @@ const WinsCarousel = () => {
               );
             })}
           </CarouselContent>
-          <CarouselPrevious className="bg-white/90 text-[#5aafb1] border-white hover:bg-white -left-2 md:-left-6 hidden md:flex" />
-          <CarouselNext className="bg-white/90 text-[#5aafb1] border-white hover:bg-white -right-2 md:-right-6 hidden md:flex" />
+          {selectedIndex > 0 && (
+            <CarouselPrevious className="bg-white/90 text-[#5aafb1] border-white hover:bg-white hover:text-[#5aafb1] -left-2 md:-left-6 hidden md:flex" />
+          )}
+          {selectedIndex < wins.length - 1 && (
+            <CarouselNext className="bg-white/90 text-[#5aafb1] border-white hover:bg-white hover:text-[#5aafb1] -right-2 md:-right-6 hidden md:flex" />
+          )}
         </Carousel>
       </div>
     </section>

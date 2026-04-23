@@ -96,7 +96,6 @@ const Index = () => {
       {/* Testimonials */}
       <TestimonialSlider />
 
-      <WinsCarousel />
 
       {/* Three teaser cards linking to dedicated pages */}
       <section
@@ -175,6 +174,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <WinsCarousel />
     </PageShell>
   );
 };
