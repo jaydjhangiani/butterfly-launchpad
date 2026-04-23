@@ -88,7 +88,7 @@ const DiyCoaching = () => {
           </p>
         </div>
         <OwnYourNextQuiz
-          onPurchaseClick={() => openEmailCapture("OwnYourNext (INR 7,700 / USD 90)")}
+          onPurchaseClick={() => openEmailCapture("OwnYourNext")}
         />
       </section>
 

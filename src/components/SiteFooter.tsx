@@ -1,6 +1,11 @@
-const SiteFooter = () => {
+import { forwardRef } from "react";
+
+const SiteFooter = forwardRef<HTMLElement>((_, ref) => {
   return (
-    <footer className="relative z-10 border-t border-border py-8 px-6 text-center text-sm text-muted-foreground bg-primary-foreground">
+    <footer
+      ref={ref}
+      className="relative z-10 border-t border-border py-8 px-6 text-center text-sm text-muted-foreground bg-primary-foreground"
+    >
       <p className="font-semibold text-foreground mb-1">
         Butterfly Effect Coaching
       </p>
@@ -9,6 +14,8 @@ const SiteFooter = () => {
       </p>
     </footer>
   );
-};
+});
+
+SiteFooter.displayName = "SiteFooter";
 
 export default SiteFooter;

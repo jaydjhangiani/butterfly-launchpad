@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import { type CarouselApi } from "@/components/ui/carousel";
 import {
   Carousel,
@@ -46,7 +46,7 @@ const wins = [
   },
 ];
 
-const WinsCarousel = () => {
+const WinsCarousel = forwardRef<HTMLElement>((_, ref) => {
   const [api, setApi] = useState<CarouselApi>();
   const [selectedIndex, setSelectedIndex] = useState(2);
 
@@ -66,7 +66,10 @@ const WinsCarousel = () => {
   }, [api]);
 
   return (
-    <section className="py-12 md:py-16 px-4 md:px-6 mx-[12px] md:mx-[25px] my-[25px] bg-gradient-to-br from-[#9cd7d8] to-[#6dbfc1] relative overflow-hidden rounded-xl">
+    <section
+      ref={ref}
+      className="py-12 md:py-16 px-4 md:px-6 mx-[12px] md:mx-[25px] my-[25px] bg-gradient-to-br from-[#9cd7d8] to-[#6dbfc1] relative overflow-hidden rounded-xl"
+    >
       {/* Decorative background circles */}
       <div className="absolute top-0 right-0 w-72 h-72 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-52 h-52 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/4 pointer-events-none" />
@@ -145,6 +148,8 @@ const WinsCarousel = () => {
       </div>
     </section>
   );
-};
+});
+
+WinsCarousel.displayName = "WinsCarousel";
 
 export default WinsCarousel;
