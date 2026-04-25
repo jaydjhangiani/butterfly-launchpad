@@ -35,16 +35,16 @@ const Index = () => {
           </div>
 
           <header className="text-center md:text-left">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
               Leadership, executive and career coaching
             </p>
-            <h1 className="mb-4 text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-6xl">
+            <h1 className="mb-4 text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-6xl">
               Procrastination ends here:
             </h1>
-            <p className="mb-4 text-xl text-foreground md:text-2xl">
+            <p className="mb-4 text-xl text-foreground md:text-xl">
               I help women create a career with confidence, clarity, and alignment.
             </p>
-            <p className="mb-8 max-w-xl text-base leading-relaxed text-muted-foreground md:max-w-none md:text-lg">
+            <p className="mb-4 max-w-xl text-base leading-relaxed text-muted-foreground md:max-w-none md:text-lg">
               Executive and career coaching for leaders ready to lead with greater skill, presence, and peace of mind.
             </p>
             <Button
@@ -86,9 +86,7 @@ const Index = () => {
               <p className="mb-4 flex-1 text-sm text-muted-foreground">
                 1-on-1 coaching designed to turn your unique goals into measurable results.
               </p>
-              <span className="text-sm font-semibold text-primary group-hover:underline">
-                Explore programs →
-              </span>
+              <Button size="sm" >Explore programs</Button>
             </Link>
 
             <Link
@@ -100,9 +98,10 @@ const Index = () => {
               <p className="mb-4 flex-1 text-sm text-muted-foreground">
                 Not sure whether to grow where you are, pivot, or launch something new? This DIY kit gives you clarity and a built-in action plan to get moving.
               </p>
-              <span className="text-sm font-semibold text-primary group-hover:underline">
-                Start with the free quiz →
-              </span>
+              {/* <span className="bg-primary text-primary-foreground text-center py-1 px-2 rounded-sm text-sm font-semibold hover:bg-primary/90">
+                Start with the free quiz 
+              </span> */}
+              <Button size="sm" >Start with the free quiz</Button>
             </Link>
 
             <Link
@@ -114,9 +113,8 @@ const Index = () => {
               <p className="mb-4 flex-1 text-sm text-muted-foreground">
                 Is your company committed to advancing the growth of the women on your team? We curate tailored workshops that fit your priorities.
               </p>
-              <span className="text-sm font-semibold text-primary group-hover:underline">
-                Explore workshops →
-              </span>
+              <Button size="sm" >Explore workshops </Button>
+              
             </Link>
           </div>
         </div>
