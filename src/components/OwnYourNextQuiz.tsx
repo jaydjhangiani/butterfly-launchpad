@@ -566,7 +566,7 @@ const OwnYourNextQuiz = ({ onPurchaseClick, linkToQuizPage = false }: OwnYourNex
 
   // ---- QUESTION ----
   const q = QUESTIONS[current];
-  const progress = ((current + 1) / QUESTIONS.length) * 100;
+  const progress = (current / QUESTIONS.length) * 100;
 
   return (
     <div className="bg-card rounded-2xl shadow-lg border border-border p-6 md:p-10 max-w-3xl mx-auto">
