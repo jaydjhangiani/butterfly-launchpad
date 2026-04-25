@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import PageShell from "@/components/PageShell";
-import OwnYourNextQuiz from "@/components/OwnYourNextQuiz";
 import PriceCard from "@/components/PriceCard";
 import {
   Dialog,
@@ -76,20 +76,20 @@ const DiyCoaching = () => {
         </div>
       </section>
 
-      {/* Quiz */}
+      {/* Quiz CTA */}
       <section className="px-4 md:px-8 py-10 md:py-14">
-        <div className="text-center max-w-2xl mx-auto mb-8">
+        <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
             Start with the free quiz
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground mb-6">
             Find out which path fits where you actually are right now — Pivot,
             Launch, or Ascent.
           </p>
+          <Button asChild size="lg" className="rounded-full font-semibold">
+            <Link to="/quiz">Take the free quiz →</Link>
+          </Button>
         </div>
-        <OwnYourNextQuiz
-          onPurchaseClick={() => openEmailCapture("OwnYourNext")}
-        />
       </section>
 
       {/* Sunday Accountability */}

@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import PrivateCoaching from "./pages/PrivateCoaching";
 import DiyCoaching from "./pages/DiyCoaching";
 import Corporate from "./pages/Corporate";
+import Quiz from "./pages/Quiz";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/private-coaching" element={<PrivateCoaching />} />
           <Route path="/diy-coaching" element={<DiyCoaching />} />
           <Route path="/corporate" element={<Corporate />} />
+          <Route path="/quiz" element={<Quiz />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
