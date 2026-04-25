@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import PrivateCoaching from "./pages/PrivateCoaching";
 import DiyCoaching from "./pages/DiyCoaching";
 import Corporate from "./pages/Corporate";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/private-coaching" element={<PrivateCoaching />} />
