@@ -88,6 +88,7 @@ const DiyCoaching = () => {
           </p>
         </div>
         <OwnYourNextQuiz
+          linkToQuizPage
           onPurchaseClick={() => openEmailCapture("OwnYourNext")}
         />
       </section>
