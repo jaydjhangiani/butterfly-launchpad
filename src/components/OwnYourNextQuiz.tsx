@@ -321,9 +321,11 @@ function computeResult(answers: Choice[]): {
 
 interface OwnYourNextQuizProps {
   onPurchaseClick: () => void;
+  /** When true, the intro CTA links to the dedicated /quiz page instead of starting inline. */
+  linkToQuizPage?: boolean;
 }
 
-const OwnYourNextQuiz = ({ onPurchaseClick }: OwnYourNextQuizProps) => {
+const OwnYourNextQuiz = ({ onPurchaseClick, linkToQuizPage = false }: OwnYourNextQuizProps) => {
   const [started, setStarted] = useState(false);
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Choice[]>([]);
@@ -387,13 +389,23 @@ const OwnYourNextQuiz = ({ onPurchaseClick }: OwnYourNextQuizProps) => {
           are no wrong paths here. The more honest you are, the more useful
           your results will be.
         </p>
-        <Button
-          onClick={() => setStarted(true)}
-          size="lg"
-          className="font-semibold rounded-full px-8"
-        >
-          Start the Quiz →
-        </Button>
+        {linkToQuizPage ? (
+          <Button
+            asChild
+            size="lg"
+            className="font-semibold rounded-full px-8"
+          >
+            <Link to="/quiz">Start the Quiz →</Link>
+          </Button>
+        ) : (
+          <Button
+            onClick={() => setStarted(true)}
+            size="lg"
+            className="font-semibold rounded-full px-8"
+          >
+            Start the Quiz →
+          </Button>
+        )}
       </div>
     );
   }
