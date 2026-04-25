@@ -13,15 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-
-const heroBg = "/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg";
-
-const sectionBg = {
-  backgroundImage: `url("${heroBg}")`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
-};
+import { ArrowLeft, Clock, Compass, Sparkles } from "lucide-react";
 
 const Quiz = () => {
   const [emailDialog, setEmailDialog] = useState<{
@@ -48,39 +40,78 @@ const Quiz = () => {
 
   return (
     <PageShell>
-      {/* Hero */}
-      <section
-        className="relative z-10 mx-[15px] md:mx-[25px] mt-4"
-        style={sectionBg}
-      >
-        <div className="px-6 pt-12 pb-10 md:pt-16 md:pb-14 max-w-4xl mx-auto text-center">
-          <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-3">
-            Free Career Clarity Quiz
-          </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-3">
-            Which path fits where you are now?
-          </h1>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Answer a few quick questions to find out whether your next step is
-            Pivot, Launch, or Ascent — and what to do about it.
-          </p>
+      {/* Soft gradient hero — distinct from DIY page */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-secondary/40 via-background to-background">
+        {/* decorative blobs */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-32 -right-20 h-80 w-80 rounded-full bg-primary/10 blur-3xl"
+        />
+
+        <div className="relative px-6 pt-10 pb-6 md:pt-14 md:pb-8 max-w-3xl mx-auto">
+          {/* Back link */}
+          <Link
+            to="/diy-coaching"
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to DIY Coaching
+          </Link>
+
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card/60 backdrop-blur px-4 py-1.5 text-xs uppercase tracking-widest text-primary font-semibold mb-5">
+              <Compass className="h-3.5 w-3.5" />
+              The Clarity Compass
+            </span>
+
+            <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight mb-4">
+              Find your path in{" "}
+              <span className="relative inline-block">
+                <span className="relative z-10">3 minutes</span>
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 bottom-1 h-2 bg-primary/25 rounded-full -z-0"
+                />
+              </span>
+              .
+            </h1>
+
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
+              Six honest questions. One personalised result. Discover whether
+              your next move is{" "}
+              <strong className="text-foreground">Pivot</strong>,{" "}
+              <strong className="text-foreground">Launch</strong>, or{" "}
+              <strong className="text-foreground">Ascent</strong>.
+            </p>
+
+            {/* Mini meta-row */}
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
+              <span className="inline-flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5 text-primary" />
+                3 minute read
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <Sparkles className="h-3.5 w-3.5 text-primary" />
+                Personalised roadmap
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                100% free
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Quiz */}
-      <section className="px-4 md:px-8 py-10 md:py-14">
+      {/* Quiz body — clean, no extra background image */}
+      <section className="px-4 md:px-8 pt-4 pb-16 md:pb-20 bg-background">
         <OwnYourNextQuiz
           onPurchaseClick={() => openEmailCapture("OwnYourNext")}
         />
-
-        <div className="text-center mt-10">
-          <Link
-            to="/diy-coaching"
-            className="text-sm text-muted-foreground hover:text-primary underline-offset-4 hover:underline"
-          >
-            ← Back to DIY Coaching
-          </Link>
-        </div>
       </section>
 
       {/* Email capture dialog */}
