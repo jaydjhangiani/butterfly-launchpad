@@ -37,8 +37,12 @@ const PrivateCoaching = () => {
             Ready to invest in yourself?
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            <strong className="text-foreground">Procrastination ends here:</strong>{" "}
-            I help women create a career with confidence, clarity, and alignment.
+            {/* <strong className="text-foreground">
+              Procrastination ends here:
+            </strong>{" "} */}
+            The below packages are only indicators of the kind of work we can do
+            together. Every package (and session) is customized to your unique
+            needs.
           </p>
         </div>
       </section>
@@ -178,13 +182,13 @@ const PrivateCoaching = () => {
             <p className="text-xs text-muted-foreground italic mt-2">
               60-minute focused session · next-step details sent after you book
             </p>
-              <Button
+            <Button
               onClick={() => openDialog("Stand-alone Power Hour")}
-                size="lg"
-                className="mt-4 rounded-full font-semibold"
+              size="lg"
+              className="mt-4 rounded-full font-semibold"
             >
-              Book My Power Hour →
-              </Button>
+              Book My Power Hour
+            </Button>
           </div>
         </div>
       </section>

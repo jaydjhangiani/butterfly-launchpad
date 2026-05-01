@@ -91,8 +91,7 @@ const Quiz = () => {
             {/* Mini meta-row */}
             <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
               <span className="inline-flex items-center gap-1.5">
-                <Clock className="h-3.5 w-3.5 text-primary" />
-                3 minute read
+                <Clock className="h-3.5 w-3.5 text-primary" />3 minute read
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <Sparkles className="h-3.5 w-3.5 text-primary" />
@@ -129,7 +128,10 @@ const Quiz = () => {
           </DialogHeader>
           <form onSubmit={handleEmailSubmit} className="space-y-4">
             <div>
-              <Label htmlFor="quiz-email" className="text-foreground font-medium">
+              <Label
+                htmlFor="quiz-email"
+                className="text-foreground font-medium"
+              >
                 Email
               </Label>
               <Input
@@ -143,10 +145,11 @@ const Quiz = () => {
               />
             </div>
             <Button type="submit" className="w-full font-semibold" size="lg">
-              Continue →
+              Continue
             </Button>
             <p className="text-xs text-muted-foreground text-center">
-              Payment integration is coming soon. Submitting saves your interest.
+              Payment integration is coming soon. Submitting saves your
+              interest.
             </p>
           </form>
         </DialogContent>

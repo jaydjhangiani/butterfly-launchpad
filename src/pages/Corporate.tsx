@@ -72,22 +72,19 @@ const WorkshopCard = ({
       </ul>
     </div>
 
-    <div className="border-t border-border pt-4">
+    {/* <div className="border-t border-border pt-4">
       <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-2">
         Cost
       </p>
       <div className="space-y-1">
         {pricing.map((p) => (
-          <div
-            key={p.label}
-            className="flex justify-between text-sm gap-3"
-          >
+          <div key={p.label} className="flex justify-between text-sm gap-3">
             <span className="text-muted-foreground">{p.label}</span>
             <span className="font-semibold text-foreground">{p.price}</span>
           </div>
         ))}
       </div>
-    </div>
+    </div> */}
   </div>
 );
 
@@ -104,20 +101,19 @@ const Corporate = () => {
             For Companies
           </p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
-            Are you a company who <em>ACTUALLY</em> wants to support your
-            women?
+            Are you a company who <em>ACTUALLY</em> wants to support your women?
           </h1>
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-4">
             If yes, I'm here to help further our common mission.
           </p>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-            I have successfully led sessions for female employees, new
-            moms, and expecting parents at companies such as{" "}
+            I have successfully led sessions for female employees, new moms, and
+            expecting parents at companies such as{" "}
             <strong className="text-foreground">Flipkart</strong>,{" "}
             <strong className="text-foreground">Kantar</strong>, and{" "}
             <strong className="text-foreground">Swiggy</strong>.
           </p>
-          <div className="flex flex-wrap justify-center gap-3 mt-6">
+          {/* <div className="flex flex-wrap justify-center gap-3 mt-6">
             {["Flipkart", "Kantar", "Swiggy"].map((c) => (
               <span
                 key={c}
@@ -126,7 +122,7 @@ const Corporate = () => {
                 {c}
               </span>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -158,7 +154,10 @@ const Corporate = () => {
             pricing={[
               { label: "Virtual", price: "INR 25,000" },
               { label: "In-person (Mumbai)", price: "INR 34,000" },
-              { label: "In-person (outside Mumbai)", price: "INR 34,000 + travel" },
+              {
+                label: "In-person (outside Mumbai)",
+                price: "INR 34,000 + travel",
+              },
             ]}
           />
           <WorkshopCard
@@ -178,7 +177,10 @@ const Corporate = () => {
             pricing={[
               { label: "Virtual", price: "INR 25,000" },
               { label: "In-person (Mumbai)", price: "INR 34,000" },
-              { label: "In-person (outside Mumbai)", price: "INR 34,000 + travel" },
+              {
+                label: "In-person (outside Mumbai)",
+                price: "INR 34,000 + travel",
+              },
             ]}
           />
         </div>
@@ -210,7 +212,10 @@ const Corporate = () => {
             pricing={[
               { label: "Virtual", price: "INR 25,000" },
               { label: "In-person (Mumbai)", price: "INR 34,000" },
-              { label: "In-person (outside Mumbai)", price: "INR 34,000 + travel" },
+              {
+                label: "In-person (outside Mumbai)",
+                price: "INR 34,000 + travel",
+              },
             ]}
           />
           <div className="bg-secondary/40 rounded-2xl border border-dashed border-border p-6 md:p-8 flex flex-col justify-center text-center">
@@ -223,8 +228,8 @@ const Corporate = () => {
             </h3>
             <p className="text-sm text-muted-foreground">
               Translate workshop insights into real, measurable results with a
-              structured, weekly coaching cadence, accountability systems, and
-              a clear 90-day action plan.
+              structured, weekly coaching cadence, accountability systems, and a
+              clear 90-day action plan.
             </p>
           </div>
         </div>

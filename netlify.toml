@@ -3,7 +3,7 @@
 
 [functions]
   node_bundler = "esbuild"
-  external_node_modules = ["googleapis", "gaxios", "google-auth-library"]
+  external_node_modules = ["googleapis", "gaxios", "google-auth-library", "@neondatabase/serverless", "razorpay", "resend"]
 
 [dev]
   command = "npm run dev"

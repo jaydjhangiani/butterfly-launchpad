@@ -114,8 +114,8 @@ const DiyCoaching = () => {
             <p className="text-foreground italic">— or —</p>
             <p className="text-muted-foreground">
               Don't need the planner but would like to be part of our
-              accountability group of incredible women to retain the momentum
-              in your life?
+              accountability group of incredible women to retain the momentum in
+              your life?
             </p>
             <p className="text-foreground font-semibold text-lg">
               We've got you!
@@ -167,9 +167,7 @@ const DiyCoaching = () => {
       {/* Email capture dialog */}
       <Dialog
         open={emailDialog.open}
-        onOpenChange={(o) =>
-          setEmailDialog((s) => ({ ...s, open: o }))
-        }
+        onOpenChange={(o) => setEmailDialog((s) => ({ ...s, open: o }))}
       >
         <DialogContent className="max-w-md">
           <DialogHeader>
@@ -181,7 +179,10 @@ const DiyCoaching = () => {
           </DialogHeader>
           <form onSubmit={handleEmailSubmit} className="space-y-4">
             <div>
-              <Label htmlFor="diy-email" className="text-foreground font-medium">
+              <Label
+                htmlFor="diy-email"
+                className="text-foreground font-medium"
+              >
                 Email
               </Label>
               <Input
@@ -195,10 +196,11 @@ const DiyCoaching = () => {
               />
             </div>
             <Button type="submit" className="w-full font-semibold" size="lg">
-              Continue →
+              Continue
             </Button>
             <p className="text-xs text-muted-foreground text-center">
-              Payment integration is coming soon. Submitting saves your interest.
+              Payment integration is coming soon. Submitting saves your
+              interest.
             </p>
           </form>
         </DialogContent>

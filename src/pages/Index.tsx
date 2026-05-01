@@ -4,7 +4,7 @@ import TestimonialSlider from "@/components/TestimonialSlider";
 import WinsCarousel from "@/components/WinsCarousel";
 import PageShell from "@/components/PageShell";
 import DiscoveryCallDialog from "@/components/DiscoveryCallDialog";
-import coachPortrait from "@/assets/coach-portrait.jpg";
+import coachPortrait from "@/assets/krusha-coach.png";
 import { Button } from "@/components/ui/button";
 
 const heroBg = "/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg";
@@ -36,16 +36,17 @@ const Index = () => {
 
           <header className="text-center md:text-left">
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
-              Leadership, executive and career coaching
+              career & life coaching for women
             </p>
             <h1 className="mb-4 text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-6xl">
               Procrastination ends here:
             </h1>
             <p className="mb-4 text-xl text-foreground md:text-xl">
-              I help women create a career with confidence, clarity, and alignment.
+              I help women create a career with confidence, clarity, and
+              alignment.
             </p>
-            <p className="mb-4 max-w-xl text-base leading-relaxed text-muted-foreground md:max-w-none md:text-lg">
-              Executive and career coaching for leaders ready to lead with greater skill, presence, and peace of mind.
+            <p className="mb-4 max-w-xl text-base leading-relaxed text-muted-foreground md:max-w-none md:text-md">
+              I help you find and achieve YOUR version of ‘having it all’.
             </p>
             <Button
               onClick={() => setDiscoveryOpen(true)}
@@ -58,7 +59,10 @@ const Index = () => {
         </div>
       </section>
 
-      <DiscoveryCallDialog open={discoveryOpen} onOpenChange={setDiscoveryOpen} />
+      <DiscoveryCallDialog
+        open={discoveryOpen}
+        onOpenChange={setDiscoveryOpen}
+      />
 
       <TestimonialSlider />
 
@@ -82,11 +86,14 @@ const Index = () => {
               className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-md transition-all hover:border-primary hover:shadow-lg md:p-8"
             >
               <span className="mb-3 text-4xl">🦋</span>
-              <h3 className="mb-2 text-xl font-bold text-foreground">Private Coaching</h3>
+              <h3 className="mb-2 text-xl font-bold text-foreground">
+                Private Coaching
+              </h3>
               <p className="mb-4 flex-1 text-sm text-muted-foreground">
-                1-on-1 coaching designed to turn your unique goals into measurable results.
+                1-on-1 coaching designed to turn your unique goals into
+                measurable results.
               </p>
-              <Button size="sm" >Explore programs</Button>
+              <Button size="sm">Explore programs</Button>
             </Link>
 
             <Link
@@ -94,14 +101,18 @@ const Index = () => {
               className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-md transition-all hover:border-primary hover:shadow-lg md:p-8"
             >
               <span className="mb-3 text-4xl">🧭</span>
-              <h3 className="mb-2 text-xl font-bold text-foreground">DIY Coaching</h3>
+              <h3 className="mb-2 text-xl font-bold text-foreground">
+                DIY Coaching
+              </h3>
               <p className="mb-4 flex-1 text-sm text-muted-foreground">
-                Not sure whether to grow where you are, pivot, or launch something new? This DIY kit gives you clarity and a built-in action plan to get moving.
+                Not sure whether to grow where you are, pivot, or launch
+                something new? This DIY kit gives you clarity and a built-in
+                action plan to get moving.
               </p>
               {/* <span className="bg-primary text-primary-foreground text-center py-1 px-2 rounded-sm text-sm font-semibold hover:bg-primary/90">
                 Start with the free quiz 
               </span> */}
-              <Button size="sm" >Start with the free quiz</Button>
+              <Button size="sm">Start with the free quiz</Button>
             </Link>
 
             <Link
@@ -109,12 +120,15 @@ const Index = () => {
               className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-md transition-all hover:border-primary hover:shadow-lg md:p-8"
             >
               <span className="mb-3 text-4xl">🏢</span>
-              <h3 className="mb-2 text-xl font-bold text-foreground">Corporate Programs</h3>
+              <h3 className="mb-2 text-xl font-bold text-foreground">
+                Corporate Programs
+              </h3>
               <p className="mb-4 flex-1 text-sm text-muted-foreground">
-                Is your company committed to advancing the growth of the women on your team? We curate tailored workshops that fit your priorities.
+                Is your company committed to advancing the growth of the women
+                on your team? We curate tailored workshops that fit your
+                priorities.
               </p>
-              <Button size="sm" >Explore workshops </Button>
-              
+              <Button size="sm">Explore workshops </Button>
             </Link>
           </div>
         </div>

@@ -48,7 +48,8 @@ const QUESTIONS: QuizQuestion[] = [
   {
     number: 2,
     title: "The Energy Audit",
-    prompt: "Think about your average workday. Which of these sounds most like you?",
+    prompt:
+      "Think about your average workday. Which of these sounds most like you?",
     options: [
       {
         letter: "A",
@@ -168,7 +169,7 @@ const RESULTS: Record<
     headline: "You're a Pivot Woman.",
     tagline: "And that's not starting over. That's finally starting right.",
     validation: [
-      "You've been doing the \"responsible\" thing for a while now. Showing up. Delivering. Keeping it professional even when something inside you has been quietly — sometimes loudly — asking for more.",
+      'You\'ve been doing the "responsible" thing for a while now. Showing up. Delivering. Keeping it professional even when something inside you has been quietly — sometimes loudly — asking for more.',
       "But lately, the gap between who you are at work and who you actually are has started to feel less like a gap and more like a wall.",
       "You chose mostly A's because some part of you already knows: this isn't a bad week. This isn't burnout you can fix with a holiday. This is misalignment — and the most honest, courageous thing you can do right now is admit that and decide to do something about it.",
     ],
@@ -241,7 +242,8 @@ const RESULTS: Record<
     emoji: "👑",
     name: "Ascent",
     headline: "You're an Ascent Woman.",
-    tagline: "You've done the work. Now it's time to make sure the world knows it.",
+    tagline:
+      "You've done the work. Now it's time to make sure the world knows it.",
     validation: [
       "You are good at what you do. Genuinely, demonstrably good. The results are there. The effort is there. The loyalty, the extra hours, the ideas that quietly became company wins — all of it is there.",
       "And yet. The title hasn't changed. The salary hasn't reflected it. The room still doesn't always turn when you walk in — even though it should.",
@@ -270,7 +272,7 @@ const RESULTS: Record<
       },
     ],
     excitement: [
-      "The most dangerous thing you can do right now is wait one more quarter, one more review cycle, one more \"let me just prove myself a little more.\"",
+      'The most dangerous thing you can do right now is wait one more quarter, one more review cycle, one more "let me just prove myself a little more."',
       "You've already proved it. It's time to get paid for it.",
     ],
     finalCta: "Your Clarity Compass Roadmap is ready. Let's ascend.",
@@ -313,8 +315,7 @@ function computeResult(answers: Choice[]): {
   }
 
   // "isClose" = within 1-2 points of the next path boundary
-  const isClose =
-    (total >= 9 && total <= 12) || (total >= 13 && total <= 16);
+  const isClose = (total >= 9 && total <= 12) || (total >= 13 && total <= 16);
 
   return { path, total, counts, isClose };
 }
@@ -325,7 +326,10 @@ interface OwnYourNextQuizProps {
   linkToQuizPage?: boolean;
 }
 
-const OwnYourNextQuiz = ({ onPurchaseClick, linkToQuizPage = false }: OwnYourNextQuizProps) => {
+const OwnYourNextQuiz = ({
+  onPurchaseClick,
+  linkToQuizPage = false,
+}: OwnYourNextQuizProps) => {
   const [started, setStarted] = useState(false);
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Choice[]>([]);
@@ -386,16 +390,12 @@ const OwnYourNextQuiz = ({ onPurchaseClick, linkToQuizPage = false }: OwnYourNex
         <p className="text-sm text-muted-foreground italic mb-8 max-w-xl mx-auto">
           For each question, choose the answer that feels most true right now —
           not the answer you wish were true, and not the "right" answer. There
-          are no wrong paths here. The more honest you are, the more useful
-          your results will be.
+          are no wrong paths here. The more honest you are, the more useful your
+          results will be.
         </p>
         {linkToQuizPage ? (
-          <Button
-            asChild
-            size="lg"
-            className="font-semibold rounded-full px-8"
-          >
-            <Link to="/quiz">Start the Quiz →</Link>
+          <Button asChild size="lg" className="font-semibold rounded-full px-8">
+            <Link to="/quiz">Start the Quiz</Link>
           </Button>
         ) : (
           <Button
@@ -403,7 +403,7 @@ const OwnYourNextQuiz = ({ onPurchaseClick, linkToQuizPage = false }: OwnYourNex
             size="lg"
             className="font-semibold rounded-full px-8"
           >
-            Start the Quiz →
+            Start the Quiz
           </Button>
         )}
       </div>
@@ -428,9 +428,13 @@ const OwnYourNextQuiz = ({ onPurchaseClick, linkToQuizPage = false }: OwnYourNex
             </h3>
             <p className="text-lg text-foreground italic">{result.tagline}</p>
             <div className="inline-flex items-center gap-3 bg-secondary rounded-full px-4 py-2 mt-4 text-sm text-muted-foreground">
-              <span>Score: <strong className="text-foreground">{total}</strong></span>
+              <span>
+                Score: <strong className="text-foreground">{total}</strong>
+              </span>
               <span>·</span>
-              <span>A: {counts.A} · B: {counts.B} · C: {counts.C}</span>
+              <span>
+                A: {counts.A} · B: {counts.B} · C: {counts.C}
+              </span>
             </div>
           </div>
 
@@ -448,7 +452,10 @@ const OwnYourNextQuiz = ({ onPurchaseClick, linkToQuizPage = false }: OwnYourNex
             </p>
             <ul className="space-y-2">
               {result.naming.map((n, i) => (
-                <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                <li
+                  key={i}
+                  className="flex items-start gap-2 text-muted-foreground text-sm"
+                >
                   <span className="text-primary mt-0.5 shrink-0">✓</span>
                   <span>{n}</span>
                 </li>
@@ -460,7 +467,9 @@ const OwnYourNextQuiz = ({ onPurchaseClick, linkToQuizPage = false }: OwnYourNex
             <h4 className="text-xl font-bold text-foreground mb-2">
               {result.transitionTitle}
             </h4>
-            <p className="text-muted-foreground mb-4">{result.transitionIntro}</p>
+            <p className="text-muted-foreground mb-4">
+              {result.transitionIntro}
+            </p>
             <div className="space-y-3">
               {result.stages.map((s, i) => (
                 <div
@@ -522,7 +531,7 @@ const OwnYourNextQuiz = ({ onPurchaseClick, linkToQuizPage = false }: OwnYourNex
               className="font-semibold rounded-full"
             >
               <Link to="/private-coaching">
-                Prefer a hand-held approach? See Private Coaching →
+                Prefer a hand-held approach? See Private Coaching
               </Link>
             </Button>
           </div>
@@ -539,7 +548,8 @@ const OwnYourNextQuiz = ({ onPurchaseClick, linkToQuizPage = false }: OwnYourNex
             <DialogHeader>
               <DialogTitle>Get OwnYourNext</DialogTitle>
               <DialogDescription>
-                Thank you for your interest. Drop your email so we can reach out when it's ready!
+                Thank you for your interest. Drop your email so we can reach out
+                when it's ready!
               </DialogDescription>
             </DialogHeader>
             <form onSubmit={handleInterestSubmit} className="space-y-4">

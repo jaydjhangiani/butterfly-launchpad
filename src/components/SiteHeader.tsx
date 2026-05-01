@@ -53,7 +53,7 @@ const SiteHeader = () => {
           <img
             src={accBadge}
             alt="ICF Associate Certified Coach"
-            className="h-12 md:h-16"
+            className="h-12 "
           />
 
           {/* Mobile trigger */}
