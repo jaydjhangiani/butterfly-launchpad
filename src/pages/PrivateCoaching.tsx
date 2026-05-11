@@ -35,7 +35,7 @@ const PrivateCoaching = () => {
       />
       {/* Hero */}
       <section
-        className="relative z-10 mx-[15px] md:mx-[25px] mt-4"
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-4"
         style={sectionBg}
       >
         <div className="px-6 pt-12 pb-10 md:pt-16 md:pb-14 max-w-4xl mx-auto text-center">
@@ -54,7 +54,7 @@ const PrivateCoaching = () => {
       </section>
 
       {/* 3 program cards */}
-      <section className="px-4 md:px-8 py-10 md:py-14 max-w-7xl mx-auto">
+      <section className="px-4 md:px-8 py-10 md:py-14 max-w-7xl bg-[#FFFAFA] mx-[15px] md:mx-[40px] lg:mx-[100px] my-8 md:my-16 rounded-2xl">
         <div className="grid md:grid-cols-3 gap-6">
           <ProgramCard
             emoji="👩‍👧"
@@ -102,12 +102,9 @@ const PrivateCoaching = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <TestimonialSlider />
-
       {/* Retainer */}
       <section
-        className="relative z-10 mx-[15px] md:mx-[25px] mt-6"
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] my-8 md:my-16"
         style={sectionBg}
       >
         <div className="px-4 md:px-8 py-12 md:py-16 max-w-6xl mx-auto">
@@ -145,7 +142,7 @@ const PrivateCoaching = () => {
 
       {/* Stand-alone Power Hour */}
       <section
-        className="relative z-10 mx-[15px] md:mx-[25px] mt-6 mb-[25px]"
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-6 mb-[25px] md:mb-[50px]"
         style={sectionBg}
       >
         <div className="px-6 py-12 md:py-14 max-w-4xl mx-auto text-center space-y-6">

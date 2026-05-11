@@ -33,16 +33,20 @@ const RetainerSelectorDialog = ({
   onOpenChange,
   onContinue,
 }: RetainerSelectorDialogProps) => {
-  const [selectedPlan, setSelectedPlan] = useState<string>(RETAINER_OPTIONS[0].value);
+  const [selectedPlan, setSelectedPlan] = useState<string>(
+    RETAINER_OPTIONS[0].value,
+  );
 
   const activeOption = useMemo(
-    () => RETAINER_OPTIONS.find((option) => option.value === selectedPlan) ?? RETAINER_OPTIONS[0],
+    () =>
+      RETAINER_OPTIONS.find((option) => option.value === selectedPlan) ??
+      RETAINER_OPTIONS[0],
     [selectedPlan],
   );
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="max-w-md ">
         <DialogHeader>
           <DialogTitle>Select your retainer format</DialogTitle>
           <DialogDescription>
@@ -66,7 +70,9 @@ const RetainerSelectorDialog = ({
 
           <div className="rounded-lg border border-border bg-secondary/40 p-4 text-center">
             <p className="text-sm text-muted-foreground">Selected investment</p>
-            <p className="mt-1 text-lg font-semibold text-foreground">{activeOption.price}</p>
+            <p className="mt-1 text-lg font-semibold text-foreground">
+              {activeOption.price}
+            </p>
           </div>
 
           <Button

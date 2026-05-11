@@ -54,15 +54,15 @@ const TestimonialSlider = () => {
 
   return (
     <section
-      className="py-14 px-6 mx-[25px] my-[25px] bg-[#9cd7d8]"
+      className="py-14 px-6 mx-[15px] md:mx-[40px] lg:mx-[100px] my-8 md:my-16 bg-[#9cd7d8]"
       style={{ backgroundColor: "#9BD7D8" }}
     >
-      <div className="max-w-2xl mx-auto text-center">
-        <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-8 tracking-tight">
+      <div className="max-w-3xl md:my-2 mx-auto text-center">
+        <h2 className="text-2xl md:text-4xl font-semibold text-foreground mb-8 tracking-tight">
           {testimonials[current].name}
         </h2>
 
-        <p className="text-base md:text-lg text-foreground/80 leading-relaxed italic">
+        <p className="text-base md:text-2xl text-foreground/80 leading-relaxed italic">
           "{testimonials[current].quote}"
         </p>
 

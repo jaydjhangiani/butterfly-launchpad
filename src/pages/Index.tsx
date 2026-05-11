@@ -28,10 +28,10 @@ const Index = () => {
         path="/"
       />
       <section
-        className="relative z-10 mx-[15px] md:mx-[25px] mt-4"
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-6"
         style={sectionBg}
       >
-        <div className="grid items-center gap-8 px-6 py-10 md:grid-cols-[5fr_6fr] md:px-10 md:py-14 lg:grid-cols-[4fr_6fr]">
+        <div className="grid items-center gap-8 px-8 py-12 md:grid-cols-[5fr_6fr] md:px-16 md:py-16 lg:grid-cols-[4fr_6fr]">
           <div className="max-h-[420px] overflow-hidden rounded-lg">
             <img
               src={coachPortrait}
@@ -40,11 +40,11 @@ const Index = () => {
             />
           </div>
 
-          <header className="text-center md:text-left">
+          <header className="text-center md:text-left md:px-10 lg:pr-20">
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
               career & life coaching for women
             </p>
-            <h1 className="mb-4 text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-6xl">
+            <h1 className="mb-4 text-2xl font-bold leading-tight text-foreground md:text-4xl lg:text-6xl">
               Procrastination ends here:
             </h1>
             <p className="mb-4 text-xl text-foreground md:text-xl">
@@ -74,7 +74,7 @@ const Index = () => {
       <TestimonialSlider />
 
       <section
-        className="relative z-10 mx-[15px] md:mx-[25px] my-6"
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] my-8 md:my-16"
         style={sectionBg}
       >
         <div className="mx-auto max-w-7xl px-4 py-12 md:px-8 md:py-16">
@@ -87,7 +87,7 @@ const Index = () => {
             </h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-10 md:grid-cols-3 lg:px-10 pt-5">
             <Link
               to="/private-coaching"
               className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-md transition-all hover:border-primary hover:shadow-lg md:p-8"

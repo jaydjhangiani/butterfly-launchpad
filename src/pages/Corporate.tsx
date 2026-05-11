@@ -100,7 +100,7 @@ const Corporate = () => {
       />
       {/* Hero */}
       <section
-        className="relative z-10 mx-[15px] md:mx-[25px] mt-4"
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-4"
         style={sectionBg}
       >
         <div className="px-6 pt-12 pb-10 md:pt-16 md:pb-14 max-w-4xl mx-auto text-center">
@@ -133,118 +133,119 @@ const Corporate = () => {
         </div>
       </section>
 
-      {/* Section I: Working moms */}
-      <section className="px-4 md:px-8 py-10 md:py-14 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-8">
-          <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-2">
-            Section I
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-            Designed for working moms
-          </h2>
-        </div>
-        <div className="grid md:grid-cols-2 gap-6">
-          <WorkshopCard
-            emoji="🤱"
-            number="01"
-            duration="75-min webinar"
-            title="Preparing New Moms for Career Transition"
-            description="50 minutes + Q&A"
-            covers={[
-              "Motherhood as a pivotal career transition and how to plan for it",
-              "Getting clear on career expectations in this new phase",
-              "Assessing your current role fit against those expectations",
-              "Identifying gaps (flexibility, purpose, systems) and practical ways to bridge them",
-              "Mindset shifts to support lasting growth and a reinvention of your professional identity",
-              "For an audience of 50 or below",
-            ]}
-            pricing={[
-              { label: "Virtual", price: "INR 25,000" },
-              { label: "In-person (Mumbai)", price: "INR 34,000" },
-              {
-                label: "In-person (outside Mumbai)",
-                price: "INR 34,000 + travel",
-              },
-            ]}
-          />
-          <WorkshopCard
-            emoji="👥"
-            number="02"
-            duration="75-min workshop"
-            title="How to Help New Moms Transition Successfully"
-            objective="Equip managers with practical tools to support returning moms, protect retention, and accelerate performance."
-            outcomes="Key outcomes: improved retention of returning moms, clearer promotion paths, and stronger team alignment."
-            covers={[
-              "Understanding the motherhood transition and its impact on performance",
-              "Strategies to implement and communicate transition-support policies",
-              "Milestone-based conversation templates to ensure alignment",
-              "Sponsorship and visibility: how to advocate for and elevate returning moms",
-              "For an audience of 50 or below",
-            ]}
-            pricing={[
-              { label: "Virtual", price: "INR 25,000" },
-              { label: "In-person (Mumbai)", price: "INR 34,000" },
-              {
-                label: "In-person (outside Mumbai)",
-                price: "INR 34,000 + travel",
-              },
-            ]}
-          />
-        </div>
-      </section>
-
-      {/* Section II: Women in corporate */}
-      <section className="px-4 md:px-8 pb-10 md:pb-14 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-8">
-          <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-2">
-            Section II
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-            Designed for women in corporate
-          </h2>
-        </div>
-        <div className="grid md:grid-cols-2 gap-6">
-          <WorkshopCard
-            emoji="✨"
-            number="03"
-            duration="75-min workshop"
-            title="Visibility Workshop: Helping Your Women Learn to Shine to Facilitate Growth"
-            covers={[
-              "Why visibility matters for career growth",
-              "A quick self-audit to map your current visibility and gaps",
-              "Strategies to overcome fears and biases around visibility",
-              "Hands-on practice: storytelling for impact, concise elevator pitches, confident meeting presence, and stakeholder mapping",
-              "For an audience of 50 or below",
-            ]}
-            pricing={[
-              { label: "Virtual", price: "INR 25,000" },
-              { label: "In-person (Mumbai)", price: "INR 34,000" },
-              {
-                label: "In-person (outside Mumbai)",
-                price: "INR 34,000 + travel",
-              },
-            ]}
-          />
-          <div className="bg-secondary/40 rounded-2xl border border-dashed border-border p-6 md:p-8 flex flex-col justify-center text-center">
-            <span className="text-4xl mb-3">🚧</span>
+      <section className="bg-[#FFFAFA] mx-[15px] md:mx-[40px] lg:mx-[100px] my-8 md:my-16 rounded-2xl">
+        {/* Section I: Working moms */}
+        <section className="px-4 md:px-8 py-10 md:py-14 max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-8">
             <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-2">
-              Coming Soon
+              Section I
             </p>
-            <h3 className="text-lg md:text-xl font-bold text-foreground mb-3">
-              12-Week Accountability Coaching Add-On
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Translate workshop insights into real, measurable results with a
-              structured, weekly coaching cadence, accountability systems, and a
-              clear 90-day action plan.
-            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+              Designed for working moms
+            </h2>
           </div>
-        </div>
-      </section>
+          <div className="grid md:grid-cols-2 gap-6">
+            <WorkshopCard
+              emoji="🤱"
+              number="01"
+              duration="75-min webinar"
+              title="Preparing New Moms for Career Transition"
+              description="50 minutes + Q&A"
+              covers={[
+                "Motherhood as a pivotal career transition and how to plan for it",
+                "Getting clear on career expectations in this new phase",
+                "Assessing your current role fit against those expectations",
+                "Identifying gaps (flexibility, purpose, systems) and practical ways to bridge them",
+                "Mindset shifts to support lasting growth and a reinvention of your professional identity",
+                "For an audience of 50 or below",
+              ]}
+              pricing={[
+                { label: "Virtual", price: "INR 25,000" },
+                { label: "In-person (Mumbai)", price: "INR 34,000" },
+                {
+                  label: "In-person (outside Mumbai)",
+                  price: "INR 34,000 + travel",
+                },
+              ]}
+            />
+            <WorkshopCard
+              emoji="👥"
+              number="02"
+              duration="75-min workshop"
+              title="How to Help New Moms Transition Successfully"
+              objective="Equip managers with practical tools to support returning moms, protect retention, and accelerate performance."
+              outcomes="Key outcomes: improved retention of returning moms, clearer promotion paths, and stronger team alignment."
+              covers={[
+                "Understanding the motherhood transition and its impact on performance",
+                "Strategies to implement and communicate transition-support policies",
+                "Milestone-based conversation templates to ensure alignment",
+                "Sponsorship and visibility: how to advocate for and elevate returning moms",
+                "For an audience of 50 or below",
+              ]}
+              pricing={[
+                { label: "Virtual", price: "INR 25,000" },
+                { label: "In-person (Mumbai)", price: "INR 34,000" },
+                {
+                  label: "In-person (outside Mumbai)",
+                  price: "INR 34,000 + travel",
+                },
+              ]}
+            />
+          </div>
+        </section>
 
+        {/* Section II: Women in corporate */}
+        <section className="px-4 md:px-8 pb-10 md:pb-14 max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-2">
+              Section II
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+              Designed for women in corporate
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <WorkshopCard
+              emoji="✨"
+              number="03"
+              duration="75-min workshop"
+              title="Visibility Workshop: Helping Your Women Learn to Shine to Facilitate Growth"
+              covers={[
+                "Why visibility matters for career growth",
+                "A quick self-audit to map your current visibility and gaps",
+                "Strategies to overcome fears and biases around visibility",
+                "Hands-on practice: storytelling for impact, concise elevator pitches, confident meeting presence, and stakeholder mapping",
+                "For an audience of 50 or below",
+              ]}
+              pricing={[
+                { label: "Virtual", price: "INR 25,000" },
+                { label: "In-person (Mumbai)", price: "INR 34,000" },
+                {
+                  label: "In-person (outside Mumbai)",
+                  price: "INR 34,000 + travel",
+                },
+              ]}
+            />
+            <div className="bg-secondary/40 rounded-2xl border border-dashed border-border p-6 md:p-8 flex flex-col justify-center text-center">
+              <span className="text-4xl mb-3">🚧</span>
+              <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-2">
+                Coming Soon
+              </p>
+              <h3 className="text-lg md:text-xl font-bold text-foreground mb-3">
+                12-Week Accountability Coaching Add-On
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Translate workshop insights into real, measurable results with a
+                structured, weekly coaching cadence, accountability systems, and
+                a clear 90-day action plan.
+              </p>
+            </div>
+          </div>
+        </section>
+      </section>
       {/* Custom enquiry */}
       <section
-        className="relative z-10 mx-[15px] md:mx-[25px] mb-[25px]"
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mb-[25px]"
         style={sectionBg}
       >
         <div className="px-4 md:px-8 py-12 md:py-16 max-w-5xl mx-auto">
@@ -261,7 +262,7 @@ const Corporate = () => {
                   Which makes their requirements unique too. Let's chat to
                   customise the package that works for you.
                 </p>
-                <div className="flex justify-center">
+                <div className="md:flex md:justify-center hidden md:block">
                   <img
                     src={butterflyGreen}
                     alt=""

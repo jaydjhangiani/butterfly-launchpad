@@ -56,7 +56,7 @@ const DiyCoaching = () => {
       />
       {/* Hero */}
       <section
-        className="relative z-10 mx-[15px] md:mx-[25px] mt-4"
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-4"
         style={sectionBg}
       >
         <div className="px-6 pt-12 pb-10 md:pt-16 md:pb-14 max-w-4xl mx-auto text-center">
@@ -83,7 +83,7 @@ const DiyCoaching = () => {
       </section>
 
       {/* Quiz */}
-      <section className="px-4 md:px-8 py-10 md:py-14">
+      <section className="px-4 md:px-8 py-10 md:py-14 bg-[#FFFAFA] mx-[15px] md:mx-[40px] lg:mx-[100px] my-8 md:my-16 rounded-2xl">
         <div className="text-center max-w-2xl mx-auto mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
             Start with the free quiz
@@ -94,14 +94,13 @@ const DiyCoaching = () => {
           </p>
         </div>
         <OwnYourNextQuiz
-          linkToQuizPage
           onPurchaseClick={() => openEmailCapture("OwnYourNext")}
         />
       </section>
 
       {/* Sunday Accountability */}
-      <section
-        className="relative z-10 mx-[15px] md:mx-[25px] mt-6 mb-[25px]"
+      {/* <section
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-6 mb-[25px]"
         style={sectionBg}
       >
         <div className="px-4 md:px-8 py-12 md:py-16 max-w-6xl mx-auto">
@@ -168,7 +167,7 @@ const DiyCoaching = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Email capture dialog */}
       <Dialog
