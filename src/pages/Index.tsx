@@ -31,7 +31,7 @@ const Index = () => {
         className="relative z-10 mx-[15px] md:mx-[25px] mt-4"
         style={sectionBg}
       >
-        <div className="grid items-center gap-8 px-6 py-10 md:grid-cols-[5fr_6fr] md:px-10 md:py-14">
+        <div className="grid items-center gap-8 px-6 py-10 md:grid-cols-[5fr_6fr] md:px-10 md:py-14 lg:grid-cols-[4fr_6fr]">
           <div className="max-h-[420px] overflow-hidden rounded-lg">
             <img
               src={coachPortrait}
