@@ -4,6 +4,7 @@ import TestimonialSlider from "@/components/TestimonialSlider";
 import WinsCarousel from "@/components/WinsCarousel";
 import PageShell from "@/components/PageShell";
 import DiscoveryCallDialog from "@/components/DiscoveryCallDialog";
+import SEO from "@/components/SEO";
 import coachPortrait from "@/assets/krusha-coach.png";
 import { Button } from "@/components/ui/button";
 
@@ -21,16 +22,21 @@ const Index = () => {
 
   return (
     <PageShell>
+      <SEO
+        title="Career & Life Coach for Women | Krusha"
+        description="I help ambitious women who feel stuck & know they are meant for more to step up in their roles, pivot and/or launch their own business."
+        path="/"
+      />
       <section
         className="relative z-10 mx-[15px] md:mx-[25px] mt-4"
         style={sectionBg}
       >
-        <div className="grid items-center gap-8 px-6 py-10 md:grid-cols-2 md:px-10 md:py-14">
-          <div>
+        <div className="grid items-center gap-8 px-6 py-10 md:grid-cols-[5fr_6fr] md:px-10 md:py-14">
+          <div className="max-h-[420px] overflow-hidden rounded-lg">
             <img
               src={coachPortrait}
               alt="Portrait of the coach"
-              className="w-full rounded-lg border border-border object-cover shadow-md"
+              className="h-full w-full border border-border object-cover object-top shadow-md"
             />
           </div>
 
@@ -42,8 +48,9 @@ const Index = () => {
               Procrastination ends here:
             </h1>
             <p className="mb-4 text-xl text-foreground md:text-xl">
-              I help women create a career with confidence, clarity, and
-              alignment.
+              I help ambitious women who feel stuck & know they are meant for
+              more to step up in their roles, pivot and/or launch their own
+              business.
             </p>
             <p className="mb-4 max-w-xl text-base leading-relaxed text-muted-foreground md:max-w-none md:text-md">
               I help you find and achieve YOUR version of ‘having it all’.

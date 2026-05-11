@@ -96,7 +96,6 @@ const LeadCaptureForm = ({ compact = false }: LeadCaptureFormProps) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": "aYOxk3g4EbYv14bGWJzmIYTFYdkiecc9rtCSgaRK03Y",
         },
         body: JSON.stringify({
           ...formData,
@@ -130,7 +129,10 @@ const LeadCaptureForm = ({ compact = false }: LeadCaptureFormProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={compact ? "space-y-4" : "space-y-5"}>
+    <form
+      onSubmit={handleSubmit}
+      className={compact ? "space-y-4" : "space-y-5"}
+    >
       <div>
         <Label htmlFor="name" className="text-foreground font-medium">
           Name
@@ -198,35 +200,35 @@ const LeadCaptureForm = ({ compact = false }: LeadCaptureFormProps) => {
         )}
       </div>
       {!compact && (
-      <div>
-        <Label className="text-foreground font-medium">
-          How did you find me?
-        </Label>
-        <Select
-          value={formData.referralSource}
-          onValueChange={(val) => {
-            updateField("referralSource", val);
-          }}
-        >
-          <SelectTrigger
-            className={`mt-1.5 bg-card border-border ${touched.referralSource && errors.referralSource ? "border-destructive" : ""}`}
+        <div>
+          <Label className="text-foreground font-medium">
+            How did you find me?
+          </Label>
+          <Select
+            value={formData.referralSource}
+            onValueChange={(val) => {
+              updateField("referralSource", val);
+            }}
           >
-            <SelectValue placeholder="Select one..." />
-          </SelectTrigger>
-          <SelectContent>
-            {referralSources.map((s) => (
-              <SelectItem key={s} value={s}>
-                {s}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-        {touched.referralSource && errors.referralSource && (
-          <p className="text-sm text-destructive mt-1">
-            {errors.referralSource}
-          </p>
-        )}
-      </div>
+            <SelectTrigger
+              className={`mt-1.5 bg-card border-border ${touched.referralSource && errors.referralSource ? "border-destructive" : ""}`}
+            >
+              <SelectValue placeholder="Select one..." />
+            </SelectTrigger>
+            <SelectContent>
+              {referralSources.map((s) => (
+                <SelectItem key={s} value={s}>
+                  {s}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          {touched.referralSource && errors.referralSource && (
+            <p className="text-sm text-destructive mt-1">
+              {errors.referralSource}
+            </p>
+          )}
+        </div>
       )}
       <Turnstile
         siteKey="0x4AAAAAACyDlETAILUdoCE5"
@@ -234,10 +236,10 @@ const LeadCaptureForm = ({ compact = false }: LeadCaptureFormProps) => {
           setCaptchaToken(token);
         }}
         onError={() => {
-          console.log("CAPTCHA ERROR");
+          setCaptchaToken(null);
         }}
         onExpire={() => {
-          console.log("CAPTCHA EXPIRED");
+          setCaptchaToken(null);
         }}
       />
 

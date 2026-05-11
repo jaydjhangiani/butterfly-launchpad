@@ -4,6 +4,7 @@ import ProgramCard from "@/components/ProgramCard";
 import PrePaymentDialog from "@/components/PrePaymentDialog";
 import RetainerSelectorDialog from "@/components/RetainerSelectorDialog";
 import TestimonialSlider from "@/components/TestimonialSlider";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 
 const heroBg = "/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg";
@@ -27,6 +28,11 @@ const PrivateCoaching = () => {
 
   return (
     <PageShell>
+      <SEO
+        title="Private Coaching Programs"
+        description="1-on-1 private coaching for women — Working Moms, Female Solopreneurs, and Corporate programs. Structured support to get you to your next level."
+        path="/private-coaching"
+      />
       {/* Hero */}
       <section
         className="relative z-10 mx-[15px] md:mx-[25px] mt-4"

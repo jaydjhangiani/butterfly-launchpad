@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PageShell from "@/components/PageShell";
+import SEO from "@/components/SEO";
 import OwnYourNextQuiz from "@/components/OwnYourNextQuiz";
 import PriceCard from "@/components/PriceCard";
 import {
@@ -48,6 +49,11 @@ const DiyCoaching = () => {
 
   return (
     <PageShell>
+      <SEO
+        title="DIY Coaching Resources"
+        description="Self-paced coaching tools, workbooks, and resources for women who want to grow on their own terms — at their own pace."
+        path="/diy-coaching"
+      />
       {/* Hero */}
       <section
         className="relative z-10 mx-[15px] md:mx-[25px] mt-4"

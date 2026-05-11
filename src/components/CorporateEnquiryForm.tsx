@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { toast } from "sonner";
 
 const COUNTRY_CODES = [
@@ -52,24 +59,35 @@ const CorporateEnquiryForm = () => {
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()) &&
     /^\d{6,15}$/.test(form.phone.replace(/\s/g, ""));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!isValid) return;
+    if (!isValid || submitting) return;
 
-    toast.success("Thank you for thinking of me!", {
-      description:
-        "After you submit: thank you for thinking of me — I'm excited to support you and your teams. Please expect a call and email from me within 24 hours of your form submission.",
-      duration: 7000,
-    });
+    setSubmitting(true);
+    try {
+      const res = await fetch("/.netlify/functions/corporate-enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, countryCode }),
+      });
 
-    setForm({
-      nameRole: "",
-      organisation: "",
-      requirement: "",
-      email: "",
-      phone: "",
-    });
-    setCountryCode("+91");
+      if (!res.ok) throw new Error("Submission failed");
+
+      toast.success("Thank you for thinking of me!", {
+        description:
+          "I'm excited to support you and your teams. Please expect a call and email from me within 24 hours of your form submission.",
+        duration: 7000,
+      });
+
+      setForm({ nameRole: "", organisation: "", requirement: "", email: "", phone: "" });
+      setCountryCode("+91");
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -111,60 +129,62 @@ const CorporateEnquiryForm = () => {
           value={form.requirement}
           onChange={(e) => setForm({ ...form, requirement: e.target.value })}
           placeholder="Tell me a little about who this is for, what you'd like to achieve, and any details you have on timing or location."
-          className="mt-1.5 min-h-[120px]"
+          className="mt-1.5 min-h-[80px]"
           required
         />
       </div>
 
-      <div className="grid md:grid-cols-2 gap-4">
-        <div>
-          <Label htmlFor="ce-email" className="text-foreground font-medium">
-            Email
-          </Label>
+      <div>
+        <Label htmlFor="ce-email" className="text-foreground font-medium">
+          Email
+        </Label>
+        <Input
+          id="ce-email"
+          type="email"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+          placeholder="you@company.com"
+          className="mt-1.5"
+          required
+        />
+      </div>
+
+      <div>
+        <Label htmlFor="ce-phone" className="text-foreground font-medium">
+          Phone
+        </Label>
+        <div className="flex gap-2 mt-1.5">
+          <Select value={countryCode} onValueChange={setCountryCode}>
+            <SelectTrigger className="w-[110px] shrink-0 bg-[#fefefe]">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {COUNTRY_CODES.map((c) => (
+                <SelectItem key={c.code} value={c.code}>
+                  {c.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
           <Input
-            id="ce-email"
-            type="email"
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-            placeholder="you@company.com"
-            className="mt-1.5"
+            id="ce-phone"
+            type="tel"
+            value={form.phone}
+            onChange={(e) => setForm({ ...form, phone: e.target.value })}
+            placeholder="9876543210"
+            className="min-w-0 flex-1"
             required
           />
-        </div>
-        <div>
-          <Label htmlFor="ce-phone" className="text-foreground font-medium">
-            Phone
-          </Label>
-          <div className="flex gap-2 mt-1.5">
-            <select
-              value={countryCode}
-              onChange={(e) => setCountryCode(e.target.value)}
-              className="flex h-10 w-32 shrink-0 rounded-md border border-input bg-[fefefe] px-2 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-            >
-              {COUNTRY_CODES.map((c) => (
-                <option key={c.code} value={c.code}>{c.label}</option>
-              ))}
-            </select>
-            <Input
-              id="ce-phone"
-              type="tel"
-              value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              placeholder="9876543210"
-              className="flex-1"
-              required
-            />
-          </div>
         </div>
       </div>
 
       <Button
         type="submit"
-        disabled={!isValid}
+        disabled={!isValid || submitting}
         className="w-full font-semibold"
         size="lg"
       >
-        Submit Enquiry
+        {submitting ? "Submitting…" : "Submit Enquiry"}
       </Button>
     </form>
   );

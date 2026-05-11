@@ -1,6 +1,7 @@
 import { neon } from "@neondatabase/serverless";
+import { DATABASE_URL } from "./config.js";
 
-export const sql = neon(process.env.DATABASE_URL);
+export const sql = neon(DATABASE_URL);
 
 export async function ensureTables() {
   await sql`
@@ -11,6 +12,20 @@ export async function ensureTables() {
       phone      TEXT,
       source     TEXT NOT NULL DEFAULT 'unknown',
       created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `;
+}
+
+export async function ensureCorporateEnquiryTable() {
+  await sql`
+    CREATE TABLE IF NOT EXISTS corporate_enquiries (
+      id            SERIAL PRIMARY KEY,
+      name_role     TEXT NOT NULL,
+      organisation  TEXT NOT NULL,
+      requirement   TEXT NOT NULL,
+      email         TEXT NOT NULL,
+      phone         TEXT NOT NULL,
+      created_at    TIMESTAMPTZ NOT NULL DEFAULT NOW()
     )
   `;
 }

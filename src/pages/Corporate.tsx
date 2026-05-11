@@ -1,5 +1,7 @@
 import PageShell from "@/components/PageShell";
 import CorporateEnquiryForm from "@/components/CorporateEnquiryForm";
+import SEO from "@/components/SEO";
+import butterflyGreen from "@/assets/butterfly-green.png";
 
 const heroBg = "/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg";
 
@@ -91,6 +93,11 @@ const WorkshopCard = ({
 const Corporate = () => {
   return (
     <PageShell>
+      <SEO
+        title="Corporate Workshops & Team Coaching"
+        description="Workshops and coaching programs for teams — build confidence, communication, and leadership skills across your organisation."
+        path="/corporate"
+      />
       {/* Hero */}
       <section
         className="relative z-10 mx-[15px] md:mx-[25px] mt-4"
@@ -250,10 +257,18 @@ const Corporate = () => {
                 <h2 className="text-2xl md:text-3xl font-bold text-foreground leading-tight mb-4">
                   Every organisation is different.
                 </h2>
-                <p className="text-muted-foreground mb-3">
+                <p className="text-muted-foreground mb-6">
                   Which makes their requirements unique too. Let's chat to
                   customise the package that works for you.
                 </p>
+                <div className="flex justify-center">
+                  <img
+                    src={butterflyGreen}
+                    alt=""
+                    aria-hidden="true"
+                    className="w-28 md:w-48 lg:w-48"
+                  />
+                </div>
               </div>
               <div className="p-8 md:p-10 bg-primary-foreground border-l border-border">
                 <CorporateEnquiryForm />

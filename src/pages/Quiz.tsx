@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PageShell from "@/components/PageShell";
+import SEO from "@/components/SEO";
 import OwnYourNextQuiz from "@/components/OwnYourNextQuiz";
 import {
   Dialog,
@@ -40,6 +41,11 @@ const Quiz = () => {
 
   return (
     <PageShell>
+      <SEO
+        title="Find Your Coaching Program"
+        description="Not sure where to start? Take this short quiz to find the coaching program that fits your season of life and career goals."
+        path="/quiz"
+      />
       {/* Soft gradient hero — distinct from DIY page */}
       <section className="relative overflow-hidden bg-gradient-to-b from-secondary/40 via-background to-background">
         {/* decorative blobs */}
