@@ -4,7 +4,7 @@ import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/logo.png";
-import accBadge from "@/assets/acc-badge.png";
+import pccBadge from "@/assets/pcc-badge.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -51,7 +51,7 @@ const SiteHeader = () => {
 
         <div className="flex items-center gap-2">
           <img
-            src={accBadge}
+            src={pccBadge}
             alt="ICF Associate Certified Coach"
             className="h-12 "
           />
