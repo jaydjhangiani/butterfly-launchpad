@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,7 +10,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
+
+interface LeadCaptureFormProps {
+  compact?: boolean;
+}
 
 const countryCodes = [
   { value: "+1", label: "🇺🇸 +1" },
@@ -39,12 +43,16 @@ const referralSources = [
   "Other",
 ];
 
-const LeadCaptureForm = () => {
-  const { toast } = useToast();
-
+const LeadCaptureForm = ({ compact = false }: LeadCaptureFormProps) => {
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    if (compact) {
+      setFormData((prev) => ({ ...prev, referralSource: "Website" }));
+    }
+  }, [compact]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -83,15 +91,11 @@ const LeadCaptureForm = () => {
     if (!isFormValid || !captchaToken) return;
 
     setIsSubmitting(true);
-    console.log(isSubmitting);
-
     try {
-      console.log(formData);
       const res = await fetch("/.netlify/functions/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": "aYOxk3g4EbYv14bGWJzmIYTFYdkiecc9rtCSgaRK03Y",
         },
         body: JSON.stringify({
           ...formData,
@@ -101,8 +105,7 @@ const LeadCaptureForm = () => {
 
       if (!res.ok) throw new Error("Failed");
 
-      toast({
-        title: "Thank you!",
+      toast.success("Thank you!", {
         description: "I'll be in touch soon!",
       });
 
@@ -117,9 +120,8 @@ const LeadCaptureForm = () => {
       setCaptchaToken(null);
       setTouched({});
     } catch (err) {
-      toast({
-        title: "Error",
-        description: "Something went wrong",
+      toast.error("Something went wrong", {
+        description: "Please try again in a moment.",
       });
     }
 
@@ -127,7 +129,10 @@ const LeadCaptureForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form
+      onSubmit={handleSubmit}
+      className={compact ? "space-y-4" : "space-y-5"}
+    >
       <div>
         <Label htmlFor="name" className="text-foreground font-medium">
           Name
@@ -194,45 +199,47 @@ const LeadCaptureForm = () => {
           <p className="text-sm text-destructive mt-1">{errors.phone}</p>
         )}
       </div>
-      <div>
-        <Label className="text-foreground font-medium">
-          How did you find me?
-        </Label>
-        <Select
-          value={formData.referralSource}
-          onValueChange={(val) => {
-            updateField("referralSource", val);
-          }}
-        >
-          <SelectTrigger
-            className={`mt-1.5 bg-card border-border ${touched.referralSource && errors.referralSource ? "border-destructive" : ""}`}
+      {!compact && (
+        <div>
+          <Label className="text-foreground font-medium">
+            How did you find me?
+          </Label>
+          <Select
+            value={formData.referralSource}
+            onValueChange={(val) => {
+              updateField("referralSource", val);
+            }}
           >
-            <SelectValue placeholder="Select one..." />
-          </SelectTrigger>
-          <SelectContent>
-            {referralSources.map((s) => (
-              <SelectItem key={s} value={s}>
-                {s}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-        {touched.referralSource && errors.referralSource && (
-          <p className="text-sm text-destructive mt-1">
-            {errors.referralSource}
-          </p>
-        )}
-      </div>
+            <SelectTrigger
+              className={`mt-1.5 bg-card border-border ${touched.referralSource && errors.referralSource ? "border-destructive" : ""}`}
+            >
+              <SelectValue placeholder="Select one..." />
+            </SelectTrigger>
+            <SelectContent>
+              {referralSources.map((s) => (
+                <SelectItem key={s} value={s}>
+                  {s}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          {touched.referralSource && errors.referralSource && (
+            <p className="text-sm text-destructive mt-1">
+              {errors.referralSource}
+            </p>
+          )}
+        </div>
+      )}
       <Turnstile
         siteKey="0x4AAAAAACyDlETAILUdoCE5"
         onSuccess={(token) => {
           setCaptchaToken(token);
         }}
         onError={() => {
-          console.log("CAPTCHA ERROR");
+          setCaptchaToken(null);
         }}
         onExpire={() => {
-          console.log("CAPTCHA EXPIRED");
+          setCaptchaToken(null);
         }}
       />
 
@@ -240,10 +247,9 @@ const LeadCaptureForm = () => {
         type="submit"
         disabled={!isFormValid || isSubmitting}
         className="w-full text-base py-4 font-semibold tracking-wide"
-        style={{ backgroundColor: isFormValid ? "#7bb4b5ff" : undefined }}
         size="lg"
       >
-        {isSubmitting ? "Sending..." : "Let's Chat!"}
+        {isSubmitting ? "Sending..." : compact ? "Continue" : "Let's Chat!"}
       </Button>
     </form>
   );

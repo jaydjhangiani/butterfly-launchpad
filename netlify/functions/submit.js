@@ -47,19 +47,6 @@ const verifyCaptcha = async (token, ip) => {
 
 export const handler = async (event) => {
     try {
-        console.log("Header key:", event.headers["x-api-key"]);
-        console.log("Env key exists:", !!process.env.API_SECRET);
-        console.log("Env key exists:", !!process.env.SECRET_KEY);
-        const apiKey = event.headers["x-api-key"];
-
-        if (apiKey !== process.env.API_SECRET) {
-            return {
-                statusCode: 401,
-                body: JSON.stringify({ error: "Unauthorized" }),
-            };
-        }
-
-        // 🌐 Define IP BEFORE using it
         const ip =
             event.headers["x-forwarded-for"] ||
             event.headers["client-ip"] ||
@@ -76,7 +63,7 @@ export const handler = async (event) => {
             return { statusCode: 400, body: "Captcha required" };
         }
 
-        const isHuman = await verifyCaptcha(data.captchaToken);
+        const isHuman = await verifyCaptcha(data.captchaToken, ip);
         if (!isHuman) {
             return { statusCode: 403, body: "Bot detected" };
         }

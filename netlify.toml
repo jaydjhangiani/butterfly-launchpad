@@ -1,11 +1,19 @@
 [build]
   functions = "netlify/functions"
 
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "SITE_KEY"
+
 [functions]
   node_bundler = "esbuild"
-  external_node_modules = ["googleapis", "gaxios", "google-auth-library"]
+  external_node_modules = ["googleapis", "gaxios", "google-auth-library", "@neondatabase/serverless", "razorpay", "resend"]
 
 [dev]
   command = "npm run dev"
   targetPort = 8080
   port = 8888
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
