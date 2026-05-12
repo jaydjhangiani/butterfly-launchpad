@@ -8,7 +8,7 @@ import SEO from "@/components/SEO";
 import coachPortrait from "@/assets/krusha-coach.png";
 import { Button } from "@/components/ui/button";
 
-const heroBg = "/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg";
+import heroBg from "../assets/hero-bg.png";
 
 const sectionBg = {
   backgroundImage: `url("${heroBg}")`,
@@ -28,7 +28,7 @@ const Index = () => {
         path="/"
       />
       <section
-        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-6"
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-6 bg-[#F2D2D7]"
         style={sectionBg}
       >
         <div className="grid items-center gap-8 px-8 py-12 md:grid-cols-[5fr_6fr] md:px-16 md:py-16 lg:grid-cols-[4fr_6fr]">
@@ -74,7 +74,7 @@ const Index = () => {
       <TestimonialSlider />
 
       <section
-        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] my-8 md:my-16"
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] my-8 md:my-16 bg-[#F2D2D7]"
         style={sectionBg}
       >
         <div className="mx-auto max-w-7xl px-4 py-12 md:px-8 md:py-16">

@@ -2,8 +2,7 @@ import PageShell from "@/components/PageShell";
 import CorporateEnquiryForm from "@/components/CorporateEnquiryForm";
 import SEO from "@/components/SEO";
 import butterflyGreen from "@/assets/butterfly-green.png";
-
-const heroBg = "/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg";
+import heroBg from "@/assets/hero-bg.png";
 
 const sectionBg = {
   backgroundImage: `url("${heroBg}")`,
@@ -35,7 +34,7 @@ const WorkshopCard = ({
   pricing,
   emoji,
 }: WorkshopCardProps) => (
-  <div className="bg-card rounded-2xl border border-border shadow-md p-6 md:p-8 flex flex-col h-full">
+  <div className="bg-card rounded-2xl border border-border shadow-md p-6 md:p-8 flex flex-col h-full ">
     <div className="flex items-start gap-3 mb-3">
       <span className="text-3xl shrink-0">{emoji}</span>
       <div>
@@ -100,7 +99,7 @@ const Corporate = () => {
       />
       {/* Hero */}
       <section
-        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-4"
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-4 bg-[#F2D2D7]"
         style={sectionBg}
       >
         <div className="px-6 pt-12 pb-10 md:pt-16 md:pb-14 max-w-4xl mx-auto text-center">
@@ -243,9 +242,10 @@ const Corporate = () => {
           </div>
         </section>
       </section>
+
       {/* Custom enquiry */}
       <section
-        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mb-[25px]"
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mb-[25px] bg-[#F2D2D7]"
         style={sectionBg}
       >
         <div className="px-4 md:px-8 py-12 md:py-16 max-w-5xl mx-auto">

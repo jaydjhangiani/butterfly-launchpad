@@ -2,7 +2,6 @@ import { useState } from "react";
 import PageShell from "@/components/PageShell";
 import SEO from "@/components/SEO";
 import OwnYourNextQuiz from "@/components/OwnYourNextQuiz";
-import PriceCard from "@/components/PriceCard";
 import {
   Dialog,
   DialogContent,
@@ -15,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 
-const heroBg = "/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg";
+import heroBg from "../assets/hero-bg.png";
 
 const sectionBg = {
   backgroundImage: `url("${heroBg}")`,
@@ -56,7 +55,7 @@ const DiyCoaching = () => {
       />
       {/* Hero */}
       <section
-        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-4"
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-4 bg-[#F2D2D7]"
         style={sectionBg}
       >
         <div className="px-6 pt-12 pb-10 md:pt-16 md:pb-14 max-w-4xl mx-auto text-center">

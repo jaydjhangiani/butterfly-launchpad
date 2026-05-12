@@ -203,7 +203,7 @@ export const handler = async (event) => {
 
   try {
     await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: process.env.EMAIL_FROM ?? "onboarding@resend.dev",
       to: order.email,
       subject,
       html,

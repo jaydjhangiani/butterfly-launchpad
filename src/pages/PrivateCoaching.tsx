@@ -3,11 +3,10 @@ import PageShell from "@/components/PageShell";
 import ProgramCard from "@/components/ProgramCard";
 import PrePaymentDialog from "@/components/PrePaymentDialog";
 import RetainerSelectorDialog from "@/components/RetainerSelectorDialog";
-import TestimonialSlider from "@/components/TestimonialSlider";
+import heroBg from "@/assets/hero-bg.png";
+import secondaryHeroBg from "@/assets/secondary-hero-bg.png";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-
-const heroBg = "/lovable-uploads/c0608300-b10b-4964-8008-2a3e109dd5c8.jpg";
 
 const PrivateCoaching = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -17,6 +16,13 @@ const PrivateCoaching = () => {
   const openDialog = (pkg: string) => {
     setActivePackage(pkg);
     setDialogOpen(true);
+  };
+
+  const secondarySectionBg = {
+    backgroundImage: `url("${secondaryHeroBg}")`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
   };
 
   const sectionBg = {
@@ -35,7 +41,7 @@ const PrivateCoaching = () => {
       />
       {/* Hero */}
       <section
-        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-4"
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-4 bg-[#F2D2D7]"
         style={sectionBg}
       >
         <div className="px-6 pt-12 pb-10 md:pt-16 md:pb-14 max-w-4xl mx-auto text-center">
@@ -104,8 +110,8 @@ const PrivateCoaching = () => {
 
       {/* Retainer */}
       <section
-        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] my-8 md:my-16"
-        style={sectionBg}
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] my-8 md:my-16 bg-[#9BD7D8]"
+        style={secondarySectionBg}
       >
         <div className="px-4 md:px-8 py-12 md:py-16 max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-10">
@@ -142,7 +148,7 @@ const PrivateCoaching = () => {
 
       {/* Stand-alone Power Hour */}
       <section
-        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-6 mb-[25px] md:mb-[50px]"
+        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-6 mb-[25px] md:mb-[50px] bg-[#F2D2D7]"
         style={sectionBg}
       >
         <div className="px-6 py-12 md:py-14 max-w-4xl mx-auto text-center space-y-6">

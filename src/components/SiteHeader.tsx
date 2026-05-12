@@ -27,7 +27,7 @@ const SiteHeader = () => {
           <img
             src={logo}
             alt="Butterfly Effect Coach"
-            className="h-28 md:h-36 "
+            className="h-28 md:h-32"
           />
         </Link>
 
@@ -53,7 +53,7 @@ const SiteHeader = () => {
           <img
             src={pccBadge}
             alt="ICF Associate Certified Coach"
-            className="h-16 md:h-20 "
+            className="h-16 md:h-18 "
           />
 
           {/* Mobile trigger */}
