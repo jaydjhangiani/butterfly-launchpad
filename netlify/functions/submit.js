@@ -1,6 +1,4 @@
-import { google } from "googleapis";
-
-
+import { sql, ensureTables } from "./db.js";
 
 // 🚦 Rate limiting
 const rateLimitMap = new Map();
@@ -97,35 +95,13 @@ export const handler = async (event) => {
             };
         }
 
-        const auth = new google.auth.GoogleAuth({
-            credentials: {
-                client_email: process.env.GOOGLE_CLIENT_EMAIL,
-                private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-            },
-            scopes: ["https://www.googleapis.com/auth/spreadsheets"],
-        });
+        const fullPhone = `${(data.countryCode ?? "").trim()}${data.phone.trim()}`;
 
-        const sheets = google.sheets({ version: "v4", auth });
-
-        const clean = (str) => String(str).trim();
-
-        const row = [
-            clean(data.name),
-            clean(data.email),
-            clean(data.countryCode),
-            clean(data.phone),
-            clean(data.referralSource),
-            new Date().toISOString(),
-        ];
-
-        await sheets.spreadsheets.values.append({
-            spreadsheetId: process.env.GOOGLE_SHEET_ID,
-            range: "FormResponses!A:F",
-            valueInputOption: "USER_ENTERED",
-            requestBody: {
-                values: [row]
-            },
-        });
+        await ensureTables();
+        await sql`
+            INSERT INTO contacts (name, email, phone, source)
+            VALUES (${data.name.trim()}, ${data.email.trim()}, ${fullPhone}, ${data.referralSource ?? "unknown"})
+        `;
 
         return {
             statusCode: 200,
