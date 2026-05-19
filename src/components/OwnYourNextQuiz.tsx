@@ -528,7 +528,7 @@ const OwnYourNextQuiz = ({
               variant="outline"
               size="lg"
               asChild
-              className="font-semibold rounded-full"
+              className="font-semibold rounded-full text-sm whitespace-normal"
             >
               <Link to="/private-coaching">
                 Prefer a hand-held approach? See Private Coaching
