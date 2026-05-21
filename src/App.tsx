@@ -11,11 +11,13 @@ import DiyCoaching from "./pages/DiyCoaching";
 import Corporate from "./pages/Corporate";
 import Quiz from "./pages/Quiz";
 import ScrollToTop from "./components/ScrollToTop";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <HelmetProvider>
+  <GoogleAnalytics />
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
