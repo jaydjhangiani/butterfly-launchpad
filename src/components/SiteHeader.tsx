@@ -27,6 +27,7 @@ const SiteHeader = () => {
           <img
             src={logo}
             alt="Butterfly Effect Coach"
+            title="Butterfly Effect Coach — Career & Life Coaching for Women"
             className="h-28 md:h-32"
           />
         </Link>
@@ -52,7 +53,8 @@ const SiteHeader = () => {
         <div className="flex items-center gap-2">
           <img
             src={pccBadge}
-            alt="ICF Associate Certified Coach"
+            alt="ICF Professional Certified Coach (PCC) Badge"
+            title="ICF Professional Certified Coach (PCC) — Krusha, Butterfly Effect Coach"
             className="h-16 md:h-18 "
           />
 

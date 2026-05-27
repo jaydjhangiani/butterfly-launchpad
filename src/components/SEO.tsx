@@ -13,7 +13,7 @@ interface SEOProps {
 
 const SEO = ({ title, description, path = "", image = DEFAULT_IMAGE }: SEOProps) => {
   const canonical = `${SITE_URL}${path}`;
-  const fullTitle = `${title} | ${SITE_NAME}`;
+  const fullTitle = title;
 
   return (
     <Helmet>

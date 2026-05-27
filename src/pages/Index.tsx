@@ -23,8 +23,8 @@ const Index = () => {
   return (
     <PageShell>
       <SEO
-        title="Career & Life Coach for Women | Krusha"
-        description="I help ambitious women who feel stuck & know they are meant for more to step up in their roles, pivot and/or launch their own business."
+        title="Career Coach for Women | Life & Career Coaching Services"
+        description="Empowering women with career clarity, mindset growth, leadership, and life coaching through personalized coaching services."
         path="/"
       />
       <section
@@ -35,7 +35,8 @@ const Index = () => {
           <div className="max-h-[420px] overflow-hidden rounded-lg">
             <img
               src={coachPortrait}
-              alt="Portrait of the coach"
+              alt="Krusha, Career & Life Coach for Women"
+              title="Krusha — Career & Life Coach for Women | Butterfly Effect Coach"
               className="h-full w-full border border-border object-cover object-top shadow-md"
             />
           </div>
