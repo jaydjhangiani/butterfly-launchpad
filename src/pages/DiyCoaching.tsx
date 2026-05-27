@@ -49,8 +49,8 @@ const DiyCoaching = () => {
   return (
     <PageShell>
       <SEO
-        title="DIY Coaching Resources"
-        description="Self-paced coaching tools, workbooks, and resources for women who want to grow on their own terms — at their own pace."
+        title="DIY Coaching for Women | Self Growth & Career Clarity"
+        description="Explore DIY coaching programs for women focused on self-growth, mindset, confidence, and career clarity at your own pace."
         path="/diy-coaching"
       />
       {/* Hero */}

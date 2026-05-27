@@ -42,7 +42,7 @@ const Quiz = () => {
   return (
     <PageShell>
       <SEO
-        title="Find Your Coaching Program"
+        title="Find Your Coaching Program | Butterfly Effect Coach"
         description="Not sure where to start? Take this short quiz to find the coaching program that fits your season of life and career goals."
         path="/quiz"
       />

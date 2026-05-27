@@ -93,8 +93,8 @@ const Corporate = () => {
   return (
     <PageShell>
       <SEO
-        title="Corporate Workshops & Team Coaching"
-        description="Workshops and coaching programs for teams — build confidence, communication, and leadership skills across your organisation."
+        title="Corporate Coaching for Women | Leadership & Growth"
+        description="Empower women leaders with corporate coaching focused on leadership, mindset, confidence, career growth, and workplace success."
         path="/corporate"
       />
       {/* Hero */}

@@ -35,8 +35,8 @@ const PrivateCoaching = () => {
   return (
     <PageShell>
       <SEO
-        title="Private Coaching Programs"
-        description="1-on-1 private coaching for women — Working Moms, Female Solopreneurs, and Corporate programs. Structured support to get you to your next level."
+        title="Private Coaching for Women | Career & Life Coaching"
+        description="Get personalized private coaching for career clarity, mindset growth, confidence, and life transformation with expert coaching for women."
         path="/private-coaching"
       />
       {/* Hero */}
