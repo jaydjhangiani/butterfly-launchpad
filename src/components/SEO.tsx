@@ -9,19 +9,19 @@ interface SEOProps {
   description: string;
   path?: string;
   image?: string;
+  schemaJson?: string;
 }
 
-const SEO = ({ title, description, path = "", image = DEFAULT_IMAGE }: SEOProps) => {
+const SEO = ({ title, description, path = "", image = DEFAULT_IMAGE, schemaJson }: SEOProps) => {
   const canonical = `${SITE_URL}${path}`;
-  const fullTitle = title;
 
   return (
     <Helmet>
-      <title>{fullTitle}</title>
+      <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
 
-      <meta property="og:title" content={fullTitle} />
+      <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />
       <meta property="og:image" content={image} />
@@ -29,9 +29,13 @@ const SEO = ({ title, description, path = "", image = DEFAULT_IMAGE }: SEOProps)
       <meta property="og:site_name" content={SITE_NAME} />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+
+      {schemaJson && (
+        <script type="application/ld+json">{schemaJson}</script>
+      )}
     </Helmet>
   );
 };

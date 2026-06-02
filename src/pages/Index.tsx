@@ -26,6 +26,33 @@ const Index = () => {
         title="Career Coach for Women | Life & Career Coaching Services"
         description="Empowering women with career clarity, mindset growth, leadership, and life coaching through personalized coaching services."
         path="/"
+        schemaJson={`{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Krusha",
+          "jobTitle": "Career & Life Coach",
+          "url": "https://www.butterflyeffectcoach.com",
+          "image": "https://www.butterflyeffectcoach.com/ButterflyEffectCoach.jpg",
+          "description": "Career and life coach helping women build careers with confidence, clarity, and alignment.",
+          "knowsAbout": ["Career Coaching", "Life Coaching", "Corporate Coaching", "Solopreneur Coaching"],
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Private Coaching",
+              "url": "https://www.butterflyeffectcoach.com/private-coaching"
+            },
+            {
+              "@type": "Offer",
+              "name": "Corporate Workshops",
+              "url": "https://www.butterflyeffectcoach.com/corporate"
+            },
+            {
+              "@type": "Offer",
+              "name": "DIY Coaching Resources",
+              "url": "https://www.butterflyeffectcoach.com/diy-coaching"
+            }
+          ]
+        }`}
       />
       <section
         className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-6 bg-[#F2D2D7]"
