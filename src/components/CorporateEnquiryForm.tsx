@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
+import { track } from "@/lib/analytics";
 
 const COUNTRY_CODES = [
   { code: "+1", label: "🇺🇸 +1" },
@@ -74,6 +75,8 @@ const CorporateEnquiryForm = () => {
       });
 
       if (!res.ok) throw new Error("Submission failed");
+
+      track("corporate_enquiry_submitted");
 
       toast.success("Thank you for thinking of me!", {
         description:

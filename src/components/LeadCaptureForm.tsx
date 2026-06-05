@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
+import { track } from "@/lib/analytics";
 
 interface LeadCaptureFormProps {
   compact?: boolean;
@@ -104,6 +105,8 @@ const LeadCaptureForm = ({ compact = false }: LeadCaptureFormProps) => {
       });
 
       if (!res.ok) throw new Error("Failed");
+
+      track("lead_form_submitted", { referral_source: formData.referralSource });
 
       toast.success("Thank you!", {
         description: "I'll be in touch soon!",

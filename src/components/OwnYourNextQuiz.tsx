@@ -13,6 +13,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
+import { track } from "@/lib/analytics";
 
 type Choice = "A" | "B" | "C";
 type Path = "pivot" | "launch" | "ascent";
@@ -333,7 +334,11 @@ const OwnYourNextQuiz = ({
   const [started, setStarted] = useState(false);
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Choice[]>([]);
+  const [showEmailGate, setShowEmailGate] = useState(false);
   const [showResult, setShowResult] = useState(false);
+  const [quizResult, setQuizResult] = useState<ReturnType<typeof computeResult> | null>(null);
+  const [gateForm, setGateForm] = useState({ name: "", email: "" });
+  const [submittingGate, setSubmittingGate] = useState(false);
   const [interestOpen, setInterestOpen] = useState(false);
   const [interestEmail, setInterestEmail] = useState("");
 
@@ -344,6 +349,35 @@ const OwnYourNextQuiz = ({
     if (current < QUESTIONS.length - 1) {
       setCurrent(current + 1);
     } else {
+      const result = computeResult(next);
+      setQuizResult(result);
+      track("quiz_completed", { path: result.path, total: result.total });
+      setShowEmailGate(true);
+    }
+  };
+
+  const handleEmailGateSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!gateForm.email.trim() || submittingGate || !quizResult) return;
+
+    setSubmittingGate(true);
+    try {
+      await fetch("/.netlify/functions/quiz-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: gateForm.email.trim(),
+          name: gateForm.name.trim() || null,
+          path: quizResult.path,
+          total: quizResult.total,
+        }),
+      });
+      track("quiz_lead_captured", { path: quizResult.path, total: quizResult.total });
+    } catch {
+      // non-blocking — still reveal result
+    } finally {
+      setSubmittingGate(false);
+      setShowEmailGate(false);
       setShowResult(true);
     }
   };
@@ -352,7 +386,10 @@ const OwnYourNextQuiz = ({
     setStarted(false);
     setCurrent(0);
     setAnswers([]);
+    setShowEmailGate(false);
     setShowResult(false);
+    setQuizResult(null);
+    setGateForm({ name: "", email: "" });
     setInterestOpen(false);
     setInterestEmail("");
   };
@@ -395,11 +432,11 @@ const OwnYourNextQuiz = ({
         </p>
         {linkToQuizPage ? (
           <Button asChild size="lg" className="font-semibold rounded-full px-8">
-            <Link to="/quiz">Start the Quiz</Link>
+            <Link to="/quiz" onClick={() => track("quiz_started")}>Start the Quiz</Link>
           </Button>
         ) : (
           <Button
-            onClick={() => setStarted(true)}
+            onClick={() => { setStarted(true); track("quiz_started"); }}
             size="lg"
             className="font-semibold rounded-full px-8"
           >
@@ -410,9 +447,67 @@ const OwnYourNextQuiz = ({
     );
   }
 
+  // ---- EMAIL GATE ----
+  if (showEmailGate && quizResult) {
+    const pathNames: Record<string, string> = { pivot: "Pivot", launch: "Launch", ascent: "Ascent" };
+    const pathEmojis: Record<string, string> = { pivot: "🌱", launch: "🚀", ascent: "👑" };
+
+    return (
+      <div className="bg-card rounded-2xl shadow-lg border border-border p-6 md:p-10 max-w-3xl mx-auto text-center">
+        <div className="text-5xl mb-4">{pathEmojis[quizResult.path]}</div>
+        <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-2">
+          Your result is ready
+        </p>
+        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+          You're a {pathNames[quizResult.path]} Woman.
+        </h3>
+        <p className="text-muted-foreground mb-8 max-w-sm mx-auto">
+          Enter your details to reveal your personalised roadmap — we'll also send it to your inbox.
+        </p>
+
+        <form onSubmit={handleEmailGateSubmit} className="space-y-4 max-w-sm mx-auto text-left">
+          <div>
+            <Label htmlFor="gate-name">
+              Name <span className="text-muted-foreground text-xs font-normal">(optional)</span>
+            </Label>
+            <Input
+              id="gate-name"
+              value={gateForm.name}
+              onChange={(e) => setGateForm((p) => ({ ...p, name: e.target.value }))}
+              placeholder="Your name"
+              disabled={submittingGate}
+              className="mt-1.5"
+            />
+          </div>
+          <div>
+            <Label htmlFor="gate-email">Email</Label>
+            <Input
+              id="gate-email"
+              type="email"
+              value={gateForm.email}
+              onChange={(e) => setGateForm((p) => ({ ...p, email: e.target.value }))}
+              placeholder="you@example.com"
+              required
+              disabled={submittingGate}
+              className="mt-1.5"
+            />
+          </div>
+          <Button
+            type="submit"
+            size="lg"
+            className="w-full font-semibold"
+            disabled={!gateForm.email.trim() || submittingGate}
+          >
+            {submittingGate ? "Saving…" : "Reveal my result →"}
+          </Button>
+        </form>
+      </div>
+    );
+  }
+
   // ---- RESULT ----
   if (showResult) {
-    const { path, total, counts, isClose } = computeResult(answers);
+    const { path, total, counts, isClose } = quizResult!;
     const result = RESULTS[path];
 
     return (

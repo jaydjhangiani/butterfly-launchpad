@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -12,6 +12,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
+import { track } from "@/lib/analytics";
 
 const COUNTRY_CODES = [
   { code: "+1", label: "🇺🇸 +1" },
@@ -94,6 +95,10 @@ const PrePaymentDialog = ({
   packageName,
   submitLabel = "Continue to Payment",
 }: PrePaymentDialogProps) => {
+  useEffect(() => {
+    if (open) track("payment_dialog_opened", { package_name: packageName });
+  }, [open, packageName]);
+
   const [name, setName] = useState("");
   const [currency, setCurrency] = useState<"INR" | "USD">("INR");
   const [dayPref, setDayPref] = useState("either");
@@ -156,6 +161,7 @@ const PrePaymentDialog = ({
 
       // Foreign currency — no Razorpay, just notify
       if (orderData.foreignCurrency) {
+        track("foreign_currency_requested", { package_name: packageName });
         toast.success("We've received your details!", {
           description:
             "For foreign currency payments, we will reach out to you with bank details.",
@@ -169,6 +175,8 @@ const PrePaymentDialog = ({
 
       // 2. Load Razorpay checkout script
       await loadRazorpay();
+
+      track("payment_initiated", { package_name: packageName, currency });
 
       // 3. Open checkout
       const rzp = new window.Razorpay({
@@ -198,6 +206,7 @@ const PrePaymentDialog = ({
             });
 
             if (verifyRes.ok) {
+              track("payment_completed", { package_name: packageName, currency });
               toast.success("Payment confirmed!", {
                 description:
                   "You'll receive your pre-work handbook by email within 24 hours.",
