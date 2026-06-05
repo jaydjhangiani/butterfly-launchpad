@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { track } from "@/lib/analytics";
 import {
   Dialog,
   DialogContent,
@@ -79,7 +80,10 @@ const RetainerSelectorDialog = ({
             type="button"
             size="lg"
             className="w-full font-semibold"
-            onClick={() => onContinue(`Retainer — ${activeOption.label} plan`)}
+            onClick={() => {
+              track("retainer_plan_selected", { plan: activeOption.label, price: activeOption.price });
+              onContinue(`Retainer — ${activeOption.label} plan`);
+            }}
           >
             Continue
           </Button>

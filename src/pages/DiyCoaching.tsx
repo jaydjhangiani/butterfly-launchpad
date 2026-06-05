@@ -75,9 +75,9 @@ const DiyCoaching = () => {
             personalised clarity framework, a structured way forward, and
             built-in community accountability to help you move with intention.
           </p>
-          <p className="mt-6 inline-flex items-center gap-3 bg-card border border-border rounded-full px-5 py-2 shadow-sm text-sm text-muted-foreground">
+          {/* <p className="mt-6 inline-flex items-center gap-3 bg-card border border-border rounded-full px-5 py-2 shadow-sm text-sm text-muted-foreground">
             This is currently under construction. Coming soon!
-          </p>
+          </p> */}
         </div>
       </section>
 

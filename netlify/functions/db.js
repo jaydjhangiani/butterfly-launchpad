@@ -30,6 +30,19 @@ export async function ensureCorporateEnquiryTable() {
   `;
 }
 
+export async function ensureQuizLeadsTable() {
+  await sql`
+    CREATE TABLE IF NOT EXISTS quiz_leads (
+      id          SERIAL PRIMARY KEY,
+      email       TEXT NOT NULL,
+      name        TEXT,
+      result_path TEXT,
+      score       INTEGER,
+      created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `;
+}
+
 export async function ensureCoachingTables() {
   // Booking intent — one row per checkout attempt
   await sql`

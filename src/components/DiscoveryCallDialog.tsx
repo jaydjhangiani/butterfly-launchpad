@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { track } from "@/lib/analytics";
 import {
   Dialog,
   DialogContent,
@@ -55,6 +56,10 @@ const DiscoveryCallDialog = ({
   const [form, setForm] = useState({ name: "", email: "", phone: "", countryCode: "+91" });
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    if (open) track("discovery_call_dialog_opened");
+  }, [open]);
+
   const isValid =
     form.name.trim().length > 1 &&
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()) &&
@@ -80,6 +85,7 @@ const DiscoveryCallDialog = ({
         throw new Error(err.error || "Something went wrong");
       }
 
+      track("discovery_call_booked");
       setForm({ name: "", email: "", phone: "", countryCode: "+91" });
       onOpenChange(false);
       window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
