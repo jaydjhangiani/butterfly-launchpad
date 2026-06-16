@@ -11,6 +11,7 @@ const links = [
   { to: "/private-coaching", label: "Private Coaching" },
   { to: "/diy-coaching", label: "DIY Coaching" },
   { to: "/corporate", label: "Corporate" },
+  { to: "/blog", label: "Blog" },
 ];
 
 const SiteHeader = () => {
