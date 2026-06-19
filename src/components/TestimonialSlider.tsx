@@ -42,6 +42,11 @@ const testimonials = [
       "Working with Krusha has been a profoundly enriching experience. She holds space for my words and allows me to express my thoughts freely and comfortably with no judgment. She structures sessions without boundaries that are too tight, yet covers all important discussion points within the session time. Beyond establishing clarity and the path for next steps, the session also always ends with defined and doable action items. Overall, the coaching sessions are very impactful and empowering. I feel that I am finally able to take some of my own power back and step into fulfil my potential at the workplace. Thanks Krusha!",
     name: "Linnie",
   },
+  {
+    quote:
+      'Finding Krusha was a "meant to be" moment for me. Or better said she popped up in my Instagram DM when I was lost wondering where to begin in my new chapter. I took a shot with her with that feeling of meant to be and I like to say was a right choice. Krusha is someone who breaks down big goals into bite size and also holds you accountable for the intentions that are set. Which was very helpful given that I can get lost in my chaos. My four weeks have been very helpful in both exchanging ideas and bringing them to life. I look forward to working with her',
+    name: "Anu",
+  },
 ];
 
 const TestimonialSlider = () => {
