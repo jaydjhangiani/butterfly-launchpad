@@ -28,4 +28,5 @@ dist-ssr
 .env
 
 # Markdown files
-*.md
+README.md
+plam.md

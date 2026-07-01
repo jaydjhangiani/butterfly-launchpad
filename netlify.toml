@@ -1,5 +1,10 @@
 [build]
   functions = "netlify/functions"
+  edge_functions = "netlify/edge-functions"
+
+[[edge_functions]]
+  path = "/*"
+  function = "social-meta"
 
 [build.environment]
   SECRETS_SCAN_OMIT_KEYS = "SITE_KEY"
@@ -12,6 +17,13 @@
   command = "npm run dev"
   targetPort = 8080
   port = 8888
+
+# Redirect non-www to www so Google doesn't treat them as duplicate URLs
+[[redirects]]
+  from = "https://butterflyeffectcoach.com/*"
+  to = "https://www.butterflyeffectcoach.com/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/ingest/static/*"

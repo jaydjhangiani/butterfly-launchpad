@@ -10,6 +10,8 @@ import PrivateCoaching from "./pages/PrivateCoaching";
 import DiyCoaching from "./pages/DiyCoaching";
 import Corporate from "./pages/Corporate";
 import Quiz from "./pages/Quiz";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import ScrollToTop from "./components/ScrollToTop";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 
@@ -30,6 +32,8 @@ const App = () => (
           <Route path="/diy-coaching" element={<DiyCoaching />} />
           <Route path="/corporate" element={<Corporate />} />
           <Route path="/quiz" element={<Quiz />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

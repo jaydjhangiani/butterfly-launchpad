@@ -10,7 +10,7 @@ const SiteFooter = forwardRef<HTMLElement>((_, ref) => {
         Butterfly Effect Coaching
       </p>
       <p className="mb-1">
-        © {new Date().getFullYear()} Krusha Sahjwani. Proudly created by JXOS
+        © {new Date().getFullYear()} Krusha Sahjwani. Proudly created by <a href="https://www.jxos.in" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground transition-colors">JXOS</a>
       </p>
     </footer>
   );
