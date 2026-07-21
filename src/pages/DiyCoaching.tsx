@@ -58,7 +58,7 @@ const DiyCoaching = () => {
         className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-4 bg-[#F2D2D7]"
         style={sectionBg}
       >
-        <div className="px-6 pt-12 pb-10 md:pt-16 md:pb-14 max-w-4xl mx-auto text-center">
+        <div className="px-6 pt-8 pb-4 md:pt-16 md:pb-14 max-w-4xl mx-auto text-center">
           <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-3">
             DIY Coaching Support
           </p>
@@ -68,13 +68,13 @@ const DiyCoaching = () => {
           <p className="text-lg md:text-xl text-foreground italic mb-6">
             For the woman who feels unsure of her next career move.
           </p>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          {/* <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             <strong className="text-foreground">OwnYourNext</strong> empowers
             women who aren't sure whether to grow where they are, pivot to
             something new, or launch something of their own. It provides a
             personalised clarity framework, a structured way forward, and
             built-in community accountability to help you move with intention.
-          </p>
+          </p> */}
           {/* <p className="mt-6 inline-flex items-center gap-3 bg-card border border-border rounded-full px-5 py-2 shadow-sm text-sm text-muted-foreground">
             This is currently under construction. Coming soon!
           </p> */}
