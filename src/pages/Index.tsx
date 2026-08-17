@@ -28,28 +28,40 @@ const Index = () => {
         path="/"
         schemaJson={`{
           "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Krusha",
-          "jobTitle": "Career & Life Coach",
-          "url": "https://www.butterflyeffectcoach.com",
-          "image": "https://www.butterflyeffectcoach.com/ButterflyEffectCoach.jpg",
-          "description": "Career and life coach helping women build careers with confidence, clarity, and alignment.",
-          "knowsAbout": ["Career Coaching", "Life Coaching", "Corporate Coaching", "Solopreneur Coaching"],
-          "offers": [
+          "@graph": [
             {
-              "@type": "Offer",
-              "name": "Private Coaching",
-              "url": "https://www.butterflyeffectcoach.com/private-coaching"
+              "@type": "WebSite",
+              "@id": "https://www.butterflyeffectcoach.com/#website",
+              "url": "https://www.butterflyeffectcoach.com/",
+              "name": "Butterfly Effect Coach",
+              "alternateName": "Butterfly Effect Coaching"
             },
             {
-              "@type": "Offer",
-              "name": "Corporate Workshops",
-              "url": "https://www.butterflyeffectcoach.com/corporate"
-            },
-            {
-              "@type": "Offer",
-              "name": "DIY Coaching Resources",
-              "url": "https://www.butterflyeffectcoach.com/diy-coaching"
+              "@type": "Person",
+              "@id": "https://www.butterflyeffectcoach.com/#krusha",
+              "name": "Krusha",
+              "jobTitle": "Career & Life Coach",
+              "url": "https://www.butterflyeffectcoach.com/",
+              "image": "https://www.butterflyeffectcoach.com/ButterflyEffectCoach.jpg",
+              "description": "Career and life coach helping women build careers with confidence, clarity, and alignment.",
+              "knowsAbout": ["Career Coaching", "Life Coaching", "Corporate Coaching", "Solopreneur Coaching"],
+              "offers": [
+                {
+                  "@type": "Offer",
+                  "name": "Private Coaching",
+                  "url": "https://www.butterflyeffectcoach.com/private-coaching"
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Corporate Workshops",
+                  "url": "https://www.butterflyeffectcoach.com/corporate"
+                },
+                {
+                  "@type": "Offer",
+                  "name": "DIY Coaching Resources",
+                  "url": "https://www.butterflyeffectcoach.com/diy-coaching"
+                }
+              ]
             }
           ]
         }`}

@@ -76,6 +76,18 @@ interface PrePaymentDialogProps {
 
 const timeOptions = ["Morning", "Afternoon", "Evening"] as const;
 
+// Display values in major currency units. The server remains the source of
+// truth for the amount charged and validates the package independently.
+const PACKAGE_PRICES: Record<string, { INR: number; USD: number }> = {
+  "Working Moms — 7-week program": { INR: 33250, USD: 360 },
+  "Female Solopreneurs — 5-week program": { INR: 23750, USD: 260 },
+  "Corporate Girlies — 5-week program": { INR: 23750, USD: 260 },
+  "Retainer — Monthly plan": { INR: 10500, USD: 125 },
+  "Retainer — Quarterly plan": { INR: 28500, USD: 320 },
+  "Retainer — Half-year plan": { INR: 55500, USD: 600 },
+  "Retainer — Annual plan": { INR: 108000, USD: 1170 },
+};
+
 const loadRazorpay = (): Promise<void> =>
   new Promise((resolve, reject) => {
     if (window.Razorpay) {
@@ -107,6 +119,7 @@ const PrePaymentDialog = ({
   const [phone, setPhone] = useState("");
   const [countryCode, setCountryCode] = useState("+91");
   const [loading, setLoading] = useState(false);
+  const selectedPrice = PACKAGE_PRICES[packageName]?.[currency];
 
   const toggleTime = (t: string) => {
     setTimePrefs((prev) =>
@@ -151,10 +164,29 @@ const PrePaymentDialog = ({
         }),
       });
 
-      const orderData = await res.json();
+      const responseText = await res.text();
+      let orderData: {
+        error?: string;
+        foreignCurrency?: boolean;
+        keyId?: string;
+        amount?: number;
+        currency?: string;
+        orderId?: string;
+      } = {};
+
+      if (responseText) {
+        try {
+          orderData = JSON.parse(responseText);
+        } catch {
+          console.error("create-order returned a non-JSON response:", responseText);
+        }
+      }
 
       if (!res.ok) {
-        toast.error(orderData.error || "Failed to initiate payment. Please try again.");
+        toast.error(
+          orderData.error ||
+            `Failed to initiate payment (${res.status}). Please try again.`,
+        );
         setLoading(false);
         return;
       }
@@ -236,6 +268,14 @@ const PrePaymentDialog = ({
         },
       });
 
+      // Radix locks pointer events on the page while its modal is open. If the
+      // Razorpay overlay is opened on top of it, that lock can make Razorpay's
+      // close button unresponsive on mobile. Release our modal first, then let
+      // the browser paint before opening checkout.
+      onOpenChange(false);
+      await new Promise<void>((resolve) => {
+        window.requestAnimationFrame(() => resolve());
+      });
       rzp.open();
     } catch (err) {
       console.error(err);
@@ -246,7 +286,7 @@ const PrePaymentDialog = ({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
+      <DialogContent className="h-[100dvh] max-h-[100dvh] max-w-lg overflow-y-auto rounded-none border-0 px-4 py-6 sm:h-auto sm:max-h-[90vh] sm:rounded-lg sm:border sm:p-6">
         <DialogHeader>
           <DialogTitle className="text-xl">{packageName}</DialogTitle>
           <DialogDescription>
@@ -255,15 +295,15 @@ const PrePaymentDialog = ({
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="space-y-2">
-            <Label className="text-foreground font-medium">Pay in</Label>
-            <div className="flex rounded-lg border border-border overflow-hidden w-fit">
+          <div className="flex items-center gap-3">
+            <Label className="shrink-0 text-foreground font-medium">Pay in</Label>
+            <div className="flex w-fit overflow-hidden rounded-lg border border-border">
               {(["INR", "USD"] as const).map((c) => (
                 <button
                   key={c}
                   type="button"
                   onClick={() => setCurrency(c)}
-                  className={`px-5 py-2 text-sm font-semibold transition-colors ${
+                  className={`px-3 py-2 text-sm font-semibold transition-colors sm:px-5 ${
                     currency === c
                       ? "bg-primary text-primary-foreground"
                       : "bg-background text-muted-foreground hover:bg-secondary"
@@ -274,6 +314,19 @@ const PrePaymentDialog = ({
               ))}
             </div>
           </div>
+
+          {selectedPrice !== undefined && (
+            <div className="flex items-baseline gap-2">
+              <span className="text-sm font-medium text-foreground">Price:</span>
+              <span className="text-lg font-bold text-primary">
+                {new Intl.NumberFormat(currency === "INR" ? "en-IN" : "en-US", {
+                  style: "currency",
+                  currency,
+                  maximumFractionDigits: 0,
+                }).format(selectedPrice)}
+              </span>
+            </div>
+          )}
 
           <div className="space-y-2">
             <Label htmlFor="pp-name" className="text-foreground font-medium">
