@@ -92,16 +92,24 @@ const Index = () => {
               more to step up in their roles, pivot and/or launch their own
               business.
             </p>
-            <p className="mb-4 max-w-xl text-base leading-relaxed text-muted-foreground md:max-w-none md:text-md">
+            <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:max-w-none md:text-md">
               I help you find and achieve YOUR version of ‘having it all’.
             </p>
-            <Button
-              onClick={() => setDiscoveryOpen(true)}
-              size="lg"
-              className="rounded-full font-semibold"
-            >
-              Book your discovery call
-            </Button>
+            <div className="mt-3 inline-flex flex-col items-center gap-1 md:items-start md:gap-3">
+              <p className="order-2 mt-3 max-w-xl text-base leading-relaxed text-muted-foreground md:order-1 md:mt-0 md:max-w-none md:text-md">
+                Not sure where to begin?
+                <span className="hidden md:inline"> </span>
+                <br className="md:hidden" />
+                Let&apos;s find your next step together.
+              </p>
+              <Button
+                onClick={() => setDiscoveryOpen(true)}
+                size="lg"
+                className="order-1 h-auto rounded-full px-8 py-4 text-base font-bold shadow-lg ring-4 ring-white/70 transition-transform hover:-translate-y-0.5 md:order-2"
+              >
+                Book your discovery call →
+              </Button>
+            </div>
           </header>
         </div>
       </section>
@@ -178,6 +186,29 @@ const Index = () => {
               <Button size="sm">Explore workshops </Button>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Repeat the primary conversion action after visitors review the offers. */}
+      <section className="mx-[15px] my-8 overflow-hidden rounded-2xl bg-primary px-6 py-10 text-center text-primary-foreground shadow-lg md:mx-[40px] md:my-16 md:px-12 md:py-14 lg:mx-[100px]">
+        <div className="mx-auto max-w-3xl">
+          <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/80">
+            Your next step
+          </p>
+          <h2 className="mb-3 text-3xl font-bold md:text-4xl">
+            Ready to stop feeling stuck?
+          </h2>
+          <p className="mx-auto mb-7 max-w-2xl text-base leading-relaxed text-primary-foreground/90 md:text-lg">
+            Tell me what you&apos;re navigating, and we&apos;ll explore the coaching
+            path that best fits your goals.
+          </p>
+          <Button
+            onClick={() => setDiscoveryOpen(true)}
+            size="lg"
+            className="h-auto rounded-full bg-white px-9 py-4 text-base font-bold text-primary shadow-md hover:bg-white/90"
+          >
+            Book your discovery call →
+          </Button>
         </div>
       </section>
 
