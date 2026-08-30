@@ -4,8 +4,11 @@ const SITE_URL = "https://www.butterflyeffectcoach.com";
 const DEFAULT_IMAGE = `${SITE_URL}/ButterflyEffectCoach.jpg`;
 const SITE_NAME = "Butterfly Effect Coach";
 
+// Social crawlers need static metadata because they do not render the React
+// app. Search crawlers are intentionally excluded so they can render and index
+// the complete page content, navigation, and internal links.
 const BOT_RE =
-  /twitterbot|facebookexternalhit|linkedinbot|slackbot|whatsapp|telegrambot|googlebot|bingbot|rogerbot|embedly|showyoubot|outbrain|pinterest\/0\.|vkshare|w3c_validator/i;
+  /twitterbot|facebookexternalhit|linkedinbot|slackbot|whatsapp|telegrambot|rogerbot|embedly|showyoubot|outbrain|pinterest\/0\.|vkshare|w3c_validator/i;
 
 interface PageMeta {
   title: string;

@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-const CALENDLY_URL = "https://calendly.com/coachkrusha/chemistry-session";
+const CALENDLY_URL = "https://calendly.com/coachkrusha/mini-coaching-session";
 
 const COUNTRY_CODES = [
   { code: "+1", label: "🇺🇸 +1" },

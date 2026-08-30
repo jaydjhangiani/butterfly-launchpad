@@ -4,6 +4,27 @@
 
 [[edge_functions]]
   path = "/*"
+  # Let Netlify Functions, Vite internals, and static files retain their native
+  # routing and MIME types instead of passing through social-meta middleware.
+  excludedPath = [
+    "/.netlify/*",
+    "/@vite/*",
+    "/@react-refresh",
+    "/@fs/*",
+    "/src/*",
+    "/node_modules/*",
+    "/assets/*",
+    "/*.js",
+    "/*.css",
+    "/*.map",
+    "/*.json",
+    "/*.png",
+    "/*.jpg",
+    "/*.jpeg",
+    "/*.webp",
+    "/*.svg",
+    "/*.ico",
+  ]
   function = "social-meta"
 
 [build.environment]
