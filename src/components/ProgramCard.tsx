@@ -9,6 +9,7 @@ interface ProgramCardProps {
   features: ReactNode[];
   onCta: () => void;
   highlight?: boolean;
+  ctaClassName?: string;
 }
 
 const ProgramCard = ({
@@ -19,6 +20,7 @@ const ProgramCard = ({
   features,
   onCta,
   highlight = false,
+  ctaClassName,
 }: ProgramCardProps) => {
   return (
     <div
@@ -54,7 +56,7 @@ const ProgramCard = ({
 
       <Button
         onClick={onCta}
-        className="w-full font-semibold rounded-full"
+        className={`w-full font-semibold rounded-full ${ctaClassName ?? ""}`}
         size="lg"
       >
         Join Now

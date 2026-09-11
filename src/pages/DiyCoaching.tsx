@@ -9,7 +9,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
+import { CoachingButton, CoachingCopy } from "@/components/CoachingContent";
+import content from "@/content/diy-coaching.json";
+import { ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
@@ -53,36 +56,36 @@ const DiyCoaching = () => {
         description="Explore DIY coaching programs for women focused on self-growth, mindset, confidence, and career clarity at your own pace."
         path="/diy-coaching"
       />
-      {/* Hero */}
-      <section
-        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-4 bg-[#F2D2D7]"
-        style={sectionBg}
-      >
-        <div className="px-6 pt-8 pb-4 md:pt-16 md:pb-14 max-w-4xl mx-auto text-center">
-          <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-3">
-            DIY Coaching Support
-          </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-3">
-            OwnYourNext
-          </h1>
-          <p className="text-lg md:text-xl text-foreground italic mb-6">
-            For the woman who feels unsure of her next career move.
-          </p>
-          {/* <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            <strong className="text-foreground">OwnYourNext</strong> empowers
-            women who aren't sure whether to grow where they are, pivot to
-            something new, or launch something of their own. It provides a
-            personalised clarity framework, a structured way forward, and
-            built-in community accountability to help you move with intention.
-          </p> */}
-          {/* <p className="mt-6 inline-flex items-center gap-3 bg-card border border-border rounded-full px-5 py-2 shadow-sm text-sm text-muted-foreground">
-            This is currently under construction. Coming soon!
-          </p> */}
+      <section className="mx-[15px] md:mx-[40px] lg:mx-[100px] mt-4 overflow-hidden rounded-3xl bg-[#F2D2D7]" style={sectionBg}>
+        <div className="max-w-5xl mx-auto px-6 py-12 md:px-10 md:py-16">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground text-center mb-8">{content.intro.title}</h1>
+          <div className="rounded-2xl border border-white/70 bg-white/75 p-6 md:p-8">
+            <CoachingCopy className="md:columns-2 md:gap-10">{content.intro.copy}</CoachingCopy>
+          </div>
+          <div className="mt-8 text-center">
+            <CoachingButton asChild><a href="#diy-quiz">Start with the free quiz</a></CoachingButton>
+          </div>
         </div>
       </section>
 
+      <div className="mx-[15px] md:mx-[40px] lg:mx-[100px] my-10 md:my-16 space-y-6 md:space-y-8">
+        {content.sections.slice(0, -1).map((section, index) => (
+          <section key={section.title} aria-labelledby={`diy-section-${index}`} className={cn("rounded-3xl border border-border/60 p-6 md:p-10 lg:p-12", index % 2 === 0 ? "bg-[#FFFAFA]" : "bg-secondary/25")}>
+            <div className="grid lg:grid-cols-[0.75fr_1.25fr] gap-6 lg:gap-14">
+              <div>
+                <span aria-hidden="true" className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/20 bg-white/70 text-sm font-semibold text-primary">{String(index + 1).padStart(2, "0")}</span>
+                <h2 id={`diy-section-${index}`} className="text-2xl md:text-3xl font-bold leading-tight tracking-tight text-foreground">{section.title}</h2>
+              </div>
+              <div className="rounded-2xl border border-border/50 bg-white/80 p-6 md:p-8">
+                <CoachingCopy>{section.copy}</CoachingCopy>
+              </div>
+            </div>
+          </section>
+        ))}
+      </div>
+
       {/* Quiz */}
-      <section className="px-4 md:px-8 py-10 md:py-14 bg-[#FFFAFA] mx-[15px] md:mx-[40px] lg:mx-[100px] my-8 md:my-16 rounded-2xl">
+      <section id="diy-quiz" className="scroll-mt-28 px-4 md:px-8 py-10 md:py-14 bg-[#FFFAFA] mx-[15px] md:mx-[40px] lg:mx-[100px] my-8 md:my-16 rounded-3xl">
         <div className="text-center max-w-2xl mx-auto mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
             Start with the free quiz
@@ -93,80 +96,35 @@ const DiyCoaching = () => {
           </p>
         </div>
         <OwnYourNextQuiz
+          coachingButtonStyle
           onPurchaseClick={() => openEmailCapture("OwnYourNext")}
         />
       </section>
 
-      {/* Sunday Accountability */}
-      {/* <section
-        className="relative z-10 mx-[15px] md:mx-[40px] lg:mx-[100px] mt-6 mb-[25px]"
-        style={sectionBg}
-      >
-        <div className="px-4 md:px-8 py-12 md:py-16 max-w-6xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-            <p className="text-xs uppercase tracking-widest text-primary font-semibold">
-              Sunday Accountability
-            </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
-              Want to keep the momentum going?
-            </h2>
-            <p className="text-muted-foreground">
-              Already made progress with the digital planner but want to
-              continue our Sunday accountability calls after your 8 weeks have
-              lapsed?
-            </p>
-            <p className="text-foreground italic">— or —</p>
-            <p className="text-muted-foreground">
-              Don't need the planner but would like to be part of our
-              accountability group of incredible women to retain the momentum in
-              your life?
-            </p>
-            <p className="text-foreground font-semibold text-lg">
-              We've got you!
-            </p>
-          </div>
+      <section className="mx-[15px] md:mx-[40px] lg:mx-[100px] my-10 md:my-16 rounded-3xl bg-secondary/30 p-6 md:p-12">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight text-foreground mb-6">{content.sections[content.sections.length - 1].title}</h2>
+          <CoachingCopy>{content.sections[content.sections.length - 1].copy}</CoachingCopy>
+          <CoachingButton asChild className="mt-8 w-full sm:w-auto"><a href="#diy-quiz">Start with the free quiz</a></CoachingButton>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-3 gap-5">
-            <PriceCard
-              emoji="🌅"
-              title="1 Month"
-              priceInr="INR 3,000"
-              priceUsd="USD 35"
-              features={[
-                "Weekly Sunday Reset group calls",
-                "Private community access",
-                "Calendar invites for all sessions",
-              ]}
-              onCta={() => openEmailCapture("Sunday Accountability — 1 Month")}
-            />
-            <PriceCard
-              emoji="🌻"
-              title="3 Months"
-              priceInr="INR 8,250"
-              priceUsd="USD 90"
-              features={[
-                "Everything in 1 Month",
-                "Build a sustained habit",
-                "Quarterly progress check-in",
-              ]}
-              onCta={() => openEmailCapture("Sunday Accountability — 3 Months")}
-              highlight
-            />
-            <PriceCard
-              emoji="🌳"
-              title="6 Months"
-              priceInr="INR 15,000"
-              priceUsd="USD 165"
-              features={[
-                "Everything in 3 Months",
-                "Best value for long-term momentum",
-                "Half-year of community support",
-              ]}
-              onCta={() => openEmailCapture("Sunday Accountability — 6 Months")}
-            />
+      <section className="mx-[15px] md:mx-[40px] lg:mx-[100px] my-10 md:my-16 rounded-3xl border border-border/60 bg-[#FFFAFA] p-6 md:p-10 lg:p-12">
+        <div className="grid lg:grid-cols-[0.65fr_1.35fr] gap-8 lg:gap-14">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">{content.faqTitle}</h2>
+          <div className="space-y-3">
+            {content.faqs.map((faq) => (
+              <details key={faq.question} className="group rounded-2xl border border-border bg-white open:border-primary/30">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-2xl p-5 text-base font-semibold text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary [&::-webkit-details-marker]:hidden">
+                  {faq.question}
+                  <ChevronDown aria-hidden="true" className="h-5 w-5 shrink-0 text-primary transition-transform group-open:rotate-180" />
+                </summary>
+                <div className="px-5 pb-5"><CoachingCopy>{faq.answer}</CoachingCopy></div>
+              </details>
+            ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* Email capture dialog */}
       <Dialog
@@ -199,9 +157,9 @@ const DiyCoaching = () => {
                 required
               />
             </div>
-            <Button type="submit" className="w-full font-semibold" size="lg">
+            <CoachingButton type="submit" className="w-full">
               Continue
-            </Button>
+            </CoachingButton>
             <p className="text-xs text-muted-foreground text-center">
               Payment integration is coming soon. Submitting saves your
               interest.

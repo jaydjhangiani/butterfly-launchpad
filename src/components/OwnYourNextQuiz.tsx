@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { ctaClassName } from "@/components/CoachingContent";
+import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -325,11 +327,13 @@ interface OwnYourNextQuizProps {
   onPurchaseClick: () => void;
   /** When true, the intro CTA links to the dedicated /quiz page instead of starting inline. */
   linkToQuizPage?: boolean;
+  coachingButtonStyle?: boolean;
 }
 
 const OwnYourNextQuiz = ({
   onPurchaseClick,
   linkToQuizPage = false,
+  coachingButtonStyle = false,
 }: OwnYourNextQuizProps) => {
   const [started, setStarted] = useState(false);
   const [current, setCurrent] = useState(0);
@@ -431,14 +435,14 @@ const OwnYourNextQuiz = ({
           results will be.
         </p>
         {linkToQuizPage ? (
-          <Button asChild size="lg" className="font-semibold rounded-full px-8">
+          <Button asChild size="lg" className={cn("font-semibold rounded-full px-8", coachingButtonStyle && ctaClassName)}>
             <Link to="/quiz" onClick={() => track("quiz_started")}>Start the Quiz</Link>
           </Button>
         ) : (
           <Button
             onClick={() => { setStarted(true); track("quiz_started"); }}
             size="lg"
-            className="font-semibold rounded-full px-8"
+            className={cn("font-semibold rounded-full px-8", coachingButtonStyle && ctaClassName)}
           >
             Start the Quiz
           </Button>
@@ -495,7 +499,7 @@ const OwnYourNextQuiz = ({
           <Button
             type="submit"
             size="lg"
-            className="w-full font-semibold"
+            className={cn("w-full font-semibold", coachingButtonStyle && ctaClassName)}
             disabled={!gateForm.email.trim() || submittingGate}
           >
             {submittingGate ? "Saving…" : "Reveal my result →"}
@@ -615,7 +619,7 @@ const OwnYourNextQuiz = ({
             <Button
               size="lg"
               onClick={() => setInterestOpen(true)}
-              className="font-semibold rounded-full"
+              className={cn("font-semibold rounded-full", coachingButtonStyle && ctaClassName)}
             >
               Get OwnYourNext
             </Button>
@@ -623,7 +627,7 @@ const OwnYourNextQuiz = ({
               variant="outline"
               size="lg"
               asChild
-              className="font-semibold rounded-full text-sm whitespace-normal"
+              className={cn("font-semibold rounded-full text-sm whitespace-normal", coachingButtonStyle && ctaClassName)}
             >
               <Link to="/private-coaching">
                 Prefer a hand-held approach? See Private Coaching
@@ -659,7 +663,7 @@ const OwnYourNextQuiz = ({
                   required
                 />
               </div>
-              <Button type="submit" size="lg" className="w-full font-semibold">
+              <Button type="submit" size="lg" className={cn("w-full font-semibold", coachingButtonStyle && ctaClassName)}>
                 Notify me
               </Button>
             </form>
